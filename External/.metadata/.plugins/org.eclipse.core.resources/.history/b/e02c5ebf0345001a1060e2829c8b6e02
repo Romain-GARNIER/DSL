@@ -1,0 +1,18 @@
+app StateBasedAlarm initial state off {
+    bricks 
+         Actuator led : 12
+         Sensor button : 8
+     states 
+         off {
+             led <= LOW
+             button is HIGH => on
+         } 
+         on {
+             led <= HIGH
+             button is LOW => off2
+     }
+     	off2{
+     		led <= HIGH
+     		button is HIGH => off
+     	}
+}

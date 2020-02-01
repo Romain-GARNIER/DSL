@@ -1,0 +1,29 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: arduinoML.concretesyntax.ui
+Bundle-ManifestVersion: 2
+Bundle-Name: arduinoML.concretesyntax.ui
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: arduinoML.concretesyntax.ui; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: arduinoML.concretesyntax,
+ arduinoML.concretesyntax.ide,
+ ArduinoML,
+ org.eclipse.xtext.ui,
+ org.eclipse.xtext.ui.shared,
+ org.eclipse.xtext.ui.codetemplates.ui,
+ org.eclipse.ui.editors;bundle-version="3.5.0",
+ org.eclipse.ui.ide;bundle-version="3.5.0",
+ org.eclipse.ui,
+ org.eclipse.xtext.builder,
+ org.eclipse.xtext.xbase.lib,
+ org.eclipse.xtext.common.types.ui,
+ org.eclipse.compare
+Import-Package: org.apache.log4j
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: arduinoML.concretesyntax.ui.quickfix,
+ arduinoML.concretesyntax.ui.contentassist,
+ arduinoML.concretesyntax.ui.internal,
+ arduinoML.concretesyntax.ui.contentassist.antlr,
+ arduinoML.concretesyntax.ui.contentassist.antlr.internal
+Bundle-Activator: arduinoML.concretesyntax.ui.internal.ArduinoMLActivator

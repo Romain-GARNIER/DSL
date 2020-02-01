@@ -1,0 +1,26 @@
+app SimpleAlarm initial state off {
+    bricks 
+         Actuator led1 : 8
+         Actuator led2 : 13
+         Sensor button2 : 10
+         Sensor button1 : 12
+     states 
+         off {
+             led1 <= LOW
+             led2 <= LOW
+             if(button1 is HIGH) => onled1
+             if(button2 is HIGH) => onled2
+         } 
+         onled1 {
+             led1 <= HIGH
+             led2 <= LOW
+             if(button1 is HIGH) => off
+             if(button2 is HIGH) => onled2
+     	}
+     	onled2{
+     		led2 <= HIGH
+             led1 <= LOW
+             if(button1 is HIGH) => onled2
+             if(button2 is HIGH) => off
+     	}
+}
