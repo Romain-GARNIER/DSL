@@ -5,10 +5,7 @@
 	<groupId>io.github.mosser.arduinoml</groupId>
 	<artifactId>dsl-groovy</artifactId>
 	<version>1.0</version>
-	<modules>
-		<module>kernels-jvm</module>
-	</modules>
-	<packaging>pom</packaging>
+	<packaging>jar</packaging>
 	<name>GroovuinoML: ArduinoML DSL embeded in Groovy</name>
 
 	<properties>

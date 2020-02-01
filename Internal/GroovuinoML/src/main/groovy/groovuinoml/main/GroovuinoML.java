@@ -15,7 +15,6 @@ import groovuinoml.dsl.GroovuinoMLDSL;
 public class GroovuinoML {
 	public static void main(String[] args) {
 		GroovuinoMLDSL dsl = new GroovuinoMLDSL();
-		args[0] = "";
 		if(args.length > 0) {
 			dsl.eval(new File(args[0]));
 		} else {
