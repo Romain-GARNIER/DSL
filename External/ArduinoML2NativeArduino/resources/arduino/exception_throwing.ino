@@ -4,6 +4,7 @@ void setup() {
 	pinMode(8, OUTPUT);
 	pinMode(12, INPUT);
 	pinMode(10, INPUT);
+	pinMode(13, OUTPUT); // The default Error LED
 }
 
 //Behavioral concepts
