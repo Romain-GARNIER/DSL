@@ -5,6 +5,7 @@ import io.github.mosser.arduinoml.kernel.behavioral.Transition
 import io.github.mosser.arduinoml.kernel.structural.BaseCondition
 import io.github.mosser.arduinoml.kernel.structural.BooleanCondition
 import io.github.mosser.arduinoml.kernel.structural.Operator
+import io.github.mosser.arduinoml.kernel.structural.Type
 
 import java.util.List;
 
@@ -19,13 +20,23 @@ import java.util.concurrent.locks.Condition
 abstract class GroovuinoMLBasescript extends Script {
 	// sensor "name" pin n
 	def sensor(String name) {
-		[pin: { n -> ((GroovuinoMLBinding)this.getBinding()).getGroovuinoMLModel().createSensor(name, n) },
-		onPin: { n -> ((GroovuinoMLBinding)this.getBinding()).getGroovuinoMLModel().createSensor(name, n)}]
+		[type: {  String type ->
+			[pin: { n -> ((GroovuinoMLBinding)this.getBinding()).getGroovuinoMLModel().createSensor(name, n, (type instanceof String ? (Type)((GroovuinoMLBinding)this.getBinding()).getVariable(type) : (Actuator)type)) },
+			 onPin: { n -> ((GroovuinoMLBinding)this.getBinding()).getGroovuinoMLModel().createSensor(name, n,(type instanceof String ? (Type)((GroovuinoMLBinding)this.getBinding()).getVariable(type) : (Actuator)type)) }]
+		},
+		 pin: { n -> ((GroovuinoMLBinding)this.getBinding()).getGroovuinoMLModel().createSensor(name, n) },
+		  onPin: { n -> ((GroovuinoMLBinding)this.getBinding()).getGroovuinoMLModel().createSensor(name, n) }
+		]
 	}
-	
+
 	// actuator "name" pin n
 	def actuator(String name) {
-		[pin: { n -> ((GroovuinoMLBinding)this.getBinding()).getGroovuinoMLModel().createActuator(name, n) }]
+		[type: { String type ->
+			[pin: { n -> ((GroovuinoMLBinding)this.getBinding()).getGroovuinoMLModel().createActuator(name, n, (type instanceof String ? (Type)((GroovuinoMLBinding)this.getBinding()).getVariable(type) : (Actuator)type)) }]
+		},
+		 pin: { n -> ((GroovuinoMLBinding)this.getBinding()).getGroovuinoMLModel().createActuator(name, n) },
+		 onPin: { n -> ((GroovuinoMLBinding)this.getBinding()).getGroovuinoMLModel().createActuator(name, n) }
+		]
 	}
 	
 	// state "name" means actuator becomes signal [and actuator becomes signal]*n
@@ -41,7 +52,13 @@ abstract class GroovuinoMLBasescript extends Script {
 				action.setValue(signal instanceof String ? (SIGNAL)((GroovuinoMLBinding)this.getBinding()).getVariable(signal) : (SIGNAL)signal)
 				actions.add(action)
 				[and: closure]
-			}]
+			},
+			 shine: { int analogSingal ->
+				 Action action = new Action()
+				 action.setActuator(actuator instanceof String ? (Actuator)((GroovuinoMLBinding)this.getBinding()).getVariable(actuator) : (Actuator)actuator)
+				 action.setAnalogValue(analogSingal)
+				 actions.add(action)
+			 }]
 		}
 		[means: closure]
 	}
@@ -90,6 +107,15 @@ abstract class GroovuinoMLBasescript extends Script {
 					}
 					[or: closureOR,
 					 and: closureAND]
+				},
+				is: { comparator ->
+					[than: { int value ->
+						BaseCondition condition = new BaseCondition()
+						condition.setSensor(sensor instanceof String ? (Sensor)((GroovuinoMLBinding)this.getBinding()).getVariable(sensor) : (Sensor)sensor)
+						condition.setComparator((Comparator)((GroovuinoMLBinding)this.getBinding()).getVariable(comparator))
+						condition.setValue(value)
+						transition.setCondition(condition)
+					}]
 				}]
 			}]
 		}]

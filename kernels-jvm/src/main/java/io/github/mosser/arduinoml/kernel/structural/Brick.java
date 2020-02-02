@@ -7,6 +7,7 @@ public abstract class Brick implements NamedElement, Visitable {
 
 	private String name;
 	private int pin;
+	private Type type = Type.DIGITAL;
 
 	public int getPin() {
 		return pin;
@@ -26,4 +27,11 @@ public abstract class Brick implements NamedElement, Visitable {
 		this.name = name;
 	}
 
+	public Type getType() {
+		return type;
+	}
+
+	public void setType(Type type) {
+		this.type = type;
+	}
 }

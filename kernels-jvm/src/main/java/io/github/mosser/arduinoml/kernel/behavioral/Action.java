@@ -9,6 +9,7 @@ public class Action implements Visitable {
 
 	private SIGNAL value;
 	private Actuator actuator;
+	private int analogValue;
 
 
 	public SIGNAL getValue() {
@@ -25,6 +26,14 @@ public class Action implements Visitable {
 
 	public void setActuator(Actuator actuator) {
 		this.actuator = actuator;
+	}
+
+	public int getAnalogValue() {
+		return analogValue;
+	}
+
+	public void setAnalogValue(int analogValue) {
+		this.analogValue = analogValue;
 	}
 
 	@Override

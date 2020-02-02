@@ -1,5 +1,6 @@
 package main.groovy.groovuinoml.dsl
 
+import io.github.mosser.arduinoml.kernel.structural.Type
 import org.codehaus.groovy.control.CompilerConfiguration
 import org.codehaus.groovy.control.customizers.SecureASTCustomizer
 import io.github.mosser.arduinoml.kernel.structural.SIGNAL
@@ -19,6 +20,8 @@ class GroovuinoMLDSL {
 		
 		binding.setVariable("high", SIGNAL.HIGH)
 		binding.setVariable("low", SIGNAL.LOW)
+		binding.setVariable("digital", Type.DIGITAL)
+		binding.setVariable("analog", Type.ANALOG)
 	}
 	
 	private static CompilerConfiguration getDSLConfiguration() {

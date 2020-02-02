@@ -4,6 +4,8 @@ import java.util.Map;
 
 import groovy.lang.Binding;
 import groovy.lang.Script;
+import io.github.mosser.arduinoml.kernel.structural.Comparator;
+import io.github.mosser.arduinoml.kernel.structural.Type;
 
 public class GroovuinoMLBinding extends Binding {
 	// can be useful to return the script in case of syntax trick
@@ -35,10 +37,14 @@ public class GroovuinoMLBinding extends Binding {
 	
 	public Object getVariable(String name) {
 		// Easter egg (to show you this trick: seb is now a keyword!)
-		if ("seb".equals(name)) {
-			// could do something else like: ((App) this.getVariable("app")).action();
-			System.out.println("Seb, c'est bien");
-			return script;
+		if ("superior".equals(name)) {
+			return Comparator.SUP;
+		}
+		if ("inferior".equals(name)) {
+			return Comparator.INF;
+		}
+		if ("equal".equals(name)) {
+			return Comparator.EQUAL;
 		}
 		return super.getVariable(name);
 	}
