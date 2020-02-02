@@ -1,0 +1,15 @@
+app SimpleAlarm initial state off {
+    bricks 
+         Actuator analog led : 8
+         Sensor analog button : 1
+         
+     states 
+         off {
+             led <= 255
+             if (button > 500) => on
+         } 
+         on {
+             led <= 50
+             if (button < 30) => off
+     }
+}

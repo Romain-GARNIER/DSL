@@ -3,6 +3,7 @@
 package arduinoML.impl;
 
 import arduinoML.ArduinoMLPackage;
+import arduinoML.Comparator;
 import arduinoML.Condition;
 import arduinoML.Sensor;
 import arduinoML.Signal;
@@ -25,6 +26,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link arduinoML.impl.ConditionImpl#getSensor <em>Sensor</em>}</li>
  *   <li>{@link arduinoML.impl.ConditionImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link arduinoML.impl.ConditionImpl#getAnalogvalue <em>Analogvalue</em>}</li>
+ *   <li>{@link arduinoML.impl.ConditionImpl#getComparator <em>Comparator</em>}</li>
  * </ul>
  *
  * @generated
@@ -59,6 +62,46 @@ public abstract class ConditionImpl extends MinimalEObjectImpl.Container impleme
 	 * @ordered
 	 */
 	protected Signal value = VALUE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getAnalogvalue() <em>Analogvalue</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAnalogvalue()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int ANALOGVALUE_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getAnalogvalue() <em>Analogvalue</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAnalogvalue()
+	 * @generated
+	 * @ordered
+	 */
+	protected int analogvalue = ANALOGVALUE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getComparator() <em>Comparator</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getComparator()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Comparator COMPARATOR_EDEFAULT = Comparator.SUP;
+
+	/**
+	 * The cached value of the '{@link #getComparator() <em>Comparator</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getComparator()
+	 * @generated
+	 * @ordered
+	 */
+	protected Comparator comparator = COMPARATOR_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -148,6 +191,52 @@ public abstract class ConditionImpl extends MinimalEObjectImpl.Container impleme
 	 * @generated
 	 */
 	@Override
+	public int getAnalogvalue() {
+		return analogvalue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setAnalogvalue(int newAnalogvalue) {
+		int oldAnalogvalue = analogvalue;
+		analogvalue = newAnalogvalue;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ArduinoMLPackage.CONDITION__ANALOGVALUE, oldAnalogvalue, analogvalue));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Comparator getComparator() {
+		return comparator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setComparator(Comparator newComparator) {
+		Comparator oldComparator = comparator;
+		comparator = newComparator == null ? COMPARATOR_EDEFAULT : newComparator;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ArduinoMLPackage.CONDITION__COMPARATOR, oldComparator, comparator));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ArduinoMLPackage.CONDITION__SENSOR:
@@ -155,6 +244,10 @@ public abstract class ConditionImpl extends MinimalEObjectImpl.Container impleme
 				return basicGetSensor();
 			case ArduinoMLPackage.CONDITION__VALUE:
 				return getValue();
+			case ArduinoMLPackage.CONDITION__ANALOGVALUE:
+				return getAnalogvalue();
+			case ArduinoMLPackage.CONDITION__COMPARATOR:
+				return getComparator();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -172,6 +265,12 @@ public abstract class ConditionImpl extends MinimalEObjectImpl.Container impleme
 				return;
 			case ArduinoMLPackage.CONDITION__VALUE:
 				setValue((Signal)newValue);
+				return;
+			case ArduinoMLPackage.CONDITION__ANALOGVALUE:
+				setAnalogvalue((Integer)newValue);
+				return;
+			case ArduinoMLPackage.CONDITION__COMPARATOR:
+				setComparator((Comparator)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -191,6 +290,12 @@ public abstract class ConditionImpl extends MinimalEObjectImpl.Container impleme
 			case ArduinoMLPackage.CONDITION__VALUE:
 				setValue(VALUE_EDEFAULT);
 				return;
+			case ArduinoMLPackage.CONDITION__ANALOGVALUE:
+				setAnalogvalue(ANALOGVALUE_EDEFAULT);
+				return;
+			case ArduinoMLPackage.CONDITION__COMPARATOR:
+				setComparator(COMPARATOR_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -207,6 +312,10 @@ public abstract class ConditionImpl extends MinimalEObjectImpl.Container impleme
 				return sensor != null;
 			case ArduinoMLPackage.CONDITION__VALUE:
 				return value != VALUE_EDEFAULT;
+			case ArduinoMLPackage.CONDITION__ANALOGVALUE:
+				return analogvalue != ANALOGVALUE_EDEFAULT;
+			case ArduinoMLPackage.CONDITION__COMPARATOR:
+				return comparator != COMPARATOR_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -223,6 +332,10 @@ public abstract class ConditionImpl extends MinimalEObjectImpl.Container impleme
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (value: ");
 		result.append(value);
+		result.append(", analogvalue: ");
+		result.append(analogvalue);
+		result.append(", comparator: ");
+		result.append(comparator);
 		result.append(')');
 		return result.toString();
 	}

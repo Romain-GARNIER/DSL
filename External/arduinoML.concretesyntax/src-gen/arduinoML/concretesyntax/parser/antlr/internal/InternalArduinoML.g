@@ -250,38 +250,56 @@ ruleBrick returns [EObject current=null]
 )(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getBrickAccess().getNameEStringParserRuleCall_1_0()); 
+	        newCompositeNode(grammarAccess.getBrickAccess().getTypeTypeEnumRuleCall_1_0()); 
 	    }
-		lv_name_2_0=ruleEString		{
+		lv_type_2_0=ruleType		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getBrickRule());
+	        }
+       		set(
+       			$current, 
+       			"type",
+        		lv_type_2_0, 
+        		"arduinoML.concretesyntax.ArduinoML.Type");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getBrickAccess().getNameEStringParserRuleCall_2_0()); 
+	    }
+		lv_name_3_0=ruleEString		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getBrickRule());
 	        }
        		set(
        			$current, 
        			"name",
-        		lv_name_2_0, 
+        		lv_name_3_0, 
         		"arduinoML.concretesyntax.ArduinoML.EString");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)	otherlv_3=':' 
+)	otherlv_4=':' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getBrickAccess().getColonKeyword_2());
+    	newLeafNode(otherlv_4, grammarAccess.getBrickAccess().getColonKeyword_3());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getBrickAccess().getPinEIntParserRuleCall_3_0()); 
+	        newCompositeNode(grammarAccess.getBrickAccess().getPinEIntParserRuleCall_4_0()); 
 	    }
-		lv_pin_4_0=ruleEInt		{
+		lv_pin_5_0=ruleEInt		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getBrickRule());
 	        }
        		set(
        			$current, 
        			"pin",
-        		lv_pin_4_0, 
+        		lv_pin_5_0, 
         		"arduinoML.concretesyntax.ArduinoML.EInt");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -465,22 +483,22 @@ ruleState returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getStateAccess().getErrorsSinkErrorParserRuleCall_2_0()); 
+	        newCompositeNode(grammarAccess.getStateAccess().getActionsActionParserRuleCall_2_0()); 
 	    }
-		lv_errors_2_0=ruleSinkError		{
+		lv_actions_2_0=ruleAction		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getStateRule());
 	        }
        		add(
        			$current, 
-       			"errors",
-        		lv_errors_2_0, 
-        		"arduinoML.concretesyntax.ArduinoML.SinkError");
+       			"actions",
+        		lv_actions_2_0, 
+        		"arduinoML.concretesyntax.ArduinoML.Action");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)*(
+)(
 (
 		{ 
 	        newCompositeNode(grammarAccess.getStateAccess().getActionsActionParserRuleCall_3_0()); 
@@ -498,20 +516,20 @@ ruleState returns [EObject current=null]
 	    }
 
 )
-)(
+)*(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getStateAccess().getActionsActionParserRuleCall_4_0()); 
+	        newCompositeNode(grammarAccess.getStateAccess().getErrorsSinkErrorParserRuleCall_4_0()); 
 	    }
-		lv_actions_4_0=ruleAction		{
+		lv_errors_4_0=ruleSinkError		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getStateRule());
 	        }
        		add(
        			$current, 
-       			"actions",
-        		lv_actions_4_0, 
-        		"arduinoML.concretesyntax.ArduinoML.Action");
+       			"errors",
+        		lv_errors_4_0, 
+        		"arduinoML.concretesyntax.ArduinoML.SinkError");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -592,14 +610,14 @@ ruleAction returns [EObject current=null]
 	    }
 
 )
-)	otherlv_1='<=' 
+)	otherlv_1='=' 
     {
-    	newLeafNode(otherlv_1, grammarAccess.getActionAccess().getLessThanSignEqualsSignKeyword_1());
+    	newLeafNode(otherlv_1, grammarAccess.getActionAccess().getEqualsSignKeyword_1());
     }
-(
+((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getActionAccess().getValueSignalEnumRuleCall_2_0()); 
+	        newCompositeNode(grammarAccess.getActionAccess().getValueSignalEnumRuleCall_2_0_0()); 
 	    }
 		lv_value_2_0=ruleSignal		{
 	        if ($current==null) {
@@ -614,7 +632,26 @@ ruleAction returns [EObject current=null]
 	    }
 
 )
-))
+)
+    |(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getActionAccess().getAnalogvalueEIntParserRuleCall_2_1_0()); 
+	    }
+		lv_analogvalue_3_0=ruleEInt		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getActionRule());
+	        }
+       		set(
+       			$current, 
+       			"analogvalue",
+        		lv_analogvalue_3_0, 
+        		"arduinoML.concretesyntax.ArduinoML.EInt");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)))
 ;
 
 
@@ -738,14 +775,28 @@ ruleBaseCondition returns [EObject current=null]
 	    }
 
 )
-)	otherlv_1='is' 
-    {
-    	newLeafNode(otherlv_1, grammarAccess.getBaseConditionAccess().getIsKeyword_1());
-    }
-(
+)(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getBaseConditionAccess().getValueSignalEnumRuleCall_2_0()); 
+	        newCompositeNode(grammarAccess.getBaseConditionAccess().getComparatorComparatorEnumRuleCall_1_0()); 
+	    }
+		lv_comparator_1_0=ruleComparator		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getBaseConditionRule());
+	        }
+       		set(
+       			$current, 
+       			"comparator",
+        		lv_comparator_1_0, 
+        		"arduinoML.concretesyntax.ArduinoML.Comparator");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)((
+(
+		{ 
+	        newCompositeNode(grammarAccess.getBaseConditionAccess().getValueSignalEnumRuleCall_2_0_0()); 
 	    }
 		lv_value_2_0=ruleSignal		{
 	        if ($current==null) {
@@ -760,7 +811,26 @@ ruleBaseCondition returns [EObject current=null]
 	    }
 
 )
-))
+)
+    |(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getBaseConditionAccess().getAnalogvalueEIntParserRuleCall_2_1_0()); 
+	    }
+		lv_analogvalue_3_0=ruleEInt		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getBaseConditionRule());
+	        }
+       		set(
+       			$current, 
+       			"analogvalue",
+        		lv_analogvalue_3_0, 
+        		"arduinoML.concretesyntax.ArduinoML.EInt");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)))
 ;
 
 
@@ -818,14 +888,28 @@ ruleBooleanCondition returns [EObject current=null]
 	    }
 
 )
-)	otherlv_3='is' 
-    {
-    	newLeafNode(otherlv_3, grammarAccess.getBooleanConditionAccess().getIsKeyword_3());
-    }
-(
+)(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getBooleanConditionAccess().getValueSignalEnumRuleCall_4_0()); 
+	        newCompositeNode(grammarAccess.getBooleanConditionAccess().getComparatorComparatorEnumRuleCall_3_0()); 
+	    }
+		lv_comparator_3_0=ruleComparator		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getBooleanConditionRule());
+	        }
+       		set(
+       			$current, 
+       			"comparator",
+        		lv_comparator_3_0, 
+        		"arduinoML.concretesyntax.ArduinoML.Comparator");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)((
+(
+		{ 
+	        newCompositeNode(grammarAccess.getBooleanConditionAccess().getValueSignalEnumRuleCall_4_0_0()); 
 	    }
 		lv_value_4_0=ruleSignal		{
 	        if ($current==null) {
@@ -840,9 +924,28 @@ ruleBooleanCondition returns [EObject current=null]
 	    }
 
 )
-)	otherlv_5=')' 
+)
+    |(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getBooleanConditionAccess().getAnalogvalueEIntParserRuleCall_4_1_0()); 
+	    }
+		lv_analogvalue_5_0=ruleEInt		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getBooleanConditionRule());
+	        }
+       		set(
+       			$current, 
+       			"analogvalue",
+        		lv_analogvalue_5_0, 
+        		"arduinoML.concretesyntax.ArduinoML.EInt");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))	otherlv_6=')' 
     {
-    	newLeafNode(otherlv_5, grammarAccess.getBooleanConditionAccess().getRightParenthesisKeyword_5());
+    	newLeafNode(otherlv_6, grammarAccess.getBooleanConditionAccess().getRightParenthesisKeyword_5());
     }
 )
 ;
@@ -979,6 +1082,62 @@ ruleOperator returns [Enumerator current=null]
 	{
         $current = grammarAccess.getOperatorAccess().getOREnumLiteralDeclaration_1().getEnumLiteral().getInstance();
         newLeafNode(enumLiteral_1, grammarAccess.getOperatorAccess().getOREnumLiteralDeclaration_1()); 
+    }
+));
+
+
+
+// Rule Comparator
+ruleComparator returns [Enumerator current=null] 
+    @init { enterRule(); }
+    @after { leaveRule(); }:
+((	enumLiteral_0='>' 
+	{
+        $current = grammarAccess.getComparatorAccess().getSupEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_0, grammarAccess.getComparatorAccess().getSupEnumLiteralDeclaration_0()); 
+    }
+)
+    |(	enumLiteral_1='<' 
+	{
+        $current = grammarAccess.getComparatorAccess().getInfEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_1, grammarAccess.getComparatorAccess().getInfEnumLiteralDeclaration_1()); 
+    }
+)
+    |(	enumLiteral_2='==' 
+	{
+        $current = grammarAccess.getComparatorAccess().getEquEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_2, grammarAccess.getComparatorAccess().getEquEnumLiteralDeclaration_2()); 
+    }
+)
+    |(	enumLiteral_3='>=' 
+	{
+        $current = grammarAccess.getComparatorAccess().getEsupEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_3, grammarAccess.getComparatorAccess().getEsupEnumLiteralDeclaration_3()); 
+    }
+)
+    |(	enumLiteral_4='<=' 
+	{
+        $current = grammarAccess.getComparatorAccess().getEinfEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_4, grammarAccess.getComparatorAccess().getEinfEnumLiteralDeclaration_4()); 
+    }
+));
+
+
+
+// Rule Type
+ruleType returns [Enumerator current=null] 
+    @init { enterRule(); }
+    @after { leaveRule(); }:
+((	enumLiteral_0='analog' 
+	{
+        $current = grammarAccess.getTypeAccess().getAnalogEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_0, grammarAccess.getTypeAccess().getAnalogEnumLiteralDeclaration_0()); 
+    }
+)
+    |(	enumLiteral_1='digital' 
+	{
+        $current = grammarAccess.getTypeAccess().getDigitalEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+        newLeafNode(enumLiteral_1, grammarAccess.getTypeAccess().getDigitalEnumLiteralDeclaration_1()); 
     }
 ));
 

@@ -24,7 +24,7 @@ import arduinoML.homemade.ArduinoMLSwitchPrinter;
 public class Main {
 
 	public static void main(String[] args) {
-		String modelPath = "resources/aml/exception_throwing.aml";
+		String modelPath = "resources/aml/handling_analogical_brick.aml";
 		String destinationPath= "resources/FirstExample.xmi";
 		String code ="";
 		try {
@@ -33,7 +33,7 @@ public class Main {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		 try (FileWriter writer = new FileWriter("resources/arduino/exception_throwing.ino");
+		 try (FileWriter writer = new FileWriter("resources/arduino/handling_analogical_brick.ino");
 	              BufferedWriter bw = new BufferedWriter(writer)) {
 	            bw.write(code);
 

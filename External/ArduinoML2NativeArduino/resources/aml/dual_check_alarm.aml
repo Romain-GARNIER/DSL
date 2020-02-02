@@ -1,15 +1,15 @@
 app DualCheckAlarm initial state off {
     bricks 
-         Actuator led : 8
-         Sensor button1 : 12
-         Sensor button2 : 10
+         Actuator digital led : 8
+         Sensor digital button1 : 12
+         Sensor digital button2 : 10
      states 
          off {
              led <= LOW
-             if(button1 is HIGH) AND (button2 is HIGH) => on
+             if(button1 == HIGH) AND (button2 == HIGH) => on
          }
          on {
              led <= HIGH
-             if(button1 is LOW) OR (button2 is LOW) => off
+             if(button1 == LOW) OR (button2 == LOW) => off
      }
 }

@@ -17,13 +17,29 @@ void state_off() {
 		time = millis();
 		sink_state(4);
 	}
+	if ((digitalRead(10) == HIGH) && (digitalRead(12) == HIGH) && guard ) {
+		time = millis();
+		sink_state(4);
+	}
+	if ((digitalRead(12) == HIGH) && (digitalRead(10) == LOW) && guard ) {
+		time = millis();
+		state_on();
+	}
 	else { state_off(); }
 }
 
 void state_on() {
 	digitalWrite(8, HIGH);
 	boolean guard = millis() - time > debounce;
-	if ((digitalRead(12) == HIGH) || (digitalRead(10) == HIGH) && guard ) {
+	if ((digitalRead(12) == HIGH) && (digitalRead(10) == HIGH) && guard ) {
+		time = millis();
+		sink_state(2);
+	}
+	if ((digitalRead(10) == HIGH) && (digitalRead(12) == HIGH) && guard ) {
+		time = millis();
+		sink_state(2);
+	}
+	if ((digitalRead(12) == HIGH) && (digitalRead(10) == LOW) && guard ) {
 		time = millis();
 		state_off();
 	}

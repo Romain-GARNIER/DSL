@@ -90,19 +90,10 @@ public abstract class AbstractArduinoMLSemanticSequencer extends AbstractDelegat
 	 *     Action returns Action
 	 *
 	 * Constraint:
-	 *     (actuator=[Actuator|EString] value=Signal)
+	 *     (actuator=[Actuator|EString] (value=Signal | analogvalue=EInt))
 	 */
 	protected void sequence_Action(ISerializationContext context, arduinoML.Action semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, ArduinoMLPackage.Literals.ACTION__ACTUATOR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ArduinoMLPackage.Literals.ACTION__ACTUATOR));
-			if (transientValues.isValueTransient(semanticObject, ArduinoMLPackage.Literals.ACTION__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ArduinoMLPackage.Literals.ACTION__VALUE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getActionAccess().getActuatorActuatorEStringParserRuleCall_0_0_1(), semanticObject.eGet(ArduinoMLPackage.Literals.ACTION__ACTUATOR, false));
-		feeder.accept(grammarAccess.getActionAccess().getValueSignalEnumRuleCall_2_0(), semanticObject.getValue());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -123,18 +114,21 @@ public abstract class AbstractArduinoMLSemanticSequencer extends AbstractDelegat
 	 *     Brick returns Actuator
 	 *
 	 * Constraint:
-	 *     (name=EString pin=EInt)
+	 *     (type=Type name=EString pin=EInt)
 	 */
 	protected void sequence_Actuator_Brick(ISerializationContext context, Actuator semanticObject) {
 		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, ArduinoMLPackage.Literals.BRICK__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ArduinoMLPackage.Literals.BRICK__TYPE));
 			if (transientValues.isValueTransient(semanticObject, ArduinoMLPackage.Literals.NAMED_ELEMENT__NAME) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ArduinoMLPackage.Literals.NAMED_ELEMENT__NAME));
 			if (transientValues.isValueTransient(semanticObject, ArduinoMLPackage.Literals.BRICK__PIN) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ArduinoMLPackage.Literals.BRICK__PIN));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getBrickAccess().getNameEStringParserRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getBrickAccess().getPinEIntParserRuleCall_3_0(), semanticObject.getPin());
+		feeder.accept(grammarAccess.getBrickAccess().getTypeTypeEnumRuleCall_1_0(), semanticObject.getType());
+		feeder.accept(grammarAccess.getBrickAccess().getNameEStringParserRuleCall_2_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getBrickAccess().getPinEIntParserRuleCall_4_0(), semanticObject.getPin());
 		feeder.finish();
 	}
 	
@@ -163,19 +157,10 @@ public abstract class AbstractArduinoMLSemanticSequencer extends AbstractDelegat
 	 *     BaseCondition returns BaseCondition
 	 *
 	 * Constraint:
-	 *     (sensor=[Sensor|EString] value=Signal)
+	 *     (sensor=[Sensor|EString] comparator=Comparator (value=Signal | analogvalue=EInt))
 	 */
 	protected void sequence_BaseCondition(ISerializationContext context, BaseCondition semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, ArduinoMLPackage.Literals.CONDITION__SENSOR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ArduinoMLPackage.Literals.CONDITION__SENSOR));
-			if (transientValues.isValueTransient(semanticObject, ArduinoMLPackage.Literals.CONDITION__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ArduinoMLPackage.Literals.CONDITION__VALUE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getBaseConditionAccess().getSensorSensorEStringParserRuleCall_0_0_1(), semanticObject.eGet(ArduinoMLPackage.Literals.CONDITION__SENSOR, false));
-		feeder.accept(grammarAccess.getBaseConditionAccess().getValueSignalEnumRuleCall_2_0(), semanticObject.getValue());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -184,22 +169,10 @@ public abstract class AbstractArduinoMLSemanticSequencer extends AbstractDelegat
 	 *     BooleanCondition returns BooleanCondition
 	 *
 	 * Constraint:
-	 *     (operator=Operator sensor=[Sensor|EString] value=Signal)
+	 *     (operator=Operator sensor=[Sensor|EString] comparator=Comparator (value=Signal | analogvalue=EInt))
 	 */
 	protected void sequence_BooleanCondition(ISerializationContext context, BooleanCondition semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, ArduinoMLPackage.Literals.BOOLEAN_CONDITION__OPERATOR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ArduinoMLPackage.Literals.BOOLEAN_CONDITION__OPERATOR));
-			if (transientValues.isValueTransient(semanticObject, ArduinoMLPackage.Literals.CONDITION__SENSOR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ArduinoMLPackage.Literals.CONDITION__SENSOR));
-			if (transientValues.isValueTransient(semanticObject, ArduinoMLPackage.Literals.CONDITION__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ArduinoMLPackage.Literals.CONDITION__VALUE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getBooleanConditionAccess().getOperatorOperatorEnumRuleCall_0_0(), semanticObject.getOperator());
-		feeder.accept(grammarAccess.getBooleanConditionAccess().getSensorSensorEStringParserRuleCall_2_0_1(), semanticObject.eGet(ArduinoMLPackage.Literals.CONDITION__SENSOR, false));
-		feeder.accept(grammarAccess.getBooleanConditionAccess().getValueSignalEnumRuleCall_4_0(), semanticObject.getValue());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -208,18 +181,21 @@ public abstract class AbstractArduinoMLSemanticSequencer extends AbstractDelegat
 	 *     Brick returns Sensor
 	 *
 	 * Constraint:
-	 *     (name=EString pin=EInt)
+	 *     (type=Type name=EString pin=EInt)
 	 */
 	protected void sequence_Brick_Sensor(ISerializationContext context, Sensor semanticObject) {
 		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, ArduinoMLPackage.Literals.BRICK__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ArduinoMLPackage.Literals.BRICK__TYPE));
 			if (transientValues.isValueTransient(semanticObject, ArduinoMLPackage.Literals.NAMED_ELEMENT__NAME) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ArduinoMLPackage.Literals.NAMED_ELEMENT__NAME));
 			if (transientValues.isValueTransient(semanticObject, ArduinoMLPackage.Literals.BRICK__PIN) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ArduinoMLPackage.Literals.BRICK__PIN));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getBrickAccess().getNameEStringParserRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getBrickAccess().getPinEIntParserRuleCall_3_0(), semanticObject.getPin());
+		feeder.accept(grammarAccess.getBrickAccess().getTypeTypeEnumRuleCall_1_0(), semanticObject.getType());
+		feeder.accept(grammarAccess.getBrickAccess().getNameEStringParserRuleCall_2_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getBrickAccess().getPinEIntParserRuleCall_4_0(), semanticObject.getPin());
 		feeder.finish();
 	}
 	
@@ -255,9 +231,9 @@ public abstract class AbstractArduinoMLSemanticSequencer extends AbstractDelegat
 	 * Constraint:
 	 *     (
 	 *         name=EString 
-	 *         errors+=SinkError* 
 	 *         actions+=Action 
 	 *         actions+=Action* 
+	 *         errors+=SinkError* 
 	 *         transitions+=Transition 
 	 *         transitions+=Transition*
 	 *     )

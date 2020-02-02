@@ -14,7 +14,7 @@ App returns App:
 
 
 Brick returns Brick:
-    (Sensor | Actuator) name=EString ':' pin=EInt;
+    (Sensor | Actuator) type=Type name=EString ':' pin=EInt;
 
 Actuator returns Actuator:
     {Actuator}
@@ -40,18 +40,18 @@ State returns State:
     '}';
 
 Action returns Action :
-        actuator=[Actuator|EString] '<=' value=Signal;
+        actuator=[Actuator|EString] '=' (value=Signal | analogvalue=EInt);
 
 Transition returns Transition:
 	'if' '('basecondition=BaseCondition')' (booleancondition+=BooleanCondition)* '=>' next=[State|EString]; 
 	
 
 BaseCondition:
-	sensor=[Sensor|EString] 'is' value=Signal;
+	sensor=[Sensor|EString] comparator=Comparator (value=Signal | analogvalue=EInt);
 
  
 BooleanCondition:
-	operator=Operator '(' sensor=[Sensor|EString] 'is' value=Signal ')';
+	operator=Operator '(' sensor=[Sensor|EString] comparator=Comparator (value=Signal | analogvalue=EInt) ')';
        
          //(sensor=[Sensor|EString] 'is' value=Signal) ;
          
@@ -64,4 +64,12 @@ enum Signal returns Signal:
 ;
 enum Operator returns Operator:
 	AND='AND' | OR='OR'
+;
+
+enum Comparator returns Comparator:
+	sup='>'| inf='<' | equ='=='| esup = '>=' | einf = '<='
+;
+
+enum Type returns Type:
+	analog='analog' | digital = 'digital'
 ;

@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link arduinoML.impl.ActionImpl#getValue <em>Value</em>}</li>
  *   <li>{@link arduinoML.impl.ActionImpl#getActuator <em>Actuator</em>}</li>
+ *   <li>{@link arduinoML.impl.ActionImpl#getAnalogvalue <em>Analogvalue</em>}</li>
  * </ul>
  *
  * @generated
@@ -59,6 +60,26 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action {
 	 * @ordered
 	 */
 	protected Actuator actuator;
+
+	/**
+	 * The default value of the '{@link #getAnalogvalue() <em>Analogvalue</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAnalogvalue()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int ANALOGVALUE_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getAnalogvalue() <em>Analogvalue</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAnalogvalue()
+	 * @generated
+	 * @ordered
+	 */
+	protected int analogvalue = ANALOGVALUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -148,6 +169,29 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action {
 	 * @generated
 	 */
 	@Override
+	public int getAnalogvalue() {
+		return analogvalue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setAnalogvalue(int newAnalogvalue) {
+		int oldAnalogvalue = analogvalue;
+		analogvalue = newAnalogvalue;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ArduinoMLPackage.ACTION__ANALOGVALUE, oldAnalogvalue, analogvalue));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ArduinoMLPackage.ACTION__VALUE:
@@ -155,6 +199,8 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action {
 			case ArduinoMLPackage.ACTION__ACTUATOR:
 				if (resolve) return getActuator();
 				return basicGetActuator();
+			case ArduinoMLPackage.ACTION__ANALOGVALUE:
+				return getAnalogvalue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -172,6 +218,9 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action {
 				return;
 			case ArduinoMLPackage.ACTION__ACTUATOR:
 				setActuator((Actuator)newValue);
+				return;
+			case ArduinoMLPackage.ACTION__ANALOGVALUE:
+				setAnalogvalue((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -191,6 +240,9 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action {
 			case ArduinoMLPackage.ACTION__ACTUATOR:
 				setActuator((Actuator)null);
 				return;
+			case ArduinoMLPackage.ACTION__ANALOGVALUE:
+				setAnalogvalue(ANALOGVALUE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -207,6 +259,8 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action {
 				return value != VALUE_EDEFAULT;
 			case ArduinoMLPackage.ACTION__ACTUATOR:
 				return actuator != null;
+			case ArduinoMLPackage.ACTION__ANALOGVALUE:
+				return analogvalue != ANALOGVALUE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -223,6 +277,8 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action {
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (value: ");
 		result.append(value);
+		result.append(", analogvalue: ");
+		result.append(analogvalue);
 		result.append(')');
 		return result.toString();
 	}

@@ -10,6 +10,7 @@ import arduinoML.ArduinoMLPackage;
 import arduinoML.BaseCondition;
 import arduinoML.BooleanCondition;
 import arduinoML.Brick;
+import arduinoML.Comparator;
 import arduinoML.Condition;
 import arduinoML.NamedElement;
 import arduinoML.Operator;
@@ -19,6 +20,7 @@ import arduinoML.SinkError;
 import arduinoML.State;
 import arduinoML.Transition;
 
+import arduinoML.Type;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
@@ -133,6 +135,20 @@ public class ArduinoMLPackageImpl extends EPackageImpl implements ArduinoMLPacka
 	private EEnum operatorEEnum = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum comparatorEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum typeEEnum = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -211,6 +227,16 @@ public class ArduinoMLPackageImpl extends EPackageImpl implements ArduinoMLPacka
 	@Override
 	public EAttribute getBrick_Pin() {
 		return (EAttribute)brickEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getBrick_Type() {
+		return (EAttribute)brickEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -349,6 +375,16 @@ public class ArduinoMLPackageImpl extends EPackageImpl implements ArduinoMLPacka
 	 * @generated
 	 */
 	@Override
+	public EAttribute getAction_Analogvalue() {
+		return (EAttribute)actionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getTransition() {
 		return transitionEClass;
 	}
@@ -441,6 +477,26 @@ public class ArduinoMLPackageImpl extends EPackageImpl implements ArduinoMLPacka
 	@Override
 	public EAttribute getCondition_Value() {
 		return (EAttribute)conditionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCondition_Analogvalue() {
+		return (EAttribute)conditionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCondition_Comparator() {
+		return (EAttribute)conditionEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -549,6 +605,26 @@ public class ArduinoMLPackageImpl extends EPackageImpl implements ArduinoMLPacka
 	 * @generated
 	 */
 	@Override
+	public EEnum getComparator() {
+		return comparatorEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EEnum getType() {
+		return typeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public ArduinoMLFactory getArduinoMLFactory() {
 		return (ArduinoMLFactory)getEFactoryInstance();
 	}
@@ -574,6 +650,7 @@ public class ArduinoMLPackageImpl extends EPackageImpl implements ArduinoMLPacka
 		// Create classes and their features
 		brickEClass = createEClass(BRICK);
 		createEAttribute(brickEClass, BRICK__PIN);
+		createEAttribute(brickEClass, BRICK__TYPE);
 
 		actuatorEClass = createEClass(ACTUATOR);
 
@@ -592,6 +669,7 @@ public class ArduinoMLPackageImpl extends EPackageImpl implements ArduinoMLPacka
 		actionEClass = createEClass(ACTION);
 		createEAttribute(actionEClass, ACTION__VALUE);
 		createEReference(actionEClass, ACTION__ACTUATOR);
+		createEAttribute(actionEClass, ACTION__ANALOGVALUE);
 
 		transitionEClass = createEClass(TRANSITION);
 		createEReference(transitionEClass, TRANSITION__NEXT);
@@ -605,6 +683,8 @@ public class ArduinoMLPackageImpl extends EPackageImpl implements ArduinoMLPacka
 		conditionEClass = createEClass(CONDITION);
 		createEReference(conditionEClass, CONDITION__SENSOR);
 		createEAttribute(conditionEClass, CONDITION__VALUE);
+		createEAttribute(conditionEClass, CONDITION__ANALOGVALUE);
+		createEAttribute(conditionEClass, CONDITION__COMPARATOR);
 
 		baseConditionEClass = createEClass(BASE_CONDITION);
 
@@ -620,6 +700,8 @@ public class ArduinoMLPackageImpl extends EPackageImpl implements ArduinoMLPacka
 		// Create enums
 		signalEEnum = createEEnum(SIGNAL);
 		operatorEEnum = createEEnum(OPERATOR);
+		comparatorEEnum = createEEnum(COMPARATOR);
+		typeEEnum = createEEnum(TYPE);
 	}
 
 	/**
@@ -661,6 +743,7 @@ public class ArduinoMLPackageImpl extends EPackageImpl implements ArduinoMLPacka
 		// Initialize classes, features, and operations; add parameters
 		initEClass(brickEClass, Brick.class, "Brick", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBrick_Pin(), ecorePackage.getEInt(), "pin", null, 1, 1, Brick.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBrick_Type(), this.getType(), "type", null, 1, 1, Brick.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(actuatorEClass, Actuator.class, "Actuator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -677,8 +760,9 @@ public class ArduinoMLPackageImpl extends EPackageImpl implements ArduinoMLPacka
 		initEReference(getState_Errors(), this.getSinkError(), this.getSinkError_State(), "errors", null, 0, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(actionEClass, Action.class, "Action", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAction_Value(), this.getSignal(), "value", null, 1, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAction_Value(), this.getSignal(), "value", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAction_Actuator(), this.getActuator(), null, "actuator", null, 1, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAction_Analogvalue(), ecorePackage.getEInt(), "analogvalue", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(transitionEClass, Transition.class, "Transition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTransition_Next(), this.getState(), null, "next", null, 1, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -691,7 +775,9 @@ public class ArduinoMLPackageImpl extends EPackageImpl implements ArduinoMLPacka
 
 		initEClass(conditionEClass, Condition.class, "Condition", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCondition_Sensor(), this.getSensor(), null, "sensor", null, 1, 1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCondition_Value(), this.getSignal(), "value", null, 1, 1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCondition_Value(), this.getSignal(), "value", null, 0, 1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCondition_Analogvalue(), ecorePackage.getEInt(), "analogvalue", null, 0, 1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCondition_Comparator(), this.getComparator(), "comparator", null, 1, 1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(baseConditionEClass, BaseCondition.class, "BaseCondition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -712,6 +798,17 @@ public class ArduinoMLPackageImpl extends EPackageImpl implements ArduinoMLPacka
 		initEEnum(operatorEEnum, Operator.class, "Operator");
 		addEEnumLiteral(operatorEEnum, Operator.AND);
 		addEEnumLiteral(operatorEEnum, Operator.OR);
+
+		initEEnum(comparatorEEnum, Comparator.class, "Comparator");
+		addEEnumLiteral(comparatorEEnum, Comparator.SUP);
+		addEEnumLiteral(comparatorEEnum, Comparator.INF);
+		addEEnumLiteral(comparatorEEnum, Comparator.EQU);
+		addEEnumLiteral(comparatorEEnum, Comparator.ESUP);
+		addEEnumLiteral(comparatorEEnum, Comparator.EINF);
+
+		initEEnum(typeEEnum, Type.class, "Type");
+		addEEnumLiteral(typeEEnum, Type.ANALOG);
+		addEEnumLiteral(typeEEnum, Type.DIGITAL);
 
 		// Create resource
 		createResource(eNS_URI);

@@ -1,20 +1,17 @@
 <?xml version="1.0" encoding="ASCII"?>
-<arduinoML:App xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:arduinoML="fr.uns.polytech.al.arduinoML" name="Exception" initial="off">
-  <bricks xsi:type="arduinoML:Actuator" name="led" pin="8"/>
-  <bricks xsi:type="arduinoML:Sensor" name="button1" pin="12"/>
-  <bricks xsi:type="arduinoML:Sensor" name="button2" pin="10"/>
+<arduinoML:App xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:arduinoML="fr.uns.polytech.al.arduinoML" name="ExceptionThrowing" initial="off">
+  <bricks xsi:type="arduinoML:Actuator" name="buzzer" pin="8" type="digital"/>
+  <bricks xsi:type="arduinoML:Sensor" name="temp" pin="1"/>
   <states name="off">
-    <actions value="LOW" actuator="led"/>
-    <errors value="4">
-      <basecondition sensor="button1"/>
-      <booleancondition sensor="button2" operator="AND"/>
-    </errors>
+    <actions value="LOW" actuator="buzzer"/>
+    <transitions next="on">
+      <basecondition sensor="temp" analogvalue="500" comparator="esup"/>
+    </transitions>
   </states>
   <states name="on">
-    <actions actuator="led"/>
+    <actions actuator="buzzer"/>
     <transitions next="off">
-      <basecondition sensor="button1"/>
-      <booleancondition sensor="button2"/>
+      <basecondition sensor="temp" analogvalue="500" comparator="einf"/>
     </transitions>
   </states>
 </arduinoML:App>

@@ -117,17 +117,19 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
 		private final RuleCall cSensorParserRuleCall_0_0 = (RuleCall)cAlternatives_0.eContents().get(0);
 		private final RuleCall cActuatorParserRuleCall_0_1 = (RuleCall)cAlternatives_0.eContents().get(1);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameEStringParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cPinAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cPinEIntParserRuleCall_3_0 = (RuleCall)cPinAssignment_3.eContents().get(0);
+		private final Assignment cTypeAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cTypeTypeEnumRuleCall_1_0 = (RuleCall)cTypeAssignment_1.eContents().get(0);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameEStringParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Keyword cColonKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cPinAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cPinEIntParserRuleCall_4_0 = (RuleCall)cPinAssignment_4.eContents().get(0);
 		
 		//Brick:
-		//	(Sensor | Actuator) name=EString ':' pin=EInt;
+		//	(Sensor | Actuator) type=Type name=EString ':' pin=EInt;
 		@Override public ParserRule getRule() { return rule; }
 
-		//(Sensor | Actuator) name=EString ':' pin=EInt
+		//(Sensor | Actuator) type=Type name=EString ':' pin=EInt
 		public Group getGroup() { return cGroup; }
 
 		//(Sensor | Actuator)
@@ -139,20 +141,26 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 		//Actuator
 		public RuleCall getActuatorParserRuleCall_0_1() { return cActuatorParserRuleCall_0_1; }
 
+		//type=Type
+		public Assignment getTypeAssignment_1() { return cTypeAssignment_1; }
+
+		//Type
+		public RuleCall getTypeTypeEnumRuleCall_1_0() { return cTypeTypeEnumRuleCall_1_0; }
+
 		//name=EString
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
 
 		//EString
-		public RuleCall getNameEStringParserRuleCall_1_0() { return cNameEStringParserRuleCall_1_0; }
+		public RuleCall getNameEStringParserRuleCall_2_0() { return cNameEStringParserRuleCall_2_0; }
 
 		//':'
-		public Keyword getColonKeyword_2() { return cColonKeyword_2; }
+		public Keyword getColonKeyword_3() { return cColonKeyword_3; }
 
 		//pin=EInt
-		public Assignment getPinAssignment_3() { return cPinAssignment_3; }
+		public Assignment getPinAssignment_4() { return cPinAssignment_4; }
 
 		//EInt
-		public RuleCall getPinEIntParserRuleCall_3_0() { return cPinEIntParserRuleCall_3_0; }
+		public RuleCall getPinEIntParserRuleCall_4_0() { return cPinEIntParserRuleCall_4_0; }
 	}
 
 	public class ActuatorElements extends AbstractParserRuleElementFinder {
@@ -243,12 +251,12 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cNameEStringParserRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cErrorsAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cErrorsSinkErrorParserRuleCall_2_0 = (RuleCall)cErrorsAssignment_2.eContents().get(0);
+		private final Assignment cActionsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cActionsActionParserRuleCall_2_0 = (RuleCall)cActionsAssignment_2.eContents().get(0);
 		private final Assignment cActionsAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cActionsActionParserRuleCall_3_0 = (RuleCall)cActionsAssignment_3.eContents().get(0);
-		private final Assignment cActionsAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cActionsActionParserRuleCall_4_0 = (RuleCall)cActionsAssignment_4.eContents().get(0);
+		private final Assignment cErrorsAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cErrorsSinkErrorParserRuleCall_4_0 = (RuleCall)cErrorsAssignment_4.eContents().get(0);
 		private final Assignment cTransitionsAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cTransitionsTransitionParserRuleCall_5_0 = (RuleCall)cTransitionsAssignment_5.eContents().get(0);
 		private final Assignment cTransitionsAssignment_6 = (Assignment)cGroup.eContents().get(6);
@@ -258,13 +266,13 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 		//State:
 		//	name=EString
 		//	'{'
-		//	errors+=SinkError*
 		//	actions+=Action actions+=Action*
+		//	errors+=SinkError*
 		//	transitions+=Transition transitions+=Transition*
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 
-		//name=EString '{' errors+=SinkError* actions+=Action actions+=Action* transitions+=Transition transitions+=Transition*
+		//name=EString '{' actions+=Action actions+=Action* errors+=SinkError* transitions+=Transition transitions+=Transition*
 		//'}'
 		public Group getGroup() { return cGroup; }
 
@@ -277,23 +285,23 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
 
-		//errors+=SinkError*
-		public Assignment getErrorsAssignment_2() { return cErrorsAssignment_2; }
-
-		//SinkError
-		public RuleCall getErrorsSinkErrorParserRuleCall_2_0() { return cErrorsSinkErrorParserRuleCall_2_0; }
-
 		//actions+=Action
+		public Assignment getActionsAssignment_2() { return cActionsAssignment_2; }
+
+		//Action
+		public RuleCall getActionsActionParserRuleCall_2_0() { return cActionsActionParserRuleCall_2_0; }
+
+		//actions+=Action*
 		public Assignment getActionsAssignment_3() { return cActionsAssignment_3; }
 
 		//Action
 		public RuleCall getActionsActionParserRuleCall_3_0() { return cActionsActionParserRuleCall_3_0; }
 
-		//actions+=Action*
-		public Assignment getActionsAssignment_4() { return cActionsAssignment_4; }
+		//errors+=SinkError*
+		public Assignment getErrorsAssignment_4() { return cErrorsAssignment_4; }
 
-		//Action
-		public RuleCall getActionsActionParserRuleCall_4_0() { return cActionsActionParserRuleCall_4_0; }
+		//SinkError
+		public RuleCall getErrorsSinkErrorParserRuleCall_4_0() { return cErrorsSinkErrorParserRuleCall_4_0; }
 
 		//transitions+=Transition
 		public Assignment getTransitionsAssignment_5() { return cTransitionsAssignment_5; }
@@ -317,15 +325,18 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cActuatorAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final CrossReference cActuatorActuatorCrossReference_0_0 = (CrossReference)cActuatorAssignment_0.eContents().get(0);
 		private final RuleCall cActuatorActuatorEStringParserRuleCall_0_0_1 = (RuleCall)cActuatorActuatorCrossReference_0_0.eContents().get(1);
-		private final Keyword cLessThanSignEqualsSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cValueSignalEnumRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
+		private final Assignment cValueAssignment_2_0 = (Assignment)cAlternatives_2.eContents().get(0);
+		private final RuleCall cValueSignalEnumRuleCall_2_0_0 = (RuleCall)cValueAssignment_2_0.eContents().get(0);
+		private final Assignment cAnalogvalueAssignment_2_1 = (Assignment)cAlternatives_2.eContents().get(1);
+		private final RuleCall cAnalogvalueEIntParserRuleCall_2_1_0 = (RuleCall)cAnalogvalueAssignment_2_1.eContents().get(0);
 		
 		//Action:
-		//	actuator=[Actuator|EString] '<=' value=Signal;
+		//	actuator=[Actuator|EString] '=' (value=Signal | analogvalue=EInt);
 		@Override public ParserRule getRule() { return rule; }
 
-		//actuator=[Actuator|EString] '<=' value=Signal
+		//actuator=[Actuator|EString] '=' (value=Signal | analogvalue=EInt)
 		public Group getGroup() { return cGroup; }
 
 		//actuator=[Actuator|EString]
@@ -337,14 +348,23 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 		//EString
 		public RuleCall getActuatorActuatorEStringParserRuleCall_0_0_1() { return cActuatorActuatorEStringParserRuleCall_0_0_1; }
 
-		//'<='
-		public Keyword getLessThanSignEqualsSignKeyword_1() { return cLessThanSignEqualsSignKeyword_1; }
+		//'='
+		public Keyword getEqualsSignKeyword_1() { return cEqualsSignKeyword_1; }
+
+		//(value=Signal | analogvalue=EInt)
+		public Alternatives getAlternatives_2() { return cAlternatives_2; }
 
 		//value=Signal
-		public Assignment getValueAssignment_2() { return cValueAssignment_2; }
+		public Assignment getValueAssignment_2_0() { return cValueAssignment_2_0; }
 
 		//Signal
-		public RuleCall getValueSignalEnumRuleCall_2_0() { return cValueSignalEnumRuleCall_2_0; }
+		public RuleCall getValueSignalEnumRuleCall_2_0_0() { return cValueSignalEnumRuleCall_2_0_0; }
+
+		//analogvalue=EInt
+		public Assignment getAnalogvalueAssignment_2_1() { return cAnalogvalueAssignment_2_1; }
+
+		//EInt
+		public RuleCall getAnalogvalueEIntParserRuleCall_2_1_0() { return cAnalogvalueEIntParserRuleCall_2_1_0; }
 	}
 
 	public class TransitionElements extends AbstractParserRuleElementFinder {
@@ -409,15 +429,19 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cSensorAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final CrossReference cSensorSensorCrossReference_0_0 = (CrossReference)cSensorAssignment_0.eContents().get(0);
 		private final RuleCall cSensorSensorEStringParserRuleCall_0_0_1 = (RuleCall)cSensorSensorCrossReference_0_0.eContents().get(1);
-		private final Keyword cIsKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cValueSignalEnumRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
+		private final Assignment cComparatorAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cComparatorComparatorEnumRuleCall_1_0 = (RuleCall)cComparatorAssignment_1.eContents().get(0);
+		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
+		private final Assignment cValueAssignment_2_0 = (Assignment)cAlternatives_2.eContents().get(0);
+		private final RuleCall cValueSignalEnumRuleCall_2_0_0 = (RuleCall)cValueAssignment_2_0.eContents().get(0);
+		private final Assignment cAnalogvalueAssignment_2_1 = (Assignment)cAlternatives_2.eContents().get(1);
+		private final RuleCall cAnalogvalueEIntParserRuleCall_2_1_0 = (RuleCall)cAnalogvalueAssignment_2_1.eContents().get(0);
 		
 		//BaseCondition:
-		//	sensor=[Sensor|EString] 'is' value=Signal;
+		//	sensor=[Sensor|EString] comparator=Comparator (value=Signal | analogvalue=EInt);
 		@Override public ParserRule getRule() { return rule; }
 
-		//sensor=[Sensor|EString] 'is' value=Signal
+		//sensor=[Sensor|EString] comparator=Comparator (value=Signal | analogvalue=EInt)
 		public Group getGroup() { return cGroup; }
 
 		//sensor=[Sensor|EString]
@@ -429,14 +453,26 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 		//EString
 		public RuleCall getSensorSensorEStringParserRuleCall_0_0_1() { return cSensorSensorEStringParserRuleCall_0_0_1; }
 
-		//'is'
-		public Keyword getIsKeyword_1() { return cIsKeyword_1; }
+		//comparator=Comparator
+		public Assignment getComparatorAssignment_1() { return cComparatorAssignment_1; }
+
+		//Comparator
+		public RuleCall getComparatorComparatorEnumRuleCall_1_0() { return cComparatorComparatorEnumRuleCall_1_0; }
+
+		//(value=Signal | analogvalue=EInt)
+		public Alternatives getAlternatives_2() { return cAlternatives_2; }
 
 		//value=Signal
-		public Assignment getValueAssignment_2() { return cValueAssignment_2; }
+		public Assignment getValueAssignment_2_0() { return cValueAssignment_2_0; }
 
 		//Signal
-		public RuleCall getValueSignalEnumRuleCall_2_0() { return cValueSignalEnumRuleCall_2_0; }
+		public RuleCall getValueSignalEnumRuleCall_2_0_0() { return cValueSignalEnumRuleCall_2_0_0; }
+
+		//analogvalue=EInt
+		public Assignment getAnalogvalueAssignment_2_1() { return cAnalogvalueAssignment_2_1; }
+
+		//EInt
+		public RuleCall getAnalogvalueEIntParserRuleCall_2_1_0() { return cAnalogvalueEIntParserRuleCall_2_1_0; }
 	}
 
 	public class BooleanConditionElements extends AbstractParserRuleElementFinder {
@@ -448,16 +484,20 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cSensorAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final CrossReference cSensorSensorCrossReference_2_0 = (CrossReference)cSensorAssignment_2.eContents().get(0);
 		private final RuleCall cSensorSensorEStringParserRuleCall_2_0_1 = (RuleCall)cSensorSensorCrossReference_2_0.eContents().get(1);
-		private final Keyword cIsKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cValueAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cValueSignalEnumRuleCall_4_0 = (RuleCall)cValueAssignment_4.eContents().get(0);
+		private final Assignment cComparatorAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cComparatorComparatorEnumRuleCall_3_0 = (RuleCall)cComparatorAssignment_3.eContents().get(0);
+		private final Alternatives cAlternatives_4 = (Alternatives)cGroup.eContents().get(4);
+		private final Assignment cValueAssignment_4_0 = (Assignment)cAlternatives_4.eContents().get(0);
+		private final RuleCall cValueSignalEnumRuleCall_4_0_0 = (RuleCall)cValueAssignment_4_0.eContents().get(0);
+		private final Assignment cAnalogvalueAssignment_4_1 = (Assignment)cAlternatives_4.eContents().get(1);
+		private final RuleCall cAnalogvalueEIntParserRuleCall_4_1_0 = (RuleCall)cAnalogvalueAssignment_4_1.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//BooleanCondition:
-		//	operator=Operator '(' sensor=[Sensor|EString] 'is' value=Signal ')';
+		//	operator=Operator '(' sensor=[Sensor|EString] comparator=Comparator (value=Signal | analogvalue=EInt) ')';
 		@Override public ParserRule getRule() { return rule; }
 
-		//operator=Operator '(' sensor=[Sensor|EString] 'is' value=Signal ')'
+		//operator=Operator '(' sensor=[Sensor|EString] comparator=Comparator (value=Signal | analogvalue=EInt) ')'
 		public Group getGroup() { return cGroup; }
 
 		//operator=Operator
@@ -478,14 +518,26 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 		//EString
 		public RuleCall getSensorSensorEStringParserRuleCall_2_0_1() { return cSensorSensorEStringParserRuleCall_2_0_1; }
 
-		//'is'
-		public Keyword getIsKeyword_3() { return cIsKeyword_3; }
+		//comparator=Comparator
+		public Assignment getComparatorAssignment_3() { return cComparatorAssignment_3; }
+
+		//Comparator
+		public RuleCall getComparatorComparatorEnumRuleCall_3_0() { return cComparatorComparatorEnumRuleCall_3_0; }
+
+		//(value=Signal | analogvalue=EInt)
+		public Alternatives getAlternatives_4() { return cAlternatives_4; }
 
 		//value=Signal
-		public Assignment getValueAssignment_4() { return cValueAssignment_4; }
+		public Assignment getValueAssignment_4_0() { return cValueAssignment_4_0; }
 
 		//Signal
-		public RuleCall getValueSignalEnumRuleCall_4_0() { return cValueSignalEnumRuleCall_4_0; }
+		public RuleCall getValueSignalEnumRuleCall_4_0_0() { return cValueSignalEnumRuleCall_4_0_0; }
+
+		//analogvalue=EInt
+		public Assignment getAnalogvalueAssignment_4_1() { return cAnalogvalueAssignment_4_1; }
+
+		//EInt
+		public RuleCall getAnalogvalueEIntParserRuleCall_4_1_0() { return cAnalogvalueEIntParserRuleCall_4_1_0; }
 
 		//')'
 		public Keyword getRightParenthesisKeyword_5() { return cRightParenthesisKeyword_5; }
@@ -604,6 +656,86 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 		//'OR'
 		public Keyword getORORKeyword_1_0() { return cORORKeyword_1_0; }
 	}
+
+	public class ComparatorElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "arduinoML.concretesyntax.ArduinoML.Comparator");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cSupEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cSupGreaterThanSignKeyword_0_0 = (Keyword)cSupEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cInfEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cInfLessThanSignKeyword_1_0 = (Keyword)cInfEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cEquEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cEquEqualsSignEqualsSignKeyword_2_0 = (Keyword)cEquEnumLiteralDeclaration_2.eContents().get(0);
+		private final EnumLiteralDeclaration cEsupEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
+		private final Keyword cEsupGreaterThanSignEqualsSignKeyword_3_0 = (Keyword)cEsupEnumLiteralDeclaration_3.eContents().get(0);
+		private final EnumLiteralDeclaration cEinfEnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
+		private final Keyword cEinfLessThanSignEqualsSignKeyword_4_0 = (Keyword)cEinfEnumLiteralDeclaration_4.eContents().get(0);
+		
+		//enum Comparator:
+		//	sup='>' | inf='<' | equ='==' | esup='>=' | einf='<=';
+		public EnumRule getRule() { return rule; }
+
+		//sup='>' | inf='<' | equ='==' | esup='>=' | einf='<='
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//sup='>'
+		public EnumLiteralDeclaration getSupEnumLiteralDeclaration_0() { return cSupEnumLiteralDeclaration_0; }
+
+		//'>'
+		public Keyword getSupGreaterThanSignKeyword_0_0() { return cSupGreaterThanSignKeyword_0_0; }
+
+		//inf='<'
+		public EnumLiteralDeclaration getInfEnumLiteralDeclaration_1() { return cInfEnumLiteralDeclaration_1; }
+
+		//'<'
+		public Keyword getInfLessThanSignKeyword_1_0() { return cInfLessThanSignKeyword_1_0; }
+
+		//equ='=='
+		public EnumLiteralDeclaration getEquEnumLiteralDeclaration_2() { return cEquEnumLiteralDeclaration_2; }
+
+		//'=='
+		public Keyword getEquEqualsSignEqualsSignKeyword_2_0() { return cEquEqualsSignEqualsSignKeyword_2_0; }
+
+		//esup='>='
+		public EnumLiteralDeclaration getEsupEnumLiteralDeclaration_3() { return cEsupEnumLiteralDeclaration_3; }
+
+		//'>='
+		public Keyword getEsupGreaterThanSignEqualsSignKeyword_3_0() { return cEsupGreaterThanSignEqualsSignKeyword_3_0; }
+
+		//einf='<='
+		public EnumLiteralDeclaration getEinfEnumLiteralDeclaration_4() { return cEinfEnumLiteralDeclaration_4; }
+
+		//'<='
+		public Keyword getEinfLessThanSignEqualsSignKeyword_4_0() { return cEinfLessThanSignEqualsSignKeyword_4_0; }
+	}
+
+	public class TypeElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "arduinoML.concretesyntax.ArduinoML.Type");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cAnalogEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cAnalogAnalogKeyword_0_0 = (Keyword)cAnalogEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cDigitalEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cDigitalDigitalKeyword_1_0 = (Keyword)cDigitalEnumLiteralDeclaration_1.eContents().get(0);
+		
+		//enum Type:
+		//	analog | digital;
+		public EnumRule getRule() { return rule; }
+
+		//analog | digital
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//analog
+		public EnumLiteralDeclaration getAnalogEnumLiteralDeclaration_0() { return cAnalogEnumLiteralDeclaration_0; }
+
+		//'analog'
+		public Keyword getAnalogAnalogKeyword_0_0() { return cAnalogAnalogKeyword_0_0; }
+
+		//digital
+		public EnumLiteralDeclaration getDigitalEnumLiteralDeclaration_1() { return cDigitalEnumLiteralDeclaration_1; }
+
+		//'digital'
+		public Keyword getDigitalDigitalKeyword_1_0() { return cDigitalDigitalKeyword_1_0; }
+	}
 	
 	private final AppElements pApp;
 	private final BrickElements pBrick;
@@ -619,6 +751,8 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 	private final SinkErrorElements pSinkError;
 	private final SignalElements eSignal;
 	private final OperatorElements eOperator;
+	private final ComparatorElements eComparator;
+	private final TypeElements eType;
 	
 	private final Grammar grammar;
 
@@ -643,6 +777,8 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 		this.pSinkError = new SinkErrorElements();
 		this.eSignal = new SignalElements();
 		this.eOperator = new OperatorElements();
+		this.eComparator = new ComparatorElements();
+		this.eType = new TypeElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -687,7 +823,7 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Brick:
-	//	(Sensor | Actuator) name=EString ':' pin=EInt;
+	//	(Sensor | Actuator) type=Type name=EString ':' pin=EInt;
 	public BrickElements getBrickAccess() {
 		return pBrick;
 	}
@@ -741,8 +877,8 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 	//State:
 	//	name=EString
 	//	'{'
-	//	errors+=SinkError*
 	//	actions+=Action actions+=Action*
+	//	errors+=SinkError*
 	//	transitions+=Transition transitions+=Transition*
 	//	'}';
 	public StateElements getStateAccess() {
@@ -754,7 +890,7 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Action:
-	//	actuator=[Actuator|EString] '<=' value=Signal;
+	//	actuator=[Actuator|EString] '=' (value=Signal | analogvalue=EInt);
 	public ActionElements getActionAccess() {
 		return pAction;
 	}
@@ -774,7 +910,7 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//BaseCondition:
-	//	sensor=[Sensor|EString] 'is' value=Signal;
+	//	sensor=[Sensor|EString] comparator=Comparator (value=Signal | analogvalue=EInt);
 	public BaseConditionElements getBaseConditionAccess() {
 		return pBaseCondition;
 	}
@@ -784,7 +920,7 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//BooleanCondition:
-	//	operator=Operator '(' sensor=[Sensor|EString] 'is' value=Signal ')';
+	//	operator=Operator '(' sensor=[Sensor|EString] comparator=Comparator (value=Signal | analogvalue=EInt) ')';
 	public BooleanConditionElements getBooleanConditionAccess() {
 		return pBooleanCondition;
 	}
@@ -822,6 +958,26 @@ public class ArduinoMLGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public EnumRule getOperatorRule() {
 		return getOperatorAccess().getRule();
+	}
+
+	//enum Comparator:
+	//	sup='>' | inf='<' | equ='==' | esup='>=' | einf='<=';
+	public ComparatorElements getComparatorAccess() {
+		return eComparator;
+	}
+	
+	public EnumRule getComparatorRule() {
+		return getComparatorAccess().getRule();
+	}
+
+	//enum Type:
+	//	analog | digital;
+	public TypeElements getTypeAccess() {
+		return eType;
+	}
+	
+	public EnumRule getTypeRule() {
+		return getTypeAccess().getRule();
 	}
 
 	//terminal ID:

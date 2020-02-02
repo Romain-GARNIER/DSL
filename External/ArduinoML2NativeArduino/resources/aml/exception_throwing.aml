@@ -1,15 +1,19 @@
-app Exception initial state off {
+app ExceptionThrowing initial state off {
     bricks 
-         Actuator led : 8
-         Sensor button1 : 12
-         Sensor button2 : 10
+         Actuator digital led : 8
+         Sensor digital button1 : 12
+         Sensor digital button2 : 10
      states 
          off {
-         	if(button1 is HIGH) AND (button2 is HIGH) => error 4
          	led <= LOW
+         	if(button1 == HIGH) AND (button2 == HIGH) => error 4
+         	if(button2 == HIGH) AND (button1 == HIGH) => error 4
+         	if(button1 == HIGH) AND (button2 == LOW) => on
          }
          on {
              led <= HIGH
-             if(button1 is HIGH) OR (button2 is HIGH) => off
+             if(button1 == HIGH) AND (button2 == HIGH) => error 2
+             if(button2 == HIGH) AND (button1 == HIGH) => error 2
+         	 if(button1 == HIGH) AND (button2 == LOW) => off
      }
 }

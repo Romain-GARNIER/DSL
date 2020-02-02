@@ -123,13 +123,22 @@ public interface ArduinoMLPackage extends EPackage {
 	int BRICK__PIN = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BRICK__TYPE = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Brick</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BRICK_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int BRICK_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Brick</em>' class.
@@ -167,6 +176,15 @@ public interface ArduinoMLPackage extends EPackage {
 	 * @ordered
 	 */
 	int ACTUATOR__PIN = BRICK__PIN;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTUATOR__TYPE = BRICK__TYPE;
 
 	/**
 	 * The number of structural features of the '<em>Actuator</em>' class.
@@ -213,6 +231,15 @@ public interface ArduinoMLPackage extends EPackage {
 	 * @ordered
 	 */
 	int SENSOR__PIN = BRICK__PIN;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENSOR__TYPE = BRICK__TYPE;
 
 	/**
 	 * The number of structural features of the '<em>Sensor</em>' class.
@@ -389,13 +416,22 @@ public interface ArduinoMLPackage extends EPackage {
 	int ACTION__ACTUATOR = 1;
 
 	/**
+	 * The feature id for the '<em><b>Analogvalue</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTION__ANALOGVALUE = 2;
+
+	/**
 	 * The number of structural features of the '<em>Action</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_FEATURE_COUNT = 2;
+	int ACTION_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Action</em>' class.
@@ -499,13 +535,31 @@ public interface ArduinoMLPackage extends EPackage {
 	int CONDITION__VALUE = 1;
 
 	/**
+	 * The feature id for the '<em><b>Analogvalue</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION__ANALOGVALUE = 2;
+
+	/**
+	 * The feature id for the '<em><b>Comparator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONDITION__COMPARATOR = 3;
+
+	/**
 	 * The number of structural features of the '<em>Condition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION_FEATURE_COUNT = 2;
+	int CONDITION_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Condition</em>' class.
@@ -543,6 +597,24 @@ public interface ArduinoMLPackage extends EPackage {
 	 * @ordered
 	 */
 	int BASE_CONDITION__VALUE = CONDITION__VALUE;
+
+	/**
+	 * The feature id for the '<em><b>Analogvalue</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BASE_CONDITION__ANALOGVALUE = CONDITION__ANALOGVALUE;
+
+	/**
+	 * The feature id for the '<em><b>Comparator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BASE_CONDITION__COMPARATOR = CONDITION__COMPARATOR;
 
 	/**
 	 * The number of structural features of the '<em>Base Condition</em>' class.
@@ -589,6 +661,24 @@ public interface ArduinoMLPackage extends EPackage {
 	 * @ordered
 	 */
 	int BOOLEAN_CONDITION__VALUE = CONDITION__VALUE;
+
+	/**
+	 * The feature id for the '<em><b>Analogvalue</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_CONDITION__ANALOGVALUE = CONDITION__ANALOGVALUE;
+
+	/**
+	 * The feature id for the '<em><b>Comparator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_CONDITION__COMPARATOR = CONDITION__COMPARATOR;
 
 	/**
 	 * The feature id for the '<em><b>Operator</b></em>' attribute.
@@ -704,6 +794,27 @@ public interface ArduinoMLPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link arduinoML.Comparator <em>Comparator</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see arduinoML.Comparator
+	 * @see arduinoML.impl.ArduinoMLPackageImpl#getComparator()
+	 * @generated
+	 */
+	int COMPARATOR = 14;
+
+	/**
+	 * The meta object id for the '{@link arduinoML.Type <em>Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see arduinoML.Type
+	 * @see arduinoML.impl.ArduinoMLPackageImpl#getType()
+	 * @generated
+	 */
+	int TYPE = 15;
+
+
+	/**
 	 * Returns the meta object for class '{@link arduinoML.Brick <em>Brick</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -723,6 +834,17 @@ public interface ArduinoMLPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getBrick_Pin();
+
+	/**
+	 * Returns the meta object for the attribute '{@link arduinoML.Brick#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see arduinoML.Brick#getType()
+	 * @see #getBrick()
+	 * @generated
+	 */
+	EAttribute getBrick_Type();
 
 	/**
 	 * Returns the meta object for class '{@link arduinoML.Actuator <em>Actuator</em>}'.
@@ -863,6 +985,17 @@ public interface ArduinoMLPackage extends EPackage {
 	EReference getAction_Actuator();
 
 	/**
+	 * Returns the meta object for the attribute '{@link arduinoML.Action#getAnalogvalue <em>Analogvalue</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Analogvalue</em>'.
+	 * @see arduinoML.Action#getAnalogvalue()
+	 * @see #getAction()
+	 * @generated
+	 */
+	EAttribute getAction_Analogvalue();
+
+	/**
 	 * Returns the meta object for class '{@link arduinoML.Transition <em>Transition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -970,6 +1103,28 @@ public interface ArduinoMLPackage extends EPackage {
 	EAttribute getCondition_Value();
 
 	/**
+	 * Returns the meta object for the attribute '{@link arduinoML.Condition#getAnalogvalue <em>Analogvalue</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Analogvalue</em>'.
+	 * @see arduinoML.Condition#getAnalogvalue()
+	 * @see #getCondition()
+	 * @generated
+	 */
+	EAttribute getCondition_Analogvalue();
+
+	/**
+	 * Returns the meta object for the attribute '{@link arduinoML.Condition#getComparator <em>Comparator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Comparator</em>'.
+	 * @see arduinoML.Condition#getComparator()
+	 * @see #getCondition()
+	 * @generated
+	 */
+	EAttribute getCondition_Comparator();
+
+	/**
 	 * Returns the meta object for class '{@link arduinoML.BaseCondition <em>Base Condition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1075,6 +1230,26 @@ public interface ArduinoMLPackage extends EPackage {
 	EEnum getOperator();
 
 	/**
+	 * Returns the meta object for enum '{@link arduinoML.Comparator <em>Comparator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Comparator</em>'.
+	 * @see arduinoML.Comparator
+	 * @generated
+	 */
+	EEnum getComparator();
+
+	/**
+	 * Returns the meta object for enum '{@link arduinoML.Type <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Type</em>'.
+	 * @see arduinoML.Type
+	 * @generated
+	 */
+	EEnum getType();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1114,6 +1289,14 @@ public interface ArduinoMLPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute BRICK__PIN = eINSTANCE.getBrick_Pin();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BRICK__TYPE = eINSTANCE.getBrick_Type();
 
 		/**
 		 * The meta object literal for the '{@link arduinoML.impl.ActuatorImpl <em>Actuator</em>}' class.
@@ -1230,6 +1413,14 @@ public interface ArduinoMLPackage extends EPackage {
 		EReference ACTION__ACTUATOR = eINSTANCE.getAction_Actuator();
 
 		/**
+		 * The meta object literal for the '<em><b>Analogvalue</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ACTION__ANALOGVALUE = eINSTANCE.getAction_Analogvalue();
+
+		/**
 		 * The meta object literal for the '{@link arduinoML.impl.TransitionImpl <em>Transition</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1314,6 +1505,22 @@ public interface ArduinoMLPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CONDITION__VALUE = eINSTANCE.getCondition_Value();
+
+		/**
+		 * The meta object literal for the '<em><b>Analogvalue</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONDITION__ANALOGVALUE = eINSTANCE.getCondition_Analogvalue();
+
+		/**
+		 * The meta object literal for the '<em><b>Comparator</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONDITION__COMPARATOR = eINSTANCE.getCondition_Comparator();
 
 		/**
 		 * The meta object literal for the '{@link arduinoML.impl.BaseConditionImpl <em>Base Condition</em>}' class.
@@ -1404,6 +1611,26 @@ public interface ArduinoMLPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum OPERATOR = eINSTANCE.getOperator();
+
+		/**
+		 * The meta object literal for the '{@link arduinoML.Comparator <em>Comparator</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see arduinoML.Comparator
+		 * @see arduinoML.impl.ArduinoMLPackageImpl#getComparator()
+		 * @generated
+		 */
+		EEnum COMPARATOR = eINSTANCE.getComparator();
+
+		/**
+		 * The meta object literal for the '{@link arduinoML.Type <em>Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see arduinoML.Type
+		 * @see arduinoML.impl.ArduinoMLPackageImpl#getType()
+		 * @generated
+		 */
+		EEnum TYPE = eINSTANCE.getType();
 
 	}
 

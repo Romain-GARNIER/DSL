@@ -13,15 +13,20 @@ void state_off() {
 	digitalWrite(8, LOW);
 	boolean guard = millis() - time > debounce;
 	if ((digitalRead(12) == HIGH) && (digitalRead(10) == HIGH) && guard ) {
-		time = millis(); state_on();
-	} else { state_off(); }
-} 
+		time = millis();
+		state_on();
+	}
+	else { state_off(); }
+}
+
 void state_on() {
 	digitalWrite(8, HIGH);
 	boolean guard = millis() - time > debounce;
 	if ((digitalRead(12) == LOW) || (digitalRead(10) == LOW) && guard ) {
-		time = millis(); state_off();
-	} else { state_on(); }
-} 
+		time = millis();
+		state_off();
+	}
+	else { state_on(); }
+}
 
 void loop() {state_off();} // Entering init state

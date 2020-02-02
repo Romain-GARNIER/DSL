@@ -154,10 +154,18 @@ public class ArduinoMLSwitchPrinter extends ArduinoMLSwitch<String> {
 	 */
 	public String caseAction(Action object) {
 		StringBuilder sb = new StringBuilder();
-		 sb.append("\tdigitalWrite("
-		 		+object.getActuator().getPin()
-		 		+", "+object.getValue().getLiteral()
-		 		+");\n");
+		if(object.getActuator().getType().getValue() == 0) {
+			sb.append("\tanalogWrite("
+			 		+object.getActuator().getPin()
+			 		+", "+object.getAnalogvalue()
+			 		+");\n");
+		}
+		else {
+			sb.append("\tdigitalWrite("
+			 		+object.getActuator().getPin()
+			 		+", "+object.getValue().getLiteral()
+			 		+");\n");
+		}
 		 return sb.toString();
 	}
 
@@ -174,15 +182,31 @@ public class ArduinoMLSwitchPrinter extends ArduinoMLSwitch<String> {
 	 */
 	public String caseTransition(Transition object) {
 		StringBuilder sb = new StringBuilder();
-		 sb.append("\tif ((digitalRead(" + object.getBasecondition().getSensor().getPin() + ") == " + object.getBasecondition().getValue() + ")");
+		if(object.getBasecondition().getSensor().getType().getValue() == 0) {
+			sb.append("\tif ((analogRead(" + object.getBasecondition().getSensor().getPin() + ") " + caseComparator(object.getBasecondition().getComparator()) + " "+ object.getBasecondition().getAnalogvalue() + ")");
+		}
+		else {
+			sb.append("\tif ((digitalRead(" + object.getBasecondition().getSensor().getPin() + ") " + caseComparator(object.getBasecondition().getComparator())+ " " + object.getBasecondition().getValue() + ")");
+		}
 		 if(object.getBooleancondition().size()>0) {
 			 for(BooleanCondition b : object.getBooleancondition()) {
-				 if(b.getOperator().getValue() == 1) {
-					 sb.append(" || (digitalRead(" + b.getSensor().getPin() + ") == " + b.getValue()+ ")");
+				 if(b.getSensor().getType().getValue() == 0) {
+					 if(b.getOperator().getValue() == 1) {
+						 sb.append(" || (analogRead(" + b.getSensor().getPin() + ") " + caseComparator(b.getComparator())+ " " + b.getAnalogvalue()+ ")");
+					 }
+					 else {
+						 sb.append(" && (analogRead(" + b.getSensor().getPin() + ") " +caseComparator(b.getComparator())+ " " + b.getAnalogvalue()+ ")");
+					 }
 				 }
 				 else {
-					 sb.append(" && (digitalRead(" + b.getSensor().getPin() + ") == " + b.getValue()+ ")");
+					 if(b.getOperator().getValue() == 1) {
+						 sb.append(" || (digitalRead(" + b.getSensor().getPin() + ") " + caseComparator(b.getComparator())+ " " + b.getValue()+ ")");
+					 }
+					 else {
+						 sb.append(" && (digitalRead(" + b.getSensor().getPin() + ") " +caseComparator(b.getComparator())+ " " + b.getValue()+ ")");
+					 }
 				 }
+				 
 			 }
 		 }
 		 sb.append( " && guard ) {\n"
@@ -237,6 +261,23 @@ public class ArduinoMLSwitchPrinter extends ArduinoMLSwitch<String> {
 		+ "\tdelay(1500);\n"
 		+ "\tsink_state(x);\n}");
 		return sb.toString();
+	}
+	
+	public String caseComparator(Comparator object) {
+		switch(object.getLiteral()) {
+			case "equ":
+				return "==";
+			case "inf":
+				return "<";
+			case "sup":
+				return ">";
+			case "esup":
+				return ">=";
+			case "einf":
+				return "<=";
+		}
+		return null;
+		
 	}
 
 } //ArduinoMLSwitch

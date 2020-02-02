@@ -94,6 +94,10 @@ public class ArduinoMLFactoryImpl extends EFactoryImpl implements ArduinoMLFacto
 				return createSignalFromString(eDataType, initialValue);
 			case ArduinoMLPackage.OPERATOR:
 				return createOperatorFromString(eDataType, initialValue);
+			case ArduinoMLPackage.COMPARATOR:
+				return createComparatorFromString(eDataType, initialValue);
+			case ArduinoMLPackage.TYPE:
+				return createTypeFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -111,6 +115,10 @@ public class ArduinoMLFactoryImpl extends EFactoryImpl implements ArduinoMLFacto
 				return convertSignalToString(eDataType, instanceValue);
 			case ArduinoMLPackage.OPERATOR:
 				return convertOperatorToString(eDataType, instanceValue);
+			case ArduinoMLPackage.COMPARATOR:
+				return convertComparatorToString(eDataType, instanceValue);
+			case ArduinoMLPackage.TYPE:
+				return convertTypeToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -252,6 +260,46 @@ public class ArduinoMLFactoryImpl extends EFactoryImpl implements ArduinoMLFacto
 	 * @generated
 	 */
 	public String convertOperatorToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Comparator createComparatorFromString(EDataType eDataType, String initialValue) {
+		Comparator result = Comparator.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertComparatorToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Type createTypeFromString(EDataType eDataType, String initialValue) {
+		Type result = Type.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

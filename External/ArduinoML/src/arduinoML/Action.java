@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link arduinoML.Action#getValue <em>Value</em>}</li>
  *   <li>{@link arduinoML.Action#getActuator <em>Actuator</em>}</li>
+ *   <li>{@link arduinoML.Action#getAnalogvalue <em>Analogvalue</em>}</li>
  * </ul>
  *
  * @see arduinoML.ArduinoMLPackage#getAction()
@@ -31,7 +32,7 @@ public interface Action extends EObject {
 	 * @see arduinoML.Signal
 	 * @see #setValue(Signal)
 	 * @see arduinoML.ArduinoMLPackage#getAction_Value()
-	 * @model required="true"
+	 * @model
 	 * @generated
 	 */
 	Signal getValue();
@@ -68,5 +69,27 @@ public interface Action extends EObject {
 	 * @generated
 	 */
 	void setActuator(Actuator value);
+
+	/**
+	 * Returns the value of the '<em><b>Analogvalue</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Analogvalue</em>' attribute.
+	 * @see #setAnalogvalue(int)
+	 * @see arduinoML.ArduinoMLPackage#getAction_Analogvalue()
+	 * @model
+	 * @generated
+	 */
+	int getAnalogvalue();
+
+	/**
+	 * Sets the value of the '{@link arduinoML.Action#getAnalogvalue <em>Analogvalue</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Analogvalue</em>' attribute.
+	 * @see #getAnalogvalue()
+	 * @generated
+	 */
+	void setAnalogvalue(int value);
 
 } // Action

@@ -15,6 +15,8 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link arduinoML.Condition#getSensor <em>Sensor</em>}</li>
  *   <li>{@link arduinoML.Condition#getValue <em>Value</em>}</li>
+ *   <li>{@link arduinoML.Condition#getAnalogvalue <em>Analogvalue</em>}</li>
+ *   <li>{@link arduinoML.Condition#getComparator <em>Comparator</em>}</li>
  * </ul>
  *
  * @see arduinoML.ArduinoMLPackage#getCondition()
@@ -53,7 +55,7 @@ public interface Condition extends EObject {
 	 * @see arduinoML.Signal
 	 * @see #setValue(Signal)
 	 * @see arduinoML.ArduinoMLPackage#getCondition_Value()
-	 * @model required="true"
+	 * @model
 	 * @generated
 	 */
 	Signal getValue();
@@ -68,5 +70,52 @@ public interface Condition extends EObject {
 	 * @generated
 	 */
 	void setValue(Signal value);
+
+	/**
+	 * Returns the value of the '<em><b>Analogvalue</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Analogvalue</em>' attribute.
+	 * @see #setAnalogvalue(int)
+	 * @see arduinoML.ArduinoMLPackage#getCondition_Analogvalue()
+	 * @model
+	 * @generated
+	 */
+	int getAnalogvalue();
+
+	/**
+	 * Sets the value of the '{@link arduinoML.Condition#getAnalogvalue <em>Analogvalue</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Analogvalue</em>' attribute.
+	 * @see #getAnalogvalue()
+	 * @generated
+	 */
+	void setAnalogvalue(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Comparator</b></em>' attribute.
+	 * The literals are from the enumeration {@link arduinoML.Comparator}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Comparator</em>' attribute.
+	 * @see arduinoML.Comparator
+	 * @see #setComparator(Comparator)
+	 * @see arduinoML.ArduinoMLPackage#getCondition_Comparator()
+	 * @model required="true"
+	 * @generated
+	 */
+	Comparator getComparator();
+
+	/**
+	 * Sets the value of the '{@link arduinoML.Condition#getComparator <em>Comparator</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Comparator</em>' attribute.
+	 * @see arduinoML.Comparator
+	 * @see #getComparator()
+	 * @generated
+	 */
+	void setComparator(Comparator value);
 
 } // Condition
