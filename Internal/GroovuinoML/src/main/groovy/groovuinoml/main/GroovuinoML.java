@@ -1,8 +1,8 @@
-package groovuinoml.main;
+package main.groovy.groovuinoml.main;
 
 import java.io.File;
 
-import groovuinoml.dsl.GroovuinoMLDSL;
+import main.groovy.groovuinoml.dsl.GroovuinoMLDSL;
 
 /**
  * This main takes one argument: the path to the Groovy script file to execute.

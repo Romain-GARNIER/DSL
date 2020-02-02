@@ -4,6 +4,8 @@ import io.github.mosser.arduinoml.kernel.App;
 import io.github.mosser.arduinoml.kernel.behavioral.*;
 import io.github.mosser.arduinoml.kernel.structural.*;
 
+import java.lang.Exception;
+
 /**
  * Quick and dirty visitor to support the generation of Wiring code
  */
@@ -17,6 +19,10 @@ public class ToWiring extends Visitor<StringBuffer> {
 
 	private void w(String s) {
 		result.append(String.format("%s\n",s));
+	}
+
+	private void wline(String s) {
+		result.append(String.format("%s",s));
 	}
 
 	@Override
@@ -41,6 +47,8 @@ public class ToWiring extends Visitor<StringBuffer> {
 			w(String.format("  state_%s();", app.getInitial().getName()));
 			w("}");
 		}
+
+		printErrorState();
 	}
 
 	@Override
@@ -61,8 +69,12 @@ public class ToWiring extends Visitor<StringBuffer> {
 			action.accept(this);
 		}
 
+		w("  boolean guard = millis() - time > debounce;");
+		for(SinkError sinkError : state.getSinkError()){
+			sinkError.accept(this);
+		}
+
 		if (state.getTransition() != null) {
-			w("  boolean guard = millis() - time > debounce;");
 			context.put(CURRENT_STATE, state);
 			state.getTransition().accept(this);
 			w("}\n");
@@ -72,8 +84,19 @@ public class ToWiring extends Visitor<StringBuffer> {
 
 	@Override
 	public void visit(Transition transition) {
-		w(String.format("  if( digitalRead(%d) == %s && guard ) {",
-				transition.getSensor().getPin(),transition.getValue()));
+		wline(String.format("  if( digitalRead(%d) == %s",
+				transition.getCondition().getSensor().getPin(),transition.getCondition().getValue()));
+		if(transition.getBooleanConditions().size() > 0){
+			for(BooleanCondition b : transition.getBooleanConditions()) {
+				if(b.getOperator() == Operator.AND) {
+					wline(String.format(" && digitalRead(%d) == %s",b.getSensor().getPin(),b.getValue()));
+				}
+				else {
+					wline(String.format(" || digitalRead(%d) == %s",b.getSensor().getPin(),b.getValue()));
+				}
+			}
+		}
+		w(" && guard ) {");
 		w("    time = millis();");
 		w(String.format("    state_%s();",transition.getNext().getName()));
 		w("  } else {");
@@ -86,4 +109,36 @@ public class ToWiring extends Visitor<StringBuffer> {
 		w(String.format("  digitalWrite(%d,%s);",action.getActuator().getPin(),action.getValue()));
 	}
 
+	@Override
+	public void visit(SinkError sinkError) {
+		wline(String.format("  if( digitalRead(%d) == %s",
+				sinkError.getCondition().getSensor().getPin(),sinkError.getCondition().getValue()));
+		if(sinkError.getBooleanConditions().size() > 0){
+			for(BooleanCondition b : sinkError.getBooleanConditions()) {
+				if(b.getOperator() == Operator.AND) {
+					wline(String.format(" && digitalRead(%d) == %s",b.getSensor().getPin(),b.getValue()));
+				}
+				else {
+					wline(String.format(" || digitalRead(%d) == %s",b.getSensor().getPin(),b.getValue()));
+				}
+			}
+		}
+		w(" && guard ) {");
+		w("    time = millis();");
+		w(String.format("    state_error(%d);",sinkError.getValue()));
+		w("  }");
+	}
+
+	void printErrorState(){
+		w("void state_error(int x) {");
+		w("	for(int i = 0; i < x; i++){");
+		w("		digitalWrite(13, HIGH);");
+		w("		delay(800);");
+		w("		digitalWrite(13, LOW);");
+		w("		delay(800);");
+		w("	}");
+		w("	delay(1500);");
+		w("	state_error(x);");
+		w("}");
+	}
 }

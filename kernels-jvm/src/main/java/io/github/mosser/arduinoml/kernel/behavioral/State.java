@@ -12,6 +12,7 @@ public class State implements NamedElement, Visitable {
 	private String name;
 	private List<Action> actions = new ArrayList<Action>();
 	private Transition transition;
+	private List<SinkError> sinkErrors = new ArrayList<>();
 
 	@Override
 	public String getName() {
@@ -37,6 +38,18 @@ public class State implements NamedElement, Visitable {
 
 	public void setTransition(Transition transition) {
 		this.transition = transition;
+	}
+
+	public List<SinkError> getSinkError() {
+		return sinkErrors;
+	}
+
+	public void setSinkError(List<SinkError> sinkErrors) {
+		this.sinkErrors = sinkErrors;
+	}
+
+	public void addSinkError(SinkError sinkError){
+		this.sinkErrors.add(sinkError);
 	}
 
 	@Override

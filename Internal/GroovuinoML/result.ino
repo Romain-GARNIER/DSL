@@ -2,82 +2,54 @@
 // Application name: Switch!
 
 void setup(){
-  pinMode(8, INPUT);  // button [Sensor]
-  pinMode(12, OUTPUT); // led [Actuator]
-  pinMode(13, OUTPUT); // buzzer [Actuator]
+  pinMode(12, INPUT);  // button_1 [Sensor]
+  pinMode(10, INPUT);  // button_2 [Sensor]
+  pinMode(8, OUTPUT); // led [Actuator]
 }
 
 long time = 0; long debounce = 200;
 
-void state_off_l() {
-  digitalWrite(12,LOW);
+void state_on() {
+  digitalWrite(8,HIGH);
   boolean guard = millis() - time > debounce;
-  if( digitalRead(8) == HIGH && guard ) {
+  if( digitalRead(12) == HIGH && digitalRead(10) == HIGH && guard ) {
     time = millis();
-    state_buzzer_on_h();
+    state_error(4);
+  }
+  if( digitalRead(10) == HIGH && guard ) {
+    time = millis();
+    state_off();
   } else {
-    state_off_l();
+    state_on();
   }
 }
 
-void state_off_h() {
-  digitalWrite(12,LOW);
+void state_off() {
+  digitalWrite(8,LOW);
   boolean guard = millis() - time > debounce;
-  if( digitalRead(8) == LOW && guard ) {
+  if( digitalRead(12) == HIGH && digitalRead(10) == HIGH && guard ) {
     time = millis();
-    state_off_l();
-  } else {
-    state_off_h();
+    state_error(3);
   }
-}
-
-void state_buzzer_on_l() {
-  digitalWrite(13,HIGH);
-  boolean guard = millis() - time > debounce;
-  if( digitalRead(8) == HIGH && guard ) {
+  if( digitalRead(12) == HIGH && guard ) {
     time = millis();
-    state_led_on_h();
+    state_on();
   } else {
-    state_buzzer_on_l();
-  }
-}
-
-void state_buzzer_on_h() {
-  digitalWrite(13,HIGH);
-  boolean guard = millis() - time > debounce;
-  if( digitalRead(8) == LOW && guard ) {
-    time = millis();
-    state_buzzer_on_l();
-  } else {
-    state_buzzer_on_h();
-  }
-}
-
-void state_led_on_l() {
-  digitalWrite(13,LOW);
-  digitalWrite(12,HIGH);
-  boolean guard = millis() - time > debounce;
-  if( digitalRead(8) == HIGH && guard ) {
-    time = millis();
-    state_off_h();
-  } else {
-    state_led_on_l();
-  }
-}
-
-void state_led_on_h() {
-  digitalWrite(13,LOW);
-  digitalWrite(12,HIGH);
-  boolean guard = millis() - time > debounce;
-  if( digitalRead(8) == LOW && guard ) {
-    time = millis();
-    state_led_on_l();
-  } else {
-    state_led_on_h();
+    state_off();
   }
 }
 
 void loop() {
-  state_off_l();
+  state_off();
+}
+void state_error(int x) {
+	for(int i = 0; i < x; i++){
+		digitalWrite(13, HIGH);
+		delay(800);
+		digitalWrite(13, LOW);
+		delay(800);
+	}
+	delay(1500);
+	state_error(x);
 }
 
