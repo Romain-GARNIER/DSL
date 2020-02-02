@@ -1,10 +1,11 @@
-package groovuinoml.dsl;
+package main.groovy.groovuinoml.dsl;
 
 import java.util.*;
 
 import groovy.lang.Binding;
 import io.github.mosser.arduinoml.kernel.App;
 import io.github.mosser.arduinoml.kernel.behavioral.Action;
+import io.github.mosser.arduinoml.kernel.behavioral.SinkError;
 import io.github.mosser.arduinoml.kernel.behavioral.State;
 import io.github.mosser.arduinoml.kernel.behavioral.Transition;
 import io.github.mosser.arduinoml.kernel.generator.ToWiring;
@@ -55,6 +56,10 @@ public class GroovuinoMLModel {
 
 	public void setBooleanConditionToTransition(Transition transition, BooleanCondition condition){
 		transition.addBooleanCondition(condition);
+	}
+
+	public void createSinkError(State state, SinkError error){
+		state.addSinkError(error);
 	}
 	
 	public void setInitialState(State state) {

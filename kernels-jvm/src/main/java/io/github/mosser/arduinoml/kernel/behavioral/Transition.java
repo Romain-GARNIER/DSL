@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class Transition implements Visitable {
 	private State next;
 	private Condition condition;
-	private ArrayList<BooleanCondition> booleanConditions;
+	private ArrayList<BooleanCondition> booleanConditions = new ArrayList<>();
 
 	public State getNext() {
 		return next;
