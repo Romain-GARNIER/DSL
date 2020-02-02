@@ -19,6 +19,10 @@ public class ToWiring extends Visitor<StringBuffer> {
 		result.append(String.format("%s\n",s));
 	}
 
+	private void wline(String s) {
+		result.append(String.format("%s",s));
+	}
+
 	@Override
 	public void visit(App app) {
 		w("// Wiring code generated from an ArduinoML model");
@@ -72,8 +76,19 @@ public class ToWiring extends Visitor<StringBuffer> {
 
 	@Override
 	public void visit(Transition transition) {
-		w(String.format("  if( digitalRead(%d) == %s && guard ) {",
-				transition.getSensor().getPin(),transition.getValue()));
+		wline(String.format("  if( digitalRead(%d) == %s",
+				transition.getCondition().getSensor().getPin(),transition.getCondition().getValue()));
+//		if(transition.getBooleanConditions().size() > 0){
+//			for(BooleanCondition b : transition.getBooleanConditions()) {
+//				if(b.getOperator() == Operator.AND) {
+//					wline(String.format(" && digitalRead(%d) == %s",b.getSensor().getPin(),b.getValue()));
+//				}
+//				else {
+//					wline(String.format(" || digitalRead(%d) == %s",b.getSensor().getPin(),b.getValue()));
+//				}
+//			}
+//		}
+		w(" && guard ) {");
 		w("    time = millis();");
 		w(String.format("    state_%s();",transition.getNext().getName()));
 		w("  } else {");

@@ -1,6 +1,6 @@
 package io.github.mosser.arduinoml.kernel.structural;
 
-public enum SIGNAL {
-	HIGH,
-	LOW
+public enum Operator {
+    AND,
+    OR
 }

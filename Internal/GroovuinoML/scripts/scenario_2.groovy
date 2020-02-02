@@ -7,7 +7,7 @@ state "off" means led becomes low
 
 initial "off"
 
-from "off" to "on" when "button_1" becomes "high" and "button_2" becomes "high"
-from "on" to "off" when "button" becomes "low" or "button_2" becomes "high"
+from "off" to "on" when "button_1" becomes "high"
+from "on" to "off" when "button" becomes "low"
 
 export "Switch!"

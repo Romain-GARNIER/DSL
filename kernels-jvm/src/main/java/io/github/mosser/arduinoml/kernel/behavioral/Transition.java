@@ -4,12 +4,12 @@ import io.github.mosser.arduinoml.kernel.generator.Visitable;
 import io.github.mosser.arduinoml.kernel.generator.Visitor;
 import io.github.mosser.arduinoml.kernel.structural.*;
 
+import java.util.ArrayList;
+
 public class Transition implements Visitable {
-
 	private State next;
-	private Sensor sensor;
-	private SIGNAL value;
-
+	private Condition condition;
+	private ArrayList<BooleanCondition> booleanConditions;
 
 	public State getNext() {
 		return next;
@@ -19,20 +19,24 @@ public class Transition implements Visitable {
 		this.next = next;
 	}
 
-	public Sensor getSensor() {
-		return sensor;
+	public Condition getCondition() {
+		return condition;
 	}
 
-	public void setSensor(Sensor sensor) {
-		this.sensor = sensor;
+	public void setCondition(Condition condition) {
+		this.condition = condition;
 	}
 
-	public SIGNAL getValue() {
-		return value;
+	public ArrayList<BooleanCondition> getBooleanConditions() {
+		return booleanConditions;
 	}
 
-	public void setValue(SIGNAL value) {
-		this.value = value;
+	public void setBooleanConditions(ArrayList<BooleanCondition> booleanConditions) {
+		this.booleanConditions = booleanConditions;
+	}
+
+	public void addBooleanCondition(BooleanCondition condition){
+		booleanConditions.add(condition);
 	}
 
 	@Override
