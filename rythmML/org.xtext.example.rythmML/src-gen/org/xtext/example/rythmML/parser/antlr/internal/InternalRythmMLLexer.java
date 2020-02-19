@@ -28,7 +28,10 @@ public class InternalRythmMLLexer extends Lexer {
     public static final int RULE_WS=9;
     public static final int RULE_ANY_OTHER=10;
     public static final int RULE_INT=5;
+    public static final int T__22=22;
     public static final int RULE_ML_COMMENT=7;
+    public static final int T__23=23;
+    public static final int T__24=24;
     public static final int T__20=20;
     public static final int T__21=21;
 
@@ -173,10 +176,10 @@ public class InternalRythmMLLexer extends Lexer {
         try {
             int _type = T__17;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalRythmML.g:17:7: ( 'Bar' )
-            // InternalRythmML.g:17:9: 'Bar'
+            // InternalRythmML.g:17:7: ( 'sequences' )
+            // InternalRythmML.g:17:9: 'sequences'
             {
-            match("Bar"); 
+            match("sequences"); 
 
 
             }
@@ -194,10 +197,10 @@ public class InternalRythmMLLexer extends Lexer {
         try {
             int _type = T__18;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalRythmML.g:18:7: ( 'beats' )
-            // InternalRythmML.g:18:9: 'beats'
+            // InternalRythmML.g:18:7: ( 'Sequence' )
+            // InternalRythmML.g:18:9: 'Sequence'
             {
-            match("beats"); 
+            match("Sequence"); 
 
 
             }
@@ -215,10 +218,10 @@ public class InternalRythmMLLexer extends Lexer {
         try {
             int _type = T__19;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalRythmML.g:19:7: ( 'Beat' )
-            // InternalRythmML.g:19:9: 'Beat'
+            // InternalRythmML.g:19:7: ( 'bars' )
+            // InternalRythmML.g:19:9: 'bars'
             {
-            match("Beat"); 
+            match("bars"); 
 
 
             }
@@ -236,10 +239,10 @@ public class InternalRythmMLLexer extends Lexer {
         try {
             int _type = T__20;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalRythmML.g:20:7: ( 'ticks' )
-            // InternalRythmML.g:20:9: 'ticks'
+            // InternalRythmML.g:20:7: ( 'Bar' )
+            // InternalRythmML.g:20:9: 'Bar'
             {
-            match("ticks"); 
+            match("Bar"); 
 
 
             }
@@ -257,10 +260,10 @@ public class InternalRythmMLLexer extends Lexer {
         try {
             int _type = T__21;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalRythmML.g:21:7: ( 'Tick' )
-            // InternalRythmML.g:21:9: 'Tick'
+            // InternalRythmML.g:21:7: ( 'beats' )
+            // InternalRythmML.g:21:9: 'beats'
             {
-            match("Tick"); 
+            match("beats"); 
 
 
             }
@@ -273,15 +276,78 @@ public class InternalRythmMLLexer extends Lexer {
     }
     // $ANTLR end "T__21"
 
+    // $ANTLR start "T__22"
+    public final void mT__22() throws RecognitionException {
+        try {
+            int _type = T__22;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalRythmML.g:22:7: ( 'Beat' )
+            // InternalRythmML.g:22:9: 'Beat'
+            {
+            match("Beat"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__22"
+
+    // $ANTLR start "T__23"
+    public final void mT__23() throws RecognitionException {
+        try {
+            int _type = T__23;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalRythmML.g:23:7: ( 'ticks' )
+            // InternalRythmML.g:23:9: 'ticks'
+            {
+            match("ticks"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__23"
+
+    // $ANTLR start "T__24"
+    public final void mT__24() throws RecognitionException {
+        try {
+            int _type = T__24;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalRythmML.g:24:7: ( 'Tick' )
+            // InternalRythmML.g:24:9: 'Tick'
+            {
+            match("Tick"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__24"
+
     // $ANTLR start "RULE_ID"
     public final void mRULE_ID() throws RecognitionException {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalRythmML.g:379:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // InternalRythmML.g:379:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalRythmML.g:522:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // InternalRythmML.g:522:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // InternalRythmML.g:379:11: ( '^' )?
+            // InternalRythmML.g:522:11: ( '^' )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -290,7 +356,7 @@ public class InternalRythmMLLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // InternalRythmML.g:379:11: '^'
+                    // InternalRythmML.g:522:11: '^'
                     {
                     match('^'); 
 
@@ -308,7 +374,7 @@ public class InternalRythmMLLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalRythmML.g:379:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalRythmML.g:522:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop2:
             do {
                 int alt2=2;
@@ -357,10 +423,10 @@ public class InternalRythmMLLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalRythmML.g:381:10: ( ( '0' .. '9' )+ )
-            // InternalRythmML.g:381:12: ( '0' .. '9' )+
+            // InternalRythmML.g:524:10: ( ( '0' .. '9' )+ )
+            // InternalRythmML.g:524:12: ( '0' .. '9' )+
             {
-            // InternalRythmML.g:381:12: ( '0' .. '9' )+
+            // InternalRythmML.g:524:12: ( '0' .. '9' )+
             int cnt3=0;
             loop3:
             do {
@@ -374,7 +440,7 @@ public class InternalRythmMLLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // InternalRythmML.g:381:13: '0' .. '9'
+            	    // InternalRythmML.g:524:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -406,10 +472,10 @@ public class InternalRythmMLLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalRythmML.g:383:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // InternalRythmML.g:383:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalRythmML.g:526:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // InternalRythmML.g:526:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // InternalRythmML.g:383:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalRythmML.g:526:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -427,10 +493,10 @@ public class InternalRythmMLLexer extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // InternalRythmML.g:383:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // InternalRythmML.g:526:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // InternalRythmML.g:383:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // InternalRythmML.g:526:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop4:
                     do {
                         int alt4=3;
@@ -446,7 +512,7 @@ public class InternalRythmMLLexer extends Lexer {
 
                         switch (alt4) {
                     	case 1 :
-                    	    // InternalRythmML.g:383:21: '\\\\' .
+                    	    // InternalRythmML.g:526:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -454,7 +520,7 @@ public class InternalRythmMLLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalRythmML.g:383:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // InternalRythmML.g:526:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -479,10 +545,10 @@ public class InternalRythmMLLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalRythmML.g:383:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // InternalRythmML.g:526:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // InternalRythmML.g:383:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // InternalRythmML.g:526:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop5:
                     do {
                         int alt5=3;
@@ -498,7 +564,7 @@ public class InternalRythmMLLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // InternalRythmML.g:383:54: '\\\\' .
+                    	    // InternalRythmML.g:526:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -506,7 +572,7 @@ public class InternalRythmMLLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalRythmML.g:383:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // InternalRythmML.g:526:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -549,12 +615,12 @@ public class InternalRythmMLLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalRythmML.g:385:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // InternalRythmML.g:385:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // InternalRythmML.g:528:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // InternalRythmML.g:528:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // InternalRythmML.g:385:24: ( options {greedy=false; } : . )*
+            // InternalRythmML.g:528:24: ( options {greedy=false; } : . )*
             loop7:
             do {
                 int alt7=2;
@@ -579,7 +645,7 @@ public class InternalRythmMLLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // InternalRythmML.g:385:52: .
+            	    // InternalRythmML.g:528:52: .
             	    {
             	    matchAny(); 
 
@@ -609,12 +675,12 @@ public class InternalRythmMLLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalRythmML.g:387:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // InternalRythmML.g:387:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalRythmML.g:530:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalRythmML.g:530:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // InternalRythmML.g:387:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // InternalRythmML.g:530:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop8:
             do {
                 int alt8=2;
@@ -627,7 +693,7 @@ public class InternalRythmMLLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // InternalRythmML.g:387:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalRythmML.g:530:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -647,7 +713,7 @@ public class InternalRythmMLLexer extends Lexer {
                 }
             } while (true);
 
-            // InternalRythmML.g:387:40: ( ( '\\r' )? '\\n' )?
+            // InternalRythmML.g:530:40: ( ( '\\r' )? '\\n' )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -656,9 +722,9 @@ public class InternalRythmMLLexer extends Lexer {
             }
             switch (alt10) {
                 case 1 :
-                    // InternalRythmML.g:387:41: ( '\\r' )? '\\n'
+                    // InternalRythmML.g:530:41: ( '\\r' )? '\\n'
                     {
-                    // InternalRythmML.g:387:41: ( '\\r' )?
+                    // InternalRythmML.g:530:41: ( '\\r' )?
                     int alt9=2;
                     int LA9_0 = input.LA(1);
 
@@ -667,7 +733,7 @@ public class InternalRythmMLLexer extends Lexer {
                     }
                     switch (alt9) {
                         case 1 :
-                            // InternalRythmML.g:387:41: '\\r'
+                            // InternalRythmML.g:530:41: '\\r'
                             {
                             match('\r'); 
 
@@ -699,10 +765,10 @@ public class InternalRythmMLLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalRythmML.g:389:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // InternalRythmML.g:389:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalRythmML.g:532:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalRythmML.g:532:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // InternalRythmML.g:389:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalRythmML.g:532:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt11=0;
             loop11:
             do {
@@ -756,8 +822,8 @@ public class InternalRythmMLLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalRythmML.g:391:16: ( . )
-            // InternalRythmML.g:391:18: .
+            // InternalRythmML.g:534:16: ( . )
+            // InternalRythmML.g:534:18: .
             {
             matchAny(); 
 
@@ -772,8 +838,8 @@ public class InternalRythmMLLexer extends Lexer {
     // $ANTLR end "RULE_ANY_OTHER"
 
     public void mTokens() throws RecognitionException {
-        // InternalRythmML.g:1:8: ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
-        int alt12=18;
+        // InternalRythmML.g:1:8: ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
+        int alt12=21;
         alt12 = dfa12.predict(input);
         switch (alt12) {
             case 1 :
@@ -854,49 +920,70 @@ public class InternalRythmMLLexer extends Lexer {
                 }
                 break;
             case 12 :
-                // InternalRythmML.g:1:76: RULE_ID
+                // InternalRythmML.g:1:76: T__22
+                {
+                mT__22(); 
+
+                }
+                break;
+            case 13 :
+                // InternalRythmML.g:1:82: T__23
+                {
+                mT__23(); 
+
+                }
+                break;
+            case 14 :
+                // InternalRythmML.g:1:88: T__24
+                {
+                mT__24(); 
+
+                }
+                break;
+            case 15 :
+                // InternalRythmML.g:1:94: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
-            case 13 :
-                // InternalRythmML.g:1:84: RULE_INT
+            case 16 :
+                // InternalRythmML.g:1:102: RULE_INT
                 {
                 mRULE_INT(); 
 
                 }
                 break;
-            case 14 :
-                // InternalRythmML.g:1:93: RULE_STRING
+            case 17 :
+                // InternalRythmML.g:1:111: RULE_STRING
                 {
                 mRULE_STRING(); 
 
                 }
                 break;
-            case 15 :
-                // InternalRythmML.g:1:105: RULE_ML_COMMENT
+            case 18 :
+                // InternalRythmML.g:1:123: RULE_ML_COMMENT
                 {
                 mRULE_ML_COMMENT(); 
 
                 }
                 break;
-            case 16 :
-                // InternalRythmML.g:1:121: RULE_SL_COMMENT
+            case 19 :
+                // InternalRythmML.g:1:139: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
-            case 17 :
-                // InternalRythmML.g:1:137: RULE_WS
+            case 20 :
+                // InternalRythmML.g:1:155: RULE_WS
                 {
                 mRULE_WS(); 
 
                 }
                 break;
-            case 18 :
-                // InternalRythmML.g:1:145: RULE_ANY_OTHER
+            case 21 :
+                // InternalRythmML.g:1:163: RULE_ANY_OTHER
                 {
                 mRULE_ANY_OTHER(); 
 
@@ -910,52 +997,44 @@ public class InternalRythmMLLexer extends Lexer {
 
     protected DFA12 dfa12 = new DFA12(this);
     static final String DFA12_eotS =
-        "\1\uffff\1\22\1\uffff\1\22\2\uffff\3\22\1\20\2\uffff\3\20\2\uffff\1\22\2\uffff\2\22\2\uffff\5\22\5\uffff\5\22\1\57\2\22\1\62\3\22\1\66\1\uffff\1\67\1\22\1\uffff\1\22\1\72\1\73\2\uffff\1\74\1\75\4\uffff";
+        "\1\uffff\1\24\1\uffff\1\24\2\uffff\4\24\1\21\2\uffff\3\21\2\uffff\2\24\2\uffff\2\24\2\uffff\7\24\5\uffff\11\24\1\72\1\24\1\74\4\24\1\101\1\24\1\103\1\24\1\uffff\1\105\1\uffff\2\24\1\110\1\111\1\uffff\1\24\1\uffff\1\113\1\uffff\1\24\1\115\2\uffff\1\24\1\uffff\1\24\1\uffff\1\24\1\121\1\24\1\uffff\1\123\1\uffff";
     static final String DFA12_eofS =
-        "\76\uffff";
+        "\124\uffff";
     static final String DFA12_minS =
-        "\1\0\1\157\1\uffff\1\151\2\uffff\1\151\1\141\1\145\1\101\2\uffff\2\0\1\52\2\uffff\1\156\2\uffff\1\141\1\143\2\uffff\1\141\1\143\1\162\2\141\5\uffff\1\147\1\143\1\153\1\143\1\153\1\60\2\164\1\60\1\153\1\163\1\153\1\60\1\uffff\1\60\1\163\1\uffff\1\163\2\60\2\uffff\2\60\4\uffff";
+        "\1\0\1\145\1\uffff\1\151\2\uffff\1\151\1\145\2\141\1\101\2\uffff\2\0\1\52\2\uffff\1\156\1\161\2\uffff\1\141\1\143\2\uffff\1\141\1\143\1\161\1\162\1\141\1\162\1\141\5\uffff\1\147\1\165\1\143\1\153\1\143\1\153\1\165\1\163\1\164\1\60\1\164\1\60\1\145\1\153\1\163\1\153\1\60\1\145\1\60\1\163\1\uffff\1\60\1\uffff\1\156\1\163\2\60\1\uffff\1\156\1\uffff\1\60\1\uffff\1\143\1\60\2\uffff\1\143\1\uffff\1\145\1\uffff\1\145\1\60\1\163\1\uffff\1\60\1\uffff";
     static final String DFA12_maxS =
-        "\1\uffff\1\157\1\uffff\1\162\2\uffff\1\162\2\145\1\172\2\uffff\2\uffff\1\57\2\uffff\1\156\2\uffff\1\141\1\143\2\uffff\1\141\1\143\1\162\2\141\5\uffff\1\147\1\143\1\153\1\143\1\153\1\172\2\164\1\172\1\153\1\163\1\153\1\172\1\uffff\1\172\1\163\1\uffff\1\163\2\172\2\uffff\2\172\4\uffff";
+        "\1\uffff\1\157\1\uffff\1\162\2\uffff\1\162\3\145\1\172\2\uffff\2\uffff\1\57\2\uffff\1\156\1\161\2\uffff\1\141\1\143\2\uffff\1\141\1\143\1\161\1\162\1\141\1\162\1\141\5\uffff\1\147\1\165\1\143\1\153\1\143\1\153\1\165\1\163\1\164\1\172\1\164\1\172\1\145\1\153\1\163\1\153\1\172\1\145\1\172\1\163\1\uffff\1\172\1\uffff\1\156\1\163\2\172\1\uffff\1\156\1\uffff\1\172\1\uffff\1\143\1\172\2\uffff\1\143\1\uffff\1\145\1\uffff\1\145\1\172\1\163\1\uffff\1\172\1\uffff";
     static final String DFA12_acceptS =
-        "\2\uffff\1\2\1\uffff\1\4\1\5\4\uffff\1\14\1\15\3\uffff\1\21\1\22\1\uffff\1\14\1\2\2\uffff\1\4\1\5\5\uffff\1\15\1\16\1\17\1\20\1\21\15\uffff\1\7\2\uffff\1\1\3\uffff\1\13\1\11\2\uffff\1\12\1\6\1\10\1\3";
+        "\2\uffff\1\2\1\uffff\1\4\1\5\5\uffff\1\17\1\20\3\uffff\1\24\1\25\2\uffff\1\17\1\2\2\uffff\1\4\1\5\7\uffff\1\20\1\21\1\22\1\23\1\24\24\uffff\1\12\1\uffff\1\1\4\uffff\1\16\1\uffff\1\11\1\uffff\1\14\2\uffff\1\15\1\6\1\uffff\1\13\1\uffff\1\3\3\uffff\1\10\1\uffff\1\7";
     static final String DFA12_specialS =
-        "\1\0\13\uffff\1\1\1\2\60\uffff}>";
+        "\1\1\14\uffff\1\0\1\2\105\uffff}>";
     static final String[] DFA12_transitionS = DFA12_transitionS_.DFA12_transitionS;
     private static final class DFA12_transitionS_ {
         static final String[] DFA12_transitionS = {
-                "\11\20\2\17\2\20\1\17\22\20\1\17\1\20\1\14\4\20\1\15\4\20\1\4\2\20\1\16\12\13\7\20\1\12\1\7\20\12\1\1\1\6\6\12\3\20\1\11\1\12\1\20\1\12\1\10\21\12\1\3\6\12\1\2\1\20\1\5\uff82\20",
-                "\1\21",
+                "\11\21\2\20\2\21\1\20\22\21\1\20\1\21\1\15\4\21\1\16\4\21\1\4\2\21\1\17\12\14\7\21\1\13\1\11\20\13\1\1\1\6\6\13\3\21\1\12\1\13\1\21\1\13\1\10\20\13\1\7\1\3\6\13\1\2\1\21\1\5\uff82\21",
+                "\1\23\11\uffff\1\22",
                 "",
-                "\1\25\10\uffff\1\24",
+                "\1\27\10\uffff\1\26",
                 "",
                 "",
-                "\1\31\10\uffff\1\30",
-                "\1\32\3\uffff\1\33",
+                "\1\33\10\uffff\1\32",
                 "\1\34",
-                "\32\22\4\uffff\1\22\1\uffff\32\22",
+                "\1\35\3\uffff\1\36",
+                "\1\37\3\uffff\1\40",
+                "\32\24\4\uffff\1\24\1\uffff\32\24",
                 "",
                 "",
-                "\0\36",
-                "\0\36",
-                "\1\37\4\uffff\1\40",
+                "\0\42",
+                "\0\42",
+                "\1\43\4\uffff\1\44",
                 "",
                 "",
-                "\1\42",
-                "",
-                "",
-                "\1\43",
-                "\1\44",
-                "",
-                "",
-                "\1\45",
                 "\1\46",
                 "\1\47",
+                "",
+                "",
                 "\1\50",
                 "\1\51",
-                "",
-                "",
-                "",
                 "",
                 "",
                 "\1\52",
@@ -963,28 +1042,58 @@ public class InternalRythmMLLexer extends Lexer {
                 "\1\54",
                 "\1\55",
                 "\1\56",
-                "\12\22\7\uffff\32\22\4\uffff\1\22\1\uffff\32\22",
+                "\1\57",
                 "\1\60",
+                "",
+                "",
+                "",
+                "",
+                "",
                 "\1\61",
-                "\12\22\7\uffff\32\22\4\uffff\1\22\1\uffff\32\22",
+                "\1\62",
                 "\1\63",
                 "\1\64",
                 "\1\65",
-                "\12\22\7\uffff\32\22\4\uffff\1\22\1\uffff\32\22",
-                "",
-                "\12\22\7\uffff\32\22\4\uffff\1\22\1\uffff\32\22",
+                "\1\66",
+                "\1\67",
                 "\1\70",
-                "",
                 "\1\71",
-                "\12\22\7\uffff\32\22\4\uffff\1\22\1\uffff\32\22",
-                "\12\22\7\uffff\32\22\4\uffff\1\22\1\uffff\32\22",
+                "\12\24\7\uffff\32\24\4\uffff\1\24\1\uffff\32\24",
+                "\1\73",
+                "\12\24\7\uffff\32\24\4\uffff\1\24\1\uffff\32\24",
+                "\1\75",
+                "\1\76",
+                "\1\77",
+                "\1\100",
+                "\12\24\7\uffff\32\24\4\uffff\1\24\1\uffff\32\24",
+                "\1\102",
+                "\12\24\7\uffff\32\24\4\uffff\1\24\1\uffff\32\24",
+                "\1\104",
+                "",
+                "\12\24\7\uffff\32\24\4\uffff\1\24\1\uffff\32\24",
+                "",
+                "\1\106",
+                "\1\107",
+                "\12\24\7\uffff\32\24\4\uffff\1\24\1\uffff\32\24",
+                "\12\24\7\uffff\32\24\4\uffff\1\24\1\uffff\32\24",
+                "",
+                "\1\112",
+                "",
+                "\12\24\7\uffff\32\24\4\uffff\1\24\1\uffff\32\24",
+                "",
+                "\1\114",
+                "\12\24\7\uffff\32\24\4\uffff\1\24\1\uffff\32\24",
                 "",
                 "",
-                "\12\22\7\uffff\32\22\4\uffff\1\22\1\uffff\32\22",
-                "\12\22\7\uffff\32\22\4\uffff\1\22\1\uffff\32\22",
+                "\1\116",
                 "",
+                "\1\117",
                 "",
+                "\1\120",
+                "\12\24\7\uffff\32\24\4\uffff\1\24\1\uffff\32\24",
+                "\1\122",
                 "",
+                "\12\24\7\uffff\32\24\4\uffff\1\24\1\uffff\32\24",
                 ""
         };
     }
@@ -1019,13 +1128,23 @@ public class InternalRythmMLLexer extends Lexer {
             this.transition = DFA12_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
+            return "1:1: Tokens : ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             IntStream input = _input;
         	int _s = s;
             switch ( s ) {
                     case 0 : 
+                        int LA12_13 = input.LA(1);
+
+                        s = -1;
+                        if ( ((LA12_13>='\u0000' && LA12_13<='\uFFFF')) ) {s = 34;}
+
+                        else s = 17;
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 1 : 
                         int LA12_0 = input.LA(1);
 
                         s = -1;
@@ -1041,45 +1160,37 @@ public class InternalRythmMLLexer extends Lexer {
 
                         else if ( (LA12_0=='T') ) {s = 6;}
 
-                        else if ( (LA12_0=='B') ) {s = 7;}
+                        else if ( (LA12_0=='s') ) {s = 7;}
 
                         else if ( (LA12_0=='b') ) {s = 8;}
 
-                        else if ( (LA12_0=='^') ) {s = 9;}
+                        else if ( (LA12_0=='B') ) {s = 9;}
 
-                        else if ( (LA12_0=='A'||(LA12_0>='C' && LA12_0<='R')||(LA12_0>='U' && LA12_0<='Z')||LA12_0=='_'||LA12_0=='a'||(LA12_0>='c' && LA12_0<='s')||(LA12_0>='u' && LA12_0<='z')) ) {s = 10;}
+                        else if ( (LA12_0=='^') ) {s = 10;}
 
-                        else if ( ((LA12_0>='0' && LA12_0<='9')) ) {s = 11;}
+                        else if ( (LA12_0=='A'||(LA12_0>='C' && LA12_0<='R')||(LA12_0>='U' && LA12_0<='Z')||LA12_0=='_'||LA12_0=='a'||(LA12_0>='c' && LA12_0<='r')||(LA12_0>='u' && LA12_0<='z')) ) {s = 11;}
 
-                        else if ( (LA12_0=='\"') ) {s = 12;}
+                        else if ( ((LA12_0>='0' && LA12_0<='9')) ) {s = 12;}
 
-                        else if ( (LA12_0=='\'') ) {s = 13;}
+                        else if ( (LA12_0=='\"') ) {s = 13;}
 
-                        else if ( (LA12_0=='/') ) {s = 14;}
+                        else if ( (LA12_0=='\'') ) {s = 14;}
 
-                        else if ( ((LA12_0>='\t' && LA12_0<='\n')||LA12_0=='\r'||LA12_0==' ') ) {s = 15;}
+                        else if ( (LA12_0=='/') ) {s = 15;}
 
-                        else if ( ((LA12_0>='\u0000' && LA12_0<='\b')||(LA12_0>='\u000B' && LA12_0<='\f')||(LA12_0>='\u000E' && LA12_0<='\u001F')||LA12_0=='!'||(LA12_0>='#' && LA12_0<='&')||(LA12_0>='(' && LA12_0<='+')||(LA12_0>='-' && LA12_0<='.')||(LA12_0>=':' && LA12_0<='@')||(LA12_0>='[' && LA12_0<=']')||LA12_0=='`'||LA12_0=='|'||(LA12_0>='~' && LA12_0<='\uFFFF')) ) {s = 16;}
+                        else if ( ((LA12_0>='\t' && LA12_0<='\n')||LA12_0=='\r'||LA12_0==' ') ) {s = 16;}
 
-                        if ( s>=0 ) return s;
-                        break;
-                    case 1 : 
-                        int LA12_12 = input.LA(1);
-
-                        s = -1;
-                        if ( ((LA12_12>='\u0000' && LA12_12<='\uFFFF')) ) {s = 30;}
-
-                        else s = 16;
+                        else if ( ((LA12_0>='\u0000' && LA12_0<='\b')||(LA12_0>='\u000B' && LA12_0<='\f')||(LA12_0>='\u000E' && LA12_0<='\u001F')||LA12_0=='!'||(LA12_0>='#' && LA12_0<='&')||(LA12_0>='(' && LA12_0<='+')||(LA12_0>='-' && LA12_0<='.')||(LA12_0>=':' && LA12_0<='@')||(LA12_0>='[' && LA12_0<=']')||LA12_0=='`'||LA12_0=='|'||(LA12_0>='~' && LA12_0<='\uFFFF')) ) {s = 17;}
 
                         if ( s>=0 ) return s;
                         break;
                     case 2 : 
-                        int LA12_13 = input.LA(1);
+                        int LA12_14 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA12_13>='\u0000' && LA12_13<='\uFFFF')) ) {s = 30;}
+                        if ( ((LA12_14>='\u0000' && LA12_14<='\uFFFF')) ) {s = 34;}
 
-                        else s = 16;
+                        else s = 17;
 
                         if ( s>=0 ) return s;
                         break;

@@ -70,8 +70,6 @@ public class RythmMLSwitch<T> extends Switch<T> {
 			Song song = (Song) theEObject;
 			T result = caseSong(song);
 			if (result == null)
-				result = caseNamedElement(song);
-			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
@@ -117,18 +115,9 @@ public class RythmMLSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case RythmMLPackage.NAMED_ELEMENT: {
-			NamedElement namedElement = (NamedElement) theEObject;
-			T result = caseNamedElement(namedElement);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case RythmMLPackage.INSTRUMENT: {
-			Instrument instrument = (Instrument) theEObject;
-			T result = caseInstrument(instrument);
-			if (result == null)
-				result = caseNamedElement(instrument);
+		case RythmMLPackage.NEW_ECLASS8: {
+			NewEClass8 newEClass8 = (NewEClass8) theEObject;
+			T result = caseNewEClass8(newEClass8);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -244,32 +233,17 @@ public class RythmMLSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Named Element</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>New EClass8</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Named Element</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>New EClass8</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseNamedElement(NamedElement object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Instrument</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Instrument</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseInstrument(Instrument object) {
+	public T caseNewEClass8(NewEClass8 object) {
 		return null;
 	}
 

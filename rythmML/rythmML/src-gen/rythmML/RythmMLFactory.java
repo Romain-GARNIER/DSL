@@ -85,15 +85,6 @@ public interface RythmMLFactory extends EFactory {
 	Note createNote();
 
 	/**
-	 * Returns a new object of class '<em>Instrument</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Instrument</em>'.
-	 * @generated
-	 */
-	Instrument createInstrument();
-
-	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

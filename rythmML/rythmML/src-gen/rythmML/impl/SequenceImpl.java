@@ -4,7 +4,6 @@ package rythmML.impl;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -12,7 +11,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -31,7 +29,6 @@ import rythmML.Sequence;
  * </p>
  * <ul>
  *   <li>{@link rythmML.impl.SequenceImpl#getBars <em>Bars</em>}</li>
- *   <li>{@link rythmML.impl.SequenceImpl#getId <em>Id</em>}</li>
  * </ul>
  *
  * @generated
@@ -46,25 +43,6 @@ public class SequenceImpl extends MinimalEObjectImpl.Container implements Sequen
 	 * @ordered
 	 */
 	protected EList<Bar> bars;
-
-	/**
-	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getId()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int ID_EDEFAULT = 0;
-	/**
-	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getId()
-	 * @generated
-	 * @ordered
-	 */
-	protected int id = ID_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -104,29 +82,6 @@ public class SequenceImpl extends MinimalEObjectImpl.Container implements Sequen
 	 * @generated
 	 */
 	@Override
-	public int getId() {
-		return id;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setId(int newId) {
-		int oldId = id;
-		id = newId;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RythmMLPackage.SEQUENCE__ID, oldId, id));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case RythmMLPackage.SEQUENCE__BARS:
@@ -145,8 +100,6 @@ public class SequenceImpl extends MinimalEObjectImpl.Container implements Sequen
 		switch (featureID) {
 		case RythmMLPackage.SEQUENCE__BARS:
 			return getBars();
-		case RythmMLPackage.SEQUENCE__ID:
-			return getId();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -164,9 +117,6 @@ public class SequenceImpl extends MinimalEObjectImpl.Container implements Sequen
 			getBars().clear();
 			getBars().addAll((Collection<? extends Bar>) newValue);
 			return;
-		case RythmMLPackage.SEQUENCE__ID:
-			setId((Integer) newValue);
-			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -182,9 +132,6 @@ public class SequenceImpl extends MinimalEObjectImpl.Container implements Sequen
 		case RythmMLPackage.SEQUENCE__BARS:
 			getBars().clear();
 			return;
-		case RythmMLPackage.SEQUENCE__ID:
-			setId(ID_EDEFAULT);
-			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -199,27 +146,8 @@ public class SequenceImpl extends MinimalEObjectImpl.Container implements Sequen
 		switch (featureID) {
 		case RythmMLPackage.SEQUENCE__BARS:
 			return bars != null && !bars.isEmpty();
-		case RythmMLPackage.SEQUENCE__ID:
-			return id != ID_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy())
-			return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (id: ");
-		result.append(id);
-		result.append(')');
-		return result.toString();
 	}
 
 } //SequenceImpl

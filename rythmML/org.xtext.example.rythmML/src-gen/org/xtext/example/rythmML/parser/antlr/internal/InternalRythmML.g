@@ -162,14 +162,157 @@ ruleTrack returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-	otherlv_0='Track' 
+(	otherlv_0='Track' 
     {
-    	newLeafNode(otherlv_0, grammarAccess.getTrackAccess().getTrackKeyword());
+    	newLeafNode(otherlv_0, grammarAccess.getTrackAccess().getTrackKeyword_0());
     }
+	otherlv_1='{' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getTrackAccess().getLeftCurlyBracketKeyword_1());
+    }
+	otherlv_2='sequences' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getTrackAccess().getSequencesKeyword_2());
+    }
+	otherlv_3='{' 
+    {
+    	newLeafNode(otherlv_3, grammarAccess.getTrackAccess().getLeftCurlyBracketKeyword_3());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getTrackAccess().getSequencesSequenceParserRuleCall_4_0()); 
+	    }
+		lv_sequences_4_0=ruleSequence		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getTrackRule());
+	        }
+       		add(
+       			$current, 
+       			"sequences",
+        		lv_sequences_4_0, 
+        		"org.xtext.example.rythmML.RythmML.Sequence");
+	        afterParserOrEnumRuleCall();
+	    }
 
+)
+)(	otherlv_5=',' 
+    {
+    	newLeafNode(otherlv_5, grammarAccess.getTrackAccess().getCommaKeyword_5_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getTrackAccess().getSequencesSequenceParserRuleCall_5_1_0()); 
+	    }
+		lv_sequences_6_0=ruleSequence		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getTrackRule());
+	        }
+       		add(
+       			$current, 
+       			"sequences",
+        		lv_sequences_6_0, 
+        		"org.xtext.example.rythmML.RythmML.Sequence");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))*	otherlv_7='}' 
+    {
+    	newLeafNode(otherlv_7, grammarAccess.getTrackAccess().getRightCurlyBracketKeyword_6());
+    }
+	otherlv_8='}' 
+    {
+    	newLeafNode(otherlv_8, grammarAccess.getTrackAccess().getRightCurlyBracketKeyword_7());
+    }
+)
 ;
 
 
+
+
+
+// Entry rule entryRuleSequence
+entryRuleSequence returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getSequenceRule()); }
+	 iv_ruleSequence=ruleSequence 
+	 { $current=$iv_ruleSequence.current; } 
+	 EOF 
+;
+
+// Rule Sequence
+ruleSequence returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(	otherlv_0='Sequence' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getSequenceAccess().getSequenceKeyword_0());
+    }
+	otherlv_1='{' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getSequenceAccess().getLeftCurlyBracketKeyword_1());
+    }
+	otherlv_2='bars' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getSequenceAccess().getBarsKeyword_2());
+    }
+	otherlv_3='{' 
+    {
+    	newLeafNode(otherlv_3, grammarAccess.getSequenceAccess().getLeftCurlyBracketKeyword_3());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getSequenceAccess().getBarsBarParserRuleCall_4_0()); 
+	    }
+		lv_bars_4_0=ruleBar		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getSequenceRule());
+	        }
+       		add(
+       			$current, 
+       			"bars",
+        		lv_bars_4_0, 
+        		"org.xtext.example.rythmML.RythmML.Bar");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)(	otherlv_5=',' 
+    {
+    	newLeafNode(otherlv_5, grammarAccess.getSequenceAccess().getCommaKeyword_5_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getSequenceAccess().getBarsBarParserRuleCall_5_1_0()); 
+	    }
+		lv_bars_6_0=ruleBar		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getSequenceRule());
+	        }
+       		add(
+       			$current, 
+       			"bars",
+        		lv_bars_6_0, 
+        		"org.xtext.example.rythmML.RythmML.Bar");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))*	otherlv_7='}' 
+    {
+    	newLeafNode(otherlv_7, grammarAccess.getSequenceAccess().getRightCurlyBracketKeyword_6());
+    }
+	otherlv_8='}' 
+    {
+    	newLeafNode(otherlv_8, grammarAccess.getSequenceAccess().getRightCurlyBracketKeyword_7());
+    }
+)
+;
 
 
 

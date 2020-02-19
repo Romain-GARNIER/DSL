@@ -16,7 +16,10 @@ Song returns Song:
 
 
 Track returns Track:
-	'Track';
+	'Track'
+	'{'
+		'sequences' '{' sequences+=Sequence ( "," sequences+=Sequence)* '}' 
+	'}';
 
 Sequence returns Sequence:
 	'Sequence'

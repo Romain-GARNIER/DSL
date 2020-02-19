@@ -83,14 +83,65 @@ public class RythmMLGrammarAccess extends AbstractGrammarElementFinder {
 
 	public class TrackElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.rythmML.RythmML.Track");
-		private final Keyword cTrackKeyword = (Keyword)rule.eContents().get(1);
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cTrackKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cSequencesKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cSequencesAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cSequencesSequenceParserRuleCall_4_0 = (RuleCall)cSequencesAssignment_4.eContents().get(0);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cCommaKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cSequencesAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cSequencesSequenceParserRuleCall_5_1_0 = (RuleCall)cSequencesAssignment_5_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//Track:
-		//	'Track';
+		//	'Track'
+		//	'{'
+		//	'sequences' '{' sequences+=Sequence ("," sequences+=Sequence)* '}'
+		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 
+		//'Track' '{' 'sequences' '{' sequences+=Sequence ("," sequences+=Sequence)* '}' '}'
+		public Group getGroup() { return cGroup; }
+
 		//'Track'
-		public Keyword getTrackKeyword() { return cTrackKeyword; }
+		public Keyword getTrackKeyword_0() { return cTrackKeyword_0; }
+
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
+
+		//'sequences'
+		public Keyword getSequencesKeyword_2() { return cSequencesKeyword_2; }
+
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
+
+		//sequences+=Sequence
+		public Assignment getSequencesAssignment_4() { return cSequencesAssignment_4; }
+
+		//Sequence
+		public RuleCall getSequencesSequenceParserRuleCall_4_0() { return cSequencesSequenceParserRuleCall_4_0; }
+
+		//("," sequences+=Sequence)*
+		public Group getGroup_5() { return cGroup_5; }
+
+		//","
+		public Keyword getCommaKeyword_5_0() { return cCommaKeyword_5_0; }
+
+		//sequences+=Sequence
+		public Assignment getSequencesAssignment_5_1() { return cSequencesAssignment_5_1; }
+
+		//Sequence
+		public RuleCall getSequencesSequenceParserRuleCall_5_1_0() { return cSequencesSequenceParserRuleCall_5_1_0; }
+
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
+
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
 	}
 
 	public class SequenceElements extends AbstractParserRuleElementFinder {
@@ -369,7 +420,10 @@ public class RythmMLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Track:
-	//	'Track';
+	//	'Track'
+	//	'{'
+	//	'sequences' '{' sequences+=Sequence ("," sequences+=Sequence)* '}'
+	//	'}';
 	public TrackElements getTrackAccess() {
 		return pTrack;
 	}

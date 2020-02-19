@@ -39,6 +39,8 @@ public class RythmMLParser extends AbstractContentAssistParser {
 				{
 					put(grammarAccess.getSongAccess().getGroup(), "rule__Song__Group__0");
 					put(grammarAccess.getSongAccess().getGroup_5(), "rule__Song__Group_5__0");
+					put(grammarAccess.getTrackAccess().getGroup(), "rule__Track__Group__0");
+					put(grammarAccess.getTrackAccess().getGroup_5(), "rule__Track__Group_5__0");
 					put(grammarAccess.getSequenceAccess().getGroup(), "rule__Sequence__Group__0");
 					put(grammarAccess.getSequenceAccess().getGroup_5(), "rule__Sequence__Group_5__0");
 					put(grammarAccess.getBarAccess().getGroup(), "rule__Bar__Group__0");
@@ -48,6 +50,8 @@ public class RythmMLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTickAccess().getGroup(), "rule__Tick__Group__0");
 					put(grammarAccess.getSongAccess().getTracksAssignment_4(), "rule__Song__TracksAssignment_4");
 					put(grammarAccess.getSongAccess().getTracksAssignment_5_1(), "rule__Song__TracksAssignment_5_1");
+					put(grammarAccess.getTrackAccess().getSequencesAssignment_4(), "rule__Track__SequencesAssignment_4");
+					put(grammarAccess.getTrackAccess().getSequencesAssignment_5_1(), "rule__Track__SequencesAssignment_5_1");
 					put(grammarAccess.getSequenceAccess().getBarsAssignment_4(), "rule__Sequence__BarsAssignment_4");
 					put(grammarAccess.getSequenceAccess().getBarsAssignment_5_1(), "rule__Sequence__BarsAssignment_5_1");
 					put(grammarAccess.getBarAccess().getBeatsAssignment_4(), "rule__Bar__BeatsAssignment_4");

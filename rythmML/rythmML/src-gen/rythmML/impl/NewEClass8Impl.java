@@ -4,23 +4,25 @@ package rythmML.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
-import rythmML.Instrument;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import rythmML.NewEClass8;
 import rythmML.RythmMLPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Instrument</b></em>'.
+ * An implementation of the model object '<em><b>New EClass8</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class InstrumentImpl extends NamedElementImpl implements Instrument {
+public abstract class NewEClass8Impl extends MinimalEObjectImpl.Container implements NewEClass8 {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected InstrumentImpl() {
+	protected NewEClass8Impl() {
 		super();
 	}
 
@@ -31,7 +33,7 @@ public class InstrumentImpl extends NamedElementImpl implements Instrument {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return RythmMLPackage.Literals.INSTRUMENT;
+		return RythmMLPackage.Literals.NEW_ECLASS8;
 	}
 
-} //InstrumentImpl
+} //NewEClass8Impl

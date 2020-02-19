@@ -19,6 +19,7 @@ import rythmML.RythmMLPackage;
 import rythmML.Sequence;
 import rythmML.Song;
 import rythmML.Tick;
+import rythmML.Track;
 
 @SuppressWarnings("all")
 public abstract class AbstractRythmMLSemanticSequencer extends AbstractDelegatingSemanticSequencer {
@@ -48,6 +49,9 @@ public abstract class AbstractRythmMLSemanticSequencer extends AbstractDelegatin
 				return; 
 			case RythmMLPackage.TICK:
 				sequence_Tick(context, (Tick) semanticObject); 
+				return; 
+			case RythmMLPackage.TRACK:
+				sequence_Track(context, (Track) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -110,6 +114,18 @@ public abstract class AbstractRythmMLSemanticSequencer extends AbstractDelegatin
 	 *     {Tick}
 	 */
 	protected void sequence_Tick(ISerializationContext context, Tick semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Track returns Track
+	 *
+	 * Constraint:
+	 *     (sequences+=Sequence sequences+=Sequence*)
+	 */
+	protected void sequence_Track(ISerializationContext context, Track semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

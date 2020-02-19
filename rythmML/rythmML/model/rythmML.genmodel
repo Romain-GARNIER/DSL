@@ -11,20 +11,21 @@
   <genPackages prefix="RythmML" disposableProviderFactory="true" ecorePackage="rythmML.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="rythmML.ecore#//NoteValue">
       <genEnumLiterals ecoreEnumLiteral="rythmML.ecore#//NoteValue/DO"/>
-      <genEnumLiterals ecoreEnumLiteral="rythmML.ecore#//NoteValue/DOd"/>
+      <genEnumLiterals ecoreEnumLiteral="rythmML.ecore#//NoteValue/DO%23"/>
       <genEnumLiterals ecoreEnumLiteral="rythmML.ecore#//NoteValue/RE"/>
-      <genEnumLiterals ecoreEnumLiteral="rythmML.ecore#//NoteValue/REd"/>
+      <genEnumLiterals ecoreEnumLiteral="rythmML.ecore#//NoteValue/RE%23"/>
       <genEnumLiterals ecoreEnumLiteral="rythmML.ecore#//NoteValue/MI"/>
       <genEnumLiterals ecoreEnumLiteral="rythmML.ecore#//NoteValue/FA"/>
-      <genEnumLiterals ecoreEnumLiteral="rythmML.ecore#//NoteValue/FAd"/>
+      <genEnumLiterals ecoreEnumLiteral="rythmML.ecore#//NoteValue/FA%23"/>
       <genEnumLiterals ecoreEnumLiteral="rythmML.ecore#//NoteValue/SOL"/>
-      <genEnumLiterals ecoreEnumLiteral="rythmML.ecore#//NoteValue/SOLd"/>
+      <genEnumLiterals ecoreEnumLiteral="rythmML.ecore#//NoteValue/SOL%23"/>
       <genEnumLiterals ecoreEnumLiteral="rythmML.ecore#//NoteValue/LA"/>
-      <genEnumLiterals ecoreEnumLiteral="rythmML.ecore#//NoteValue/LAd"/>
+      <genEnumLiterals ecoreEnumLiteral="rythmML.ecore#//NoteValue/LA%23"/>
       <genEnumLiterals ecoreEnumLiteral="rythmML.ecore#//NoteValue/SI"/>
     </genEnums>
     <genClasses ecoreClass="rythmML.ecore#//Song">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rythmML.ecore#//Song/tracks"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rythmML.ecore#//Song/sequences"/>
     </genClasses>
     <genClasses ecoreClass="rythmML.ecore#//Track">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rythmML.ecore#//Track/sequences"/>

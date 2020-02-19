@@ -10,6 +10,9 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -30,7 +33,7 @@ import rythmML.Track;
  *
  * @generated
  */
-public class SongImpl extends NamedElementImpl implements Song {
+public class SongImpl extends MinimalEObjectImpl.Container implements Song {
 	/**
 	 * The cached value of the '{@link #getTracks() <em>Tracks</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
