@@ -9,28 +9,52 @@
   <foreignModel>rythmML.ecore</foreignModel>
   <testsDirectory xsi:nil="true"/>
   <genPackages prefix="RythmML" disposableProviderFactory="true" ecorePackage="rythmML.ecore#/">
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="rythmML.ecore#//Value"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="rythmML.ecore#//NoteValue">
+      <genEnumLiterals ecoreEnumLiteral="rythmML.ecore#//NoteValue/DO"/>
+      <genEnumLiterals ecoreEnumLiteral="rythmML.ecore#//NoteValue/DOd"/>
+      <genEnumLiterals ecoreEnumLiteral="rythmML.ecore#//NoteValue/RE"/>
+      <genEnumLiterals ecoreEnumLiteral="rythmML.ecore#//NoteValue/REd"/>
+      <genEnumLiterals ecoreEnumLiteral="rythmML.ecore#//NoteValue/MI"/>
+      <genEnumLiterals ecoreEnumLiteral="rythmML.ecore#//NoteValue/FA"/>
+      <genEnumLiterals ecoreEnumLiteral="rythmML.ecore#//NoteValue/FAd"/>
+      <genEnumLiterals ecoreEnumLiteral="rythmML.ecore#//NoteValue/SOL"/>
+      <genEnumLiterals ecoreEnumLiteral="rythmML.ecore#//NoteValue/SOLd"/>
+      <genEnumLiterals ecoreEnumLiteral="rythmML.ecore#//NoteValue/LA"/>
+      <genEnumLiterals ecoreEnumLiteral="rythmML.ecore#//NoteValue/LAd"/>
+      <genEnumLiterals ecoreEnumLiteral="rythmML.ecore#//NoteValue/SI"/>
+    </genEnums>
     <genClasses ecoreClass="rythmML.ecore#//Song">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rythmML.ecore#//Song/tracks"/>
     </genClasses>
     <genClasses ecoreClass="rythmML.ecore#//Track">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rythmML.ecore#//Track/sequences"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rythmML.ecore#//Track/sequences"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rythmML.ecore#//Track/instrument"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rythmML.ecore#//Track/id"/>
     </genClasses>
     <genClasses ecoreClass="rythmML.ecore#//Sequence">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rythmML.ecore#//Sequence/bars"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rythmML.ecore#//Sequence/id"/>
     </genClasses>
     <genClasses ecoreClass="rythmML.ecore#//Bar">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rythmML.ecore#//Bar/beats"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rythmML.ecore#//Bar/id"/>
     </genClasses>
     <genClasses ecoreClass="rythmML.ecore#//Beat">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rythmML.ecore#//Beat/ticks"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rythmML.ecore#//Beat/id"/>
     </genClasses>
-    <genClasses ecoreClass="rythmML.ecore#//Tick"/>
+    <genClasses ecoreClass="rythmML.ecore#//Tick">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rythmML.ecore#//Tick/note"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rythmML.ecore#//Tick/id"/>
+    </genClasses>
     <genClasses ecoreClass="rythmML.ecore#//Note">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rythmML.ecore#//Note/beat"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rythmML.ecore#//Note/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rythmML.ecore#//Note/duration"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rythmML.ecore#//Note/tick"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference rythmML.ecore#//Note/bar"/>
     </genClasses>
-    <genClasses ecoreClass="rythmML.ecore#//NewEClass8"/>
+    <genClasses ecoreClass="rythmML.ecore#//NamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rythmML.ecore#//NamedElement/name"/>
+    </genClasses>
+    <genClasses ecoreClass="rythmML.ecore#//Instrument"/>
   </genPackages>
 </genmodel:GenModel>

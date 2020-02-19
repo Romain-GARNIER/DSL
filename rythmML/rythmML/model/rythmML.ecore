@@ -1,32 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="rythmML" nsURI="http://www.example.org/rythmML" nsPrefix="rythmML">
-  <eClassifiers xsi:type="ecore:EClass" name="Song">
+  <eClassifiers xsi:type="ecore:EClass" name="Song" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="tracks" lowerBound="1"
         upperBound="-1" eType="#//Track" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Track">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sequences" lowerBound="1"
-        upperBound="-1" eType="#//Sequence" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sequences" upperBound="-1"
+        eType="#//Sequence"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="instrument" lowerBound="1"
+        eType="#//Instrument"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Sequence">
     <eStructuralFeatures xsi:type="ecore:EReference" name="bars" lowerBound="1" upperBound="-1"
         eType="#//Bar" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Bar">
     <eStructuralFeatures xsi:type="ecore:EReference" name="beats" lowerBound="1" upperBound="-1"
         eType="#//Beat" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Beat">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ticks" lowerBound="1" upperBound="-1"
         eType="#//Tick" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Tick"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Tick">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="note" eType="#//Note" eOpposite="#//Note/tick"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Note">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="beat" lowerBound="1" eType="#//Beat"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="tick" lowerBound="1" eType="#//Tick"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="bar" lowerBound="1" eType="#//Bar"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="#//NoteValue"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="duration" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tick" lowerBound="1" eType="#//Tick"
+        eOpposite="#//Tick/note"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="Value"/>
-  <eClassifiers xsi:type="ecore:EClass" name="NewEClass8" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="NoteValue">
+    <eLiterals name="DO"/>
+    <eLiterals name="DOd" value="1"/>
+    <eLiterals name="RE" value="2"/>
+    <eLiterals name="REd" value="3"/>
+    <eLiterals name="MI" value="4"/>
+    <eLiterals name="FA" value="5"/>
+    <eLiterals name="FAd" value="6"/>
+    <eLiterals name="SOL" value="7"/>
+    <eLiterals name="SOLd" value="8"/>
+    <eLiterals name="LA" value="9"/>
+    <eLiterals name="LAd" value="10"/>
+    <eLiterals name="SI" value="11"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Instrument" eSuperTypes="#//NamedElement"/>
 </ecore:EPackage>
