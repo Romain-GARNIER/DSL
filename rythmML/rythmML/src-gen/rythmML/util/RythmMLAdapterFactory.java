@@ -102,8 +102,13 @@ public class RythmMLAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseNewEClass8(NewEClass8 object) {
-			return createNewEClass8Adapter();
+		public Adapter caseNamedElement(NamedElement object) {
+			return createNamedElementAdapter();
+		}
+
+		@Override
+		public Adapter caseInstrument(Instrument object) {
+			return createInstrumentAdapter();
 		}
 
 		@Override
@@ -224,16 +229,30 @@ public class RythmMLAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link rythmML.NewEClass8 <em>New EClass8</em>}'.
+	 * Creates a new adapter for an object of class '{@link rythmML.NamedElement <em>Named Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see rythmML.NewEClass8
+	 * @see rythmML.NamedElement
 	 * @generated
 	 */
-	public Adapter createNewEClass8Adapter() {
+	public Adapter createNamedElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link rythmML.Instrument <em>Instrument</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see rythmML.Instrument
+	 * @generated
+	 */
+	public Adapter createInstrumentAdapter() {
 		return null;
 	}
 

@@ -8,11 +8,11 @@
         upperBound="-1" eType="#//Sequence" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Track">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sequences" upperBound="-1"
-        eType="#//Sequence"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="instrument" lowerBound="1"
         eType="#//Instrument"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sequences" lowerBound="1"
+        upperBound="-1" eType="#//Sequence" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Sequence">
     <eStructuralFeatures xsi:type="ecore:EReference" name="bars" lowerBound="1" upperBound="-1"
@@ -42,16 +42,16 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="NoteValue">
     <eLiterals name="DO"/>
-    <eLiterals name="DO#" value="1"/>
+    <eLiterals name="DOd" value="1"/>
     <eLiterals name="RE" value="2"/>
-    <eLiterals name="RE#" value="3"/>
+    <eLiterals name="REd" value="3"/>
     <eLiterals name="MI" value="4"/>
     <eLiterals name="FA" value="5"/>
-    <eLiterals name="FA#" value="6"/>
+    <eLiterals name="FAd" value="6"/>
     <eLiterals name="SOL" value="7"/>
-    <eLiterals name="SOL#" value="8"/>
+    <eLiterals name="SOLd" value="8"/>
     <eLiterals name="LA" value="9"/>
-    <eLiterals name="LA#" value="10"/>
+    <eLiterals name="LAd" value="10"/>
     <eLiterals name="SI" value="11"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true">

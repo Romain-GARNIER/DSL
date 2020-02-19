@@ -71,6 +71,8 @@ public class RythmMLFactoryImpl extends EFactoryImpl implements RythmMLFactory {
 			return createTick();
 		case RythmMLPackage.NOTE:
 			return createNote();
+		case RythmMLPackage.INSTRUMENT:
+			return createInstrument();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -84,8 +86,8 @@ public class RythmMLFactoryImpl extends EFactoryImpl implements RythmMLFactory {
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
-		case RythmMLPackage.VALUE:
-			return createValueFromString(eDataType, initialValue);
+		case RythmMLPackage.NOTE_VALUE:
+			return createNoteValueFromString(eDataType, initialValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -99,8 +101,8 @@ public class RythmMLFactoryImpl extends EFactoryImpl implements RythmMLFactory {
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
-		case RythmMLPackage.VALUE:
-			return convertValueToString(eDataType, instanceValue);
+		case RythmMLPackage.NOTE_VALUE:
+			return convertNoteValueToString(eDataType, instanceValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -188,8 +190,19 @@ public class RythmMLFactoryImpl extends EFactoryImpl implements RythmMLFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Value createValueFromString(EDataType eDataType, String initialValue) {
-		Value result = Value.get(initialValue);
+	@Override
+	public Instrument createInstrument() {
+		InstrumentImpl instrument = new InstrumentImpl();
+		return instrument;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NoteValue createNoteValueFromString(EDataType eDataType, String initialValue) {
+		NoteValue result = NoteValue.get(initialValue);
 		if (result == null)
 			throw new IllegalArgumentException(
 					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -201,7 +214,7 @@ public class RythmMLFactoryImpl extends EFactoryImpl implements RythmMLFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertValueToString(EDataType eDataType, Object instanceValue) {
+	public String convertNoteValueToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

@@ -2,6 +2,7 @@
  */
 package rythmML.impl;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
@@ -11,15 +12,16 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import rythmML.Bar;
 import rythmML.Beat;
-import rythmML.NewEClass8;
+import rythmML.Instrument;
+import rythmML.NamedElement;
 import rythmML.Note;
+import rythmML.NoteValue;
 import rythmML.RythmMLFactory;
 import rythmML.RythmMLPackage;
 import rythmML.Sequence;
 import rythmML.Song;
 import rythmML.Tick;
 import rythmML.Track;
-import rythmML.Value;
 
 /**
  * <!-- begin-user-doc -->
@@ -82,14 +84,21 @@ public class RythmMLPackageImpl extends EPackageImpl implements RythmMLPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass newEClass8EClass = null;
+	private EClass namedElementEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EEnum valueEEnum = null;
+	private EClass instrumentEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum noteValueEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -181,6 +190,16 @@ public class RythmMLPackageImpl extends EPackageImpl implements RythmMLPackage {
 	 * @generated
 	 */
 	@Override
+	public EReference getSong_Sequences() {
+		return (EReference) songEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getTrack() {
 		return trackEClass;
 	}
@@ -191,8 +210,28 @@ public class RythmMLPackageImpl extends EPackageImpl implements RythmMLPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getTrack_Sequences() {
+	public EReference getTrack_Instrument() {
 		return (EReference) trackEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTrack_Id() {
+		return (EAttribute) trackEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getTrack_Sequences() {
+		return (EReference) trackEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -221,6 +260,16 @@ public class RythmMLPackageImpl extends EPackageImpl implements RythmMLPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getSequence_Id() {
+		return (EAttribute) sequenceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getBar() {
 		return barEClass;
 	}
@@ -233,6 +282,16 @@ public class RythmMLPackageImpl extends EPackageImpl implements RythmMLPackage {
 	@Override
 	public EReference getBar_Beats() {
 		return (EReference) barEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getBar_Id() {
+		return (EAttribute) barEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -261,8 +320,38 @@ public class RythmMLPackageImpl extends EPackageImpl implements RythmMLPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getBeat_Id() {
+		return (EAttribute) beatEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getTick() {
 		return tickEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getTick_Note() {
+		return (EReference) tickEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTick_Id() {
+		return (EAttribute) tickEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -281,8 +370,18 @@ public class RythmMLPackageImpl extends EPackageImpl implements RythmMLPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getNote_Beat() {
-		return (EReference) noteEClass.getEStructuralFeatures().get(0);
+	public EAttribute getNote_Value() {
+		return (EAttribute) noteEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getNote_Duration() {
+		return (EAttribute) noteEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -292,16 +391,6 @@ public class RythmMLPackageImpl extends EPackageImpl implements RythmMLPackage {
 	 */
 	@Override
 	public EReference getNote_Tick() {
-		return (EReference) noteEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getNote_Bar() {
 		return (EReference) noteEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -311,8 +400,8 @@ public class RythmMLPackageImpl extends EPackageImpl implements RythmMLPackage {
 	 * @generated
 	 */
 	@Override
-	public EClass getNewEClass8() {
-		return newEClass8EClass;
+	public EClass getNamedElement() {
+		return namedElementEClass;
 	}
 
 	/**
@@ -321,8 +410,28 @@ public class RythmMLPackageImpl extends EPackageImpl implements RythmMLPackage {
 	 * @generated
 	 */
 	@Override
-	public EEnum getValue() {
-		return valueEEnum;
+	public EAttribute getNamedElement_Name() {
+		return (EAttribute) namedElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getInstrument() {
+		return instrumentEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EEnum getNoteValue() {
+		return noteValueEEnum;
 	}
 
 	/**
@@ -357,30 +466,41 @@ public class RythmMLPackageImpl extends EPackageImpl implements RythmMLPackage {
 		// Create classes and their features
 		songEClass = createEClass(SONG);
 		createEReference(songEClass, SONG__TRACKS);
+		createEReference(songEClass, SONG__SEQUENCES);
 
 		trackEClass = createEClass(TRACK);
+		createEReference(trackEClass, TRACK__INSTRUMENT);
+		createEAttribute(trackEClass, TRACK__ID);
 		createEReference(trackEClass, TRACK__SEQUENCES);
 
 		sequenceEClass = createEClass(SEQUENCE);
 		createEReference(sequenceEClass, SEQUENCE__BARS);
+		createEAttribute(sequenceEClass, SEQUENCE__ID);
 
 		barEClass = createEClass(BAR);
 		createEReference(barEClass, BAR__BEATS);
+		createEAttribute(barEClass, BAR__ID);
 
 		beatEClass = createEClass(BEAT);
 		createEReference(beatEClass, BEAT__TICKS);
+		createEAttribute(beatEClass, BEAT__ID);
 
 		tickEClass = createEClass(TICK);
+		createEReference(tickEClass, TICK__NOTE);
+		createEAttribute(tickEClass, TICK__ID);
 
 		noteEClass = createEClass(NOTE);
-		createEReference(noteEClass, NOTE__BEAT);
+		createEAttribute(noteEClass, NOTE__VALUE);
+		createEAttribute(noteEClass, NOTE__DURATION);
 		createEReference(noteEClass, NOTE__TICK);
-		createEReference(noteEClass, NOTE__BAR);
 
-		newEClass8EClass = createEClass(NEW_ECLASS8);
+		namedElementEClass = createEClass(NAMED_ELEMENT);
+		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
+
+		instrumentEClass = createEClass(INSTRUMENT);
 
 		// Create enums
-		valueEEnum = createEEnum(VALUE);
+		noteValueEEnum = createEEnum(NOTE_VALUE);
 	}
 
 	/**
@@ -412,14 +532,24 @@ public class RythmMLPackageImpl extends EPackageImpl implements RythmMLPackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		songEClass.getESuperTypes().add(this.getNamedElement());
+		instrumentEClass.getESuperTypes().add(this.getNamedElement());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(songEClass, Song.class, "Song", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSong_Tracks(), this.getTrack(), null, "tracks", null, 1, -1, Song.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
+		initEReference(getSong_Sequences(), this.getSequence(), null, "sequences", null, 1, -1, Song.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(trackEClass, Track.class, "Track", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTrack_Instrument(), this.getInstrument(), null, "instrument", null, 1, 1, Track.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTrack_Id(), ecorePackage.getEInt(), "id", null, 1, 1, Track.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTrack_Sequences(), this.getSequence(), null, "sequences", null, 1, -1, Track.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -429,34 +559,61 @@ public class RythmMLPackageImpl extends EPackageImpl implements RythmMLPackage {
 		initEReference(getSequence_Bars(), this.getBar(), null, "bars", null, 1, -1, Sequence.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
+		initEAttribute(getSequence_Id(), ecorePackage.getEInt(), "id", null, 1, 1, Sequence.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(barEClass, Bar.class, "Bar", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBar_Beats(), this.getBeat(), null, "beats", null, 1, -1, Bar.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
+		initEAttribute(getBar_Id(), ecorePackage.getEInt(), "id", null, 1, 1, Bar.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(beatEClass, Beat.class, "Beat", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBeat_Ticks(), this.getTick(), null, "ticks", null, 1, -1, Beat.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
+		initEAttribute(getBeat_Id(), ecorePackage.getEInt(), "id", null, 1, 1, Beat.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(tickEClass, Tick.class, "Tick", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTick_Note(), this.getNote(), this.getNote_Tick(), "note", null, 0, 1, Tick.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTick_Id(), ecorePackage.getEInt(), "id", null, 1, 1, Tick.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(noteEClass, Note.class, "Note", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getNote_Beat(), this.getBeat(), null, "beat", null, 1, 1, Note.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-		initEReference(getNote_Tick(), this.getTick(), null, "tick", null, 1, 1, Note.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
-		initEReference(getNote_Bar(), this.getBar(), null, "bar", null, 1, 1, Note.class, !IS_TRANSIENT, !IS_VOLATILE,
-				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNote_Value(), this.getNoteValue(), "value", null, 1, 1, Note.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNote_Duration(), ecorePackage.getEInt(), "duration", null, 1, 1, Note.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNote_Tick(), this.getTick(), this.getTick_Note(), "tick", null, 1, 1, Note.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(newEClass8EClass, NewEClass8.class, "NewEClass8", IS_ABSTRACT, !IS_INTERFACE,
+		initEClass(namedElementEClass, NamedElement.class, "NamedElement", IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, NamedElement.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(instrumentEClass, Instrument.class, "Instrument", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
-		initEEnum(valueEEnum, Value.class, "Value");
+		initEEnum(noteValueEEnum, NoteValue.class, "NoteValue");
+		addEEnumLiteral(noteValueEEnum, NoteValue.DO);
+		addEEnumLiteral(noteValueEEnum, NoteValue.DOD);
+		addEEnumLiteral(noteValueEEnum, NoteValue.RE);
+		addEEnumLiteral(noteValueEEnum, NoteValue.RED);
+		addEEnumLiteral(noteValueEEnum, NoteValue.MI);
+		addEEnumLiteral(noteValueEEnum, NoteValue.FA);
+		addEEnumLiteral(noteValueEEnum, NoteValue.FAD);
+		addEEnumLiteral(noteValueEEnum, NoteValue.SOL);
+		addEEnumLiteral(noteValueEEnum, NoteValue.SO_LD);
+		addEEnumLiteral(noteValueEEnum, NoteValue.LA);
+		addEEnumLiteral(noteValueEEnum, NoteValue.LAD);
+		addEEnumLiteral(noteValueEEnum, NoteValue.SI);
 
 		// Create resource
 		createResource(eNS_URI);

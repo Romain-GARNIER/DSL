@@ -4,8 +4,6 @@ package rythmML;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Song</b></em>'.
@@ -16,13 +14,14 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link rythmML.Song#getTracks <em>Tracks</em>}</li>
+ *   <li>{@link rythmML.Song#getSequences <em>Sequences</em>}</li>
  * </ul>
  *
  * @see rythmML.RythmMLPackage#getSong()
  * @model
  * @generated
  */
-public interface Song extends EObject {
+public interface Song extends NamedElement {
 	/**
 	 * Returns the value of the '<em><b>Tracks</b></em>' containment reference list.
 	 * The list contents are of type {@link rythmML.Track}.
@@ -34,5 +33,17 @@ public interface Song extends EObject {
 	 * @generated
 	 */
 	EList<Track> getTracks();
+
+	/**
+	 * Returns the value of the '<em><b>Sequences</b></em>' containment reference list.
+	 * The list contents are of type {@link rythmML.Sequence}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Sequences</em>' containment reference list.
+	 * @see rythmML.RythmMLPackage#getSong_Sequences()
+	 * @model containment="true" required="true"
+	 * @generated
+	 */
+	EList<Sequence> getSequences();
 
 } // Song

@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link rythmML.Bar#getBeats <em>Beats</em>}</li>
+ *   <li>{@link rythmML.Bar#getId <em>Id</em>}</li>
  * </ul>
  *
  * @see rythmML.RythmMLPackage#getBar()
@@ -34,5 +35,27 @@ public interface Bar extends EObject {
 	 * @generated
 	 */
 	EList<Beat> getBeats();
+
+	/**
+	 * Returns the value of the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Id</em>' attribute.
+	 * @see #setId(int)
+	 * @see rythmML.RythmMLPackage#getBar_Id()
+	 * @model required="true"
+	 * @generated
+	 */
+	int getId();
+
+	/**
+	 * Sets the value of the '{@link rythmML.Bar#getId <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Id</em>' attribute.
+	 * @see #getId()
+	 * @generated
+	 */
+	void setId(int value);
 
 } // Bar

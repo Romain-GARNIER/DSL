@@ -2,6 +2,7 @@
  */
 package rythmML;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
@@ -57,6 +58,43 @@ public interface RythmMLPackage extends EPackage {
 	RythmMLPackage eINSTANCE = rythmML.impl.RythmMLPackageImpl.init();
 
 	/**
+	 * The meta object id for the '{@link rythmML.impl.NamedElementImpl <em>Named Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see rythmML.impl.NamedElementImpl
+	 * @see rythmML.impl.RythmMLPackageImpl#getNamedElement()
+	 * @generated
+	 */
+	int NAMED_ELEMENT = 7;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_ELEMENT__NAME = 0;
+
+	/**
+	 * The number of structural features of the '<em>Named Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_ELEMENT_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Named Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_ELEMENT_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link rythmML.impl.SongImpl <em>Song</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -67,13 +105,31 @@ public interface RythmMLPackage extends EPackage {
 	int SONG = 0;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SONG__NAME = NAMED_ELEMENT__NAME;
+
+	/**
 	 * The feature id for the '<em><b>Tracks</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SONG__TRACKS = 0;
+	int SONG__TRACKS = NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Sequences</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SONG__SEQUENCES = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Song</em>' class.
@@ -82,7 +138,7 @@ public interface RythmMLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SONG_FEATURE_COUNT = 1;
+	int SONG_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Song</em>' class.
@@ -91,7 +147,7 @@ public interface RythmMLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SONG_OPERATION_COUNT = 0;
+	int SONG_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link rythmML.impl.TrackImpl <em>Track</em>}' class.
@@ -104,13 +160,31 @@ public interface RythmMLPackage extends EPackage {
 	int TRACK = 1;
 
 	/**
+	 * The feature id for the '<em><b>Instrument</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRACK__INSTRUMENT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRACK__ID = 1;
+
+	/**
 	 * The feature id for the '<em><b>Sequences</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRACK__SEQUENCES = 0;
+	int TRACK__SEQUENCES = 2;
 
 	/**
 	 * The number of structural features of the '<em>Track</em>' class.
@@ -119,7 +193,7 @@ public interface RythmMLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRACK_FEATURE_COUNT = 1;
+	int TRACK_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Track</em>' class.
@@ -150,13 +224,22 @@ public interface RythmMLPackage extends EPackage {
 	int SEQUENCE__BARS = 0;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEQUENCE__ID = 1;
+
+	/**
 	 * The number of structural features of the '<em>Sequence</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEQUENCE_FEATURE_COUNT = 1;
+	int SEQUENCE_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Sequence</em>' class.
@@ -187,13 +270,22 @@ public interface RythmMLPackage extends EPackage {
 	int BAR__BEATS = 0;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BAR__ID = 1;
+
+	/**
 	 * The number of structural features of the '<em>Bar</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BAR_FEATURE_COUNT = 1;
+	int BAR_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Bar</em>' class.
@@ -224,13 +316,22 @@ public interface RythmMLPackage extends EPackage {
 	int BEAT__TICKS = 0;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEAT__ID = 1;
+
+	/**
 	 * The number of structural features of the '<em>Beat</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BEAT_FEATURE_COUNT = 1;
+	int BEAT_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Beat</em>' class.
@@ -252,13 +353,31 @@ public interface RythmMLPackage extends EPackage {
 	int TICK = 5;
 
 	/**
+	 * The feature id for the '<em><b>Note</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TICK__NOTE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TICK__ID = 1;
+
+	/**
 	 * The number of structural features of the '<em>Tick</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TICK_FEATURE_COUNT = 0;
+	int TICK_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Tick</em>' class.
@@ -280,13 +399,22 @@ public interface RythmMLPackage extends EPackage {
 	int NOTE = 6;
 
 	/**
-	 * The feature id for the '<em><b>Beat</b></em>' reference.
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NOTE__BEAT = 0;
+	int NOTE__VALUE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Duration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOTE__DURATION = 1;
 
 	/**
 	 * The feature id for the '<em><b>Tick</b></em>' reference.
@@ -295,16 +423,7 @@ public interface RythmMLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NOTE__TICK = 1;
-
-	/**
-	 * The feature id for the '<em><b>Bar</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NOTE__BAR = 2;
+	int NOTE__TICK = 2;
 
 	/**
 	 * The number of structural features of the '<em>Note</em>' class.
@@ -325,42 +444,51 @@ public interface RythmMLPackage extends EPackage {
 	int NOTE_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link rythmML.impl.NewEClass8Impl <em>New EClass8</em>}' class.
+	 * The meta object id for the '{@link rythmML.impl.InstrumentImpl <em>Instrument</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see rythmML.impl.NewEClass8Impl
-	 * @see rythmML.impl.RythmMLPackageImpl#getNewEClass8()
+	 * @see rythmML.impl.InstrumentImpl
+	 * @see rythmML.impl.RythmMLPackageImpl#getInstrument()
 	 * @generated
 	 */
-	int NEW_ECLASS8 = 7;
+	int INSTRUMENT = 8;
 
 	/**
-	 * The number of structural features of the '<em>New EClass8</em>' class.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEW_ECLASS8_FEATURE_COUNT = 0;
+	int INSTRUMENT__NAME = NAMED_ELEMENT__NAME;
 
 	/**
-	 * The number of operations of the '<em>New EClass8</em>' class.
+	 * The number of structural features of the '<em>Instrument</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NEW_ECLASS8_OPERATION_COUNT = 0;
+	int INSTRUMENT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link rythmML.Value <em>Value</em>}' enum.
+	 * The number of operations of the '<em>Instrument</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see rythmML.Value
-	 * @see rythmML.impl.RythmMLPackageImpl#getValue()
+	 * @generated
+	 * @ordered
+	 */
+	int INSTRUMENT_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link rythmML.NoteValue <em>Note Value</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see rythmML.NoteValue
+	 * @see rythmML.impl.RythmMLPackageImpl#getNoteValue()
 	 * @generated
 	 */
-	int VALUE = 8;
+	int NOTE_VALUE = 9;
 
 	/**
 	 * Returns the meta object for class '{@link rythmML.Song <em>Song</em>}'.
@@ -384,6 +512,17 @@ public interface RythmMLPackage extends EPackage {
 	EReference getSong_Tracks();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link rythmML.Song#getSequences <em>Sequences</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Sequences</em>'.
+	 * @see rythmML.Song#getSequences()
+	 * @see #getSong()
+	 * @generated
+	 */
+	EReference getSong_Sequences();
+
+	/**
 	 * Returns the meta object for class '{@link rythmML.Track <em>Track</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -392,6 +531,28 @@ public interface RythmMLPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getTrack();
+
+	/**
+	 * Returns the meta object for the reference '{@link rythmML.Track#getInstrument <em>Instrument</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Instrument</em>'.
+	 * @see rythmML.Track#getInstrument()
+	 * @see #getTrack()
+	 * @generated
+	 */
+	EReference getTrack_Instrument();
+
+	/**
+	 * Returns the meta object for the attribute '{@link rythmML.Track#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see rythmML.Track#getId()
+	 * @see #getTrack()
+	 * @generated
+	 */
+	EAttribute getTrack_Id();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link rythmML.Track#getSequences <em>Sequences</em>}'.
@@ -426,6 +587,17 @@ public interface RythmMLPackage extends EPackage {
 	EReference getSequence_Bars();
 
 	/**
+	 * Returns the meta object for the attribute '{@link rythmML.Sequence#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see rythmML.Sequence#getId()
+	 * @see #getSequence()
+	 * @generated
+	 */
+	EAttribute getSequence_Id();
+
+	/**
 	 * Returns the meta object for class '{@link rythmML.Bar <em>Bar</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -445,6 +617,17 @@ public interface RythmMLPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getBar_Beats();
+
+	/**
+	 * Returns the meta object for the attribute '{@link rythmML.Bar#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see rythmML.Bar#getId()
+	 * @see #getBar()
+	 * @generated
+	 */
+	EAttribute getBar_Id();
 
 	/**
 	 * Returns the meta object for class '{@link rythmML.Beat <em>Beat</em>}'.
@@ -468,6 +651,17 @@ public interface RythmMLPackage extends EPackage {
 	EReference getBeat_Ticks();
 
 	/**
+	 * Returns the meta object for the attribute '{@link rythmML.Beat#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see rythmML.Beat#getId()
+	 * @see #getBeat()
+	 * @generated
+	 */
+	EAttribute getBeat_Id();
+
+	/**
 	 * Returns the meta object for class '{@link rythmML.Tick <em>Tick</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -476,6 +670,28 @@ public interface RythmMLPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getTick();
+
+	/**
+	 * Returns the meta object for the reference '{@link rythmML.Tick#getNote <em>Note</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Note</em>'.
+	 * @see rythmML.Tick#getNote()
+	 * @see #getTick()
+	 * @generated
+	 */
+	EReference getTick_Note();
+
+	/**
+	 * Returns the meta object for the attribute '{@link rythmML.Tick#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see rythmML.Tick#getId()
+	 * @see #getTick()
+	 * @generated
+	 */
+	EAttribute getTick_Id();
 
 	/**
 	 * Returns the meta object for class '{@link rythmML.Note <em>Note</em>}'.
@@ -488,15 +704,26 @@ public interface RythmMLPackage extends EPackage {
 	EClass getNote();
 
 	/**
-	 * Returns the meta object for the reference '{@link rythmML.Note#getBeat <em>Beat</em>}'.
+	 * Returns the meta object for the attribute '{@link rythmML.Note#getValue <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Beat</em>'.
-	 * @see rythmML.Note#getBeat()
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see rythmML.Note#getValue()
 	 * @see #getNote()
 	 * @generated
 	 */
-	EReference getNote_Beat();
+	EAttribute getNote_Value();
+
+	/**
+	 * Returns the meta object for the attribute '{@link rythmML.Note#getDuration <em>Duration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Duration</em>'.
+	 * @see rythmML.Note#getDuration()
+	 * @see #getNote()
+	 * @generated
+	 */
+	EAttribute getNote_Duration();
 
 	/**
 	 * Returns the meta object for the reference '{@link rythmML.Note#getTick <em>Tick</em>}'.
@@ -510,35 +737,45 @@ public interface RythmMLPackage extends EPackage {
 	EReference getNote_Tick();
 
 	/**
-	 * Returns the meta object for the reference '{@link rythmML.Note#getBar <em>Bar</em>}'.
+	 * Returns the meta object for class '{@link rythmML.NamedElement <em>Named Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Bar</em>'.
-	 * @see rythmML.Note#getBar()
-	 * @see #getNote()
+	 * @return the meta object for class '<em>Named Element</em>'.
+	 * @see rythmML.NamedElement
 	 * @generated
 	 */
-	EReference getNote_Bar();
+	EClass getNamedElement();
 
 	/**
-	 * Returns the meta object for class '{@link rythmML.NewEClass8 <em>New EClass8</em>}'.
+	 * Returns the meta object for the attribute '{@link rythmML.NamedElement#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>New EClass8</em>'.
-	 * @see rythmML.NewEClass8
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see rythmML.NamedElement#getName()
+	 * @see #getNamedElement()
 	 * @generated
 	 */
-	EClass getNewEClass8();
+	EAttribute getNamedElement_Name();
 
 	/**
-	 * Returns the meta object for enum '{@link rythmML.Value <em>Value</em>}'.
+	 * Returns the meta object for class '{@link rythmML.Instrument <em>Instrument</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Value</em>'.
-	 * @see rythmML.Value
+	 * @return the meta object for class '<em>Instrument</em>'.
+	 * @see rythmML.Instrument
 	 * @generated
 	 */
-	EEnum getValue();
+	EClass getInstrument();
+
+	/**
+	 * Returns the meta object for enum '{@link rythmML.NoteValue <em>Note Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Note Value</em>'.
+	 * @see rythmML.NoteValue
+	 * @generated
+	 */
+	EEnum getNoteValue();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -582,6 +819,14 @@ public interface RythmMLPackage extends EPackage {
 		EReference SONG__TRACKS = eINSTANCE.getSong_Tracks();
 
 		/**
+		 * The meta object literal for the '<em><b>Sequences</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SONG__SEQUENCES = eINSTANCE.getSong_Sequences();
+
+		/**
 		 * The meta object literal for the '{@link rythmML.impl.TrackImpl <em>Track</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -590,6 +835,22 @@ public interface RythmMLPackage extends EPackage {
 		 * @generated
 		 */
 		EClass TRACK = eINSTANCE.getTrack();
+
+		/**
+		 * The meta object literal for the '<em><b>Instrument</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TRACK__INSTRUMENT = eINSTANCE.getTrack_Instrument();
+
+		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TRACK__ID = eINSTANCE.getTrack_Id();
 
 		/**
 		 * The meta object literal for the '<em><b>Sequences</b></em>' containment reference list feature.
@@ -618,6 +879,14 @@ public interface RythmMLPackage extends EPackage {
 		EReference SEQUENCE__BARS = eINSTANCE.getSequence_Bars();
 
 		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SEQUENCE__ID = eINSTANCE.getSequence_Id();
+
+		/**
 		 * The meta object literal for the '{@link rythmML.impl.BarImpl <em>Bar</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -634,6 +903,14 @@ public interface RythmMLPackage extends EPackage {
 		 * @generated
 		 */
 		EReference BAR__BEATS = eINSTANCE.getBar_Beats();
+
+		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BAR__ID = eINSTANCE.getBar_Id();
 
 		/**
 		 * The meta object literal for the '{@link rythmML.impl.BeatImpl <em>Beat</em>}' class.
@@ -654,6 +931,14 @@ public interface RythmMLPackage extends EPackage {
 		EReference BEAT__TICKS = eINSTANCE.getBeat_Ticks();
 
 		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BEAT__ID = eINSTANCE.getBeat_Id();
+
+		/**
 		 * The meta object literal for the '{@link rythmML.impl.TickImpl <em>Tick</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -662,6 +947,22 @@ public interface RythmMLPackage extends EPackage {
 		 * @generated
 		 */
 		EClass TICK = eINSTANCE.getTick();
+
+		/**
+		 * The meta object literal for the '<em><b>Note</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TICK__NOTE = eINSTANCE.getTick_Note();
+
+		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TICK__ID = eINSTANCE.getTick_Id();
 
 		/**
 		 * The meta object literal for the '{@link rythmML.impl.NoteImpl <em>Note</em>}' class.
@@ -674,12 +975,20 @@ public interface RythmMLPackage extends EPackage {
 		EClass NOTE = eINSTANCE.getNote();
 
 		/**
-		 * The meta object literal for the '<em><b>Beat</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NOTE__BEAT = eINSTANCE.getNote_Beat();
+		EAttribute NOTE__VALUE = eINSTANCE.getNote_Value();
+
+		/**
+		 * The meta object literal for the '<em><b>Duration</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NOTE__DURATION = eINSTANCE.getNote_Duration();
 
 		/**
 		 * The meta object literal for the '<em><b>Tick</b></em>' reference feature.
@@ -690,32 +999,42 @@ public interface RythmMLPackage extends EPackage {
 		EReference NOTE__TICK = eINSTANCE.getNote_Tick();
 
 		/**
-		 * The meta object literal for the '<em><b>Bar</b></em>' reference feature.
+		 * The meta object literal for the '{@link rythmML.impl.NamedElementImpl <em>Named Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
+		 * @see rythmML.impl.NamedElementImpl
+		 * @see rythmML.impl.RythmMLPackageImpl#getNamedElement()
 		 * @generated
 		 */
-		EReference NOTE__BAR = eINSTANCE.getNote_Bar();
+		EClass NAMED_ELEMENT = eINSTANCE.getNamedElement();
 
 		/**
-		 * The meta object literal for the '{@link rythmML.impl.NewEClass8Impl <em>New EClass8</em>}' class.
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see rythmML.impl.NewEClass8Impl
-		 * @see rythmML.impl.RythmMLPackageImpl#getNewEClass8()
 		 * @generated
 		 */
-		EClass NEW_ECLASS8 = eINSTANCE.getNewEClass8();
+		EAttribute NAMED_ELEMENT__NAME = eINSTANCE.getNamedElement_Name();
 
 		/**
-		 * The meta object literal for the '{@link rythmML.Value <em>Value</em>}' enum.
+		 * The meta object literal for the '{@link rythmML.impl.InstrumentImpl <em>Instrument</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see rythmML.Value
-		 * @see rythmML.impl.RythmMLPackageImpl#getValue()
+		 * @see rythmML.impl.InstrumentImpl
+		 * @see rythmML.impl.RythmMLPackageImpl#getInstrument()
 		 * @generated
 		 */
-		EEnum VALUE = eINSTANCE.getValue();
+		EClass INSTRUMENT = eINSTANCE.getInstrument();
+
+		/**
+		 * The meta object literal for the '{@link rythmML.NoteValue <em>Note Value</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see rythmML.NoteValue
+		 * @see rythmML.impl.RythmMLPackageImpl#getNoteValue()
+		 * @generated
+		 */
+		EEnum NOTE_VALUE = eINSTANCE.getNoteValue();
 
 	}
 
