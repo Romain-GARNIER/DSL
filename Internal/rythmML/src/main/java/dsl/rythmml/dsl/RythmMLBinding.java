@@ -1,4 +1,4 @@
-package main.java.dsl.rythmml;
+package main.java.dsl.rythmml.dsl;
 
 import groovy.lang.Binding;
 import groovy.lang.Script;

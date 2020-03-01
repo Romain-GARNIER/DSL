@@ -1,4 +1,4 @@
-package main.java.dsl.rythmml;
+package main.java.dsl.rythmml.model;
 
 import javax.sound.midi.*;
 import java.io.*;

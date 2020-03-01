@@ -1,4 +1,4 @@
-package main.java.dsl.rythmml
+package main.java.dsl.rythmml.dsl
 
 import org.codehaus.groovy.control.CompilerConfiguration
 import org.codehaus.groovy.control.customizers.SecureASTCustomizer

@@ -1,0 +1,67 @@
+package main.java.dsl.rythmml.model;
+
+public class Note {
+    private NoteValue noteValue;
+    private int bar;
+    private int beat;
+    private int tick;
+    private int velocity;
+    private int duration;
+
+    public Note(NoteValue noteValue, int bar, int beat, int tick, int velocity, int duration) {
+        this.noteValue = noteValue;
+        this.bar = bar;
+        this.beat = beat;
+        this.tick = tick;
+        this.velocity = velocity;
+        this.duration = duration;
+    }
+
+    public NoteValue getNoteValue() {
+        return noteValue;
+    }
+
+    public void setNoteValue(NoteValue noteValue) {
+        this.noteValue = noteValue;
+    }
+
+    public int getBar() {
+        return bar;
+    }
+
+    public void setBar(int bar) {
+        this.bar = bar;
+    }
+
+    public int getBeat() {
+        return beat;
+    }
+
+    public void setBeat(int beat) {
+        this.beat = beat;
+    }
+
+    public int getTick() {
+        return tick;
+    }
+
+    public void setTick(int tick) {
+        this.tick = tick;
+    }
+
+    public int getVelocity() {
+        return velocity;
+    }
+
+    public void setVelocity(int velocity) {
+        this.velocity = velocity;
+    }
+
+    public int getDuration() {
+        return duration;
+    }
+
+    public void setDuration(int duration) {
+        this.duration = duration;
+    }
+}

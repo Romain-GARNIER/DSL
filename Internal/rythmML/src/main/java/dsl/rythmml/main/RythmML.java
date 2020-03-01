@@ -1,6 +1,6 @@
 package main.java.dsl.rythmml.main;
 
-import main.java.dsl.rythmml.RythmMLDSL;
+import main.java.dsl.rythmml.dsl.RythmMLDSL;
 
 import java.io.File;
 
