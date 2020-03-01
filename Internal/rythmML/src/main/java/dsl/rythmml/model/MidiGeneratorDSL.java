@@ -1,11 +1,12 @@
 package main.java.dsl.rythmml.model;
 
 import javax.sound.midi.*;
+import java.util.Collection;
 
 public class MidiGeneratorDSL {
     private SongDSL songDSL;
     private Sequence sequence;
-    private final int CHANNEL = 1;
+    private int CHANNEL = 1;
 
     public MidiGeneratorDSL(SongDSL songDSL) {
         this.songDSL = songDSL;
@@ -15,11 +16,16 @@ public class MidiGeneratorDSL {
         sequence = new Sequence(Sequence.PPQ, songDSL.getResolution());
         int resolution = songDSL.getResolution();
 
-        for(TrackDSL trackDSL : songDSL.getTrackDSLList().values()){
+        Collection<TrackDSL> trackDSLList = songDSL.getTrackDSLList().values();
+        for(TrackDSL trackDSL : trackDSLList){
             InstrumentDSL instrumentDSL = trackDSL.getInstrumentDSL();
             Track track = sequence.createTrack();
 
-            setInstrument(track,instrumentDSL.value);
+            if(instrumentDSL.equals(InstrumentDSL.Drum)){
+                CHANNEL = 9;
+            }else {
+                CHANNEL = 1;
+            }
 
             for(SequenceDSL sequenceDSL : trackDSL.getSequenceDSLList()){
                 for(Note note : sequenceDSL.getNotes()){
@@ -28,6 +34,7 @@ public class MidiGeneratorDSL {
                     int nbBeatPerBar = sequenceDSL.getNbBeatPerBar();
 
                     int pos = toTick(bar,beat,0,nbBeatPerBar,resolution);
+                    setInstrumentToTick(track,instrumentDSL.value, pos);
                     addNote(track,note.getNoteValue(),pos,note.getVelocity());
                 }
             }
@@ -47,6 +54,18 @@ public class MidiGeneratorDSL {
         try {
             message.setMessage(ShortMessage.PROGRAM_CHANGE, CHANNEL, instrumentValue, 0);
             MidiEvent event = new MidiEvent(message, 0);
+            track.add(event);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    private void setInstrumentToTick(Track track, int instrumentValue, int tick){
+        ShortMessage message = new ShortMessage();
+
+        try {
+            message.setMessage(ShortMessage.PROGRAM_CHANGE, CHANNEL, instrumentValue, 0);
+            MidiEvent event = new MidiEvent(message, tick);
             track.add(event);
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -83,11 +102,16 @@ public class MidiGeneratorDSL {
         sequencer.setTempoInBPM(songDSL.getTempo());
         sequencer.start();
         int durationOfTheTrackMS = songDSL.getDuration();
-//        int durationOfTheTrackMS = nbBar * nbBeatPerBar * 60000 / tempo;
-        System.out.println("sleeping " + (durationOfTheTrackMS) + "ms");
-        Thread.sleep(durationOfTheTrackMS);
-        System.out.println("stop sleeping");
+        System.out.println("Run Song");
+        while (sequencer.isRunning()){
+
+        }
         sequencer.stop();
+        System.out.println("Stop Song");
+//        int durationOfTheTrackMS = nbBar * nbBeatPerBar * 60000 / tempo;
+//        System.out.println("sleeping " + (durationOfTheTrackMS) + "ms");
+        Thread.sleep(2000);
+//        System.out.println("stop sleeping");
         sequencer.close();
     }
 }

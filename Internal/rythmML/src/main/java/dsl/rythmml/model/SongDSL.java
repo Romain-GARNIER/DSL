@@ -1,10 +1,7 @@
 package main.java.dsl.rythmml.model;
 
 import javax.sound.midi.InvalidMidiDataException;
-import javax.sound.midi.Track;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class SongDSL {

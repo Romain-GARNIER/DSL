@@ -1,5 +1,6 @@
 package main.java.dsl.rythmml.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SequenceDSL {
@@ -15,6 +16,7 @@ public class SequenceDSL {
         this.name = name;
         this.nbBar = nbBar;
         this.nbBeatPerBar = nbBeatPerBar;
+        notes = new ArrayList<>();
     }
     //endregion
 

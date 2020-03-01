@@ -1,8 +1,9 @@
 package main.java.dsl.rythmml.model;
 
 public enum InstrumentDSL {
+    Drum(0),
     Piano(1),
-    Drum(9);
+    ElectricGuitar(28);
 
     int value;
 

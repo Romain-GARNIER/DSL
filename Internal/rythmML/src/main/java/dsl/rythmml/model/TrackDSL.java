@@ -17,6 +17,7 @@ public class TrackDSL {
     public TrackDSL(String name, InstrumentDSL instrumentDSL) {
         this.name = name;
         this.instrumentDSL = instrumentDSL;
+        sequenceDSLList = new ArrayList<SequenceDSL>();
     }
     //endregion
 
