@@ -7,6 +7,7 @@ public class Note {
     private int tick;
     private int velocity;
     private int duration;
+    private int octave;
 
     public Note(NoteValue noteValue, int bar, int beat, int tick, int velocity, int duration) {
         this.noteValue = noteValue;
@@ -15,6 +16,17 @@ public class Note {
         this.tick = tick;
         this.velocity = velocity;
         this.duration = duration;
+        this.octave = 4;
+    }
+
+    public Note(NoteValue noteValue, int bar, int beat, int tick, int velocity, int duration, int octave) {
+        this.noteValue = noteValue;
+        this.bar = bar;
+        this.beat = beat;
+        this.tick = tick;
+        this.velocity = velocity;
+        this.duration = duration;
+        this.octave = octave;
     }
 
     public NoteValue getNoteValue() {
@@ -63,5 +75,13 @@ public class Note {
 
     public void setDuration(int duration) {
         this.duration = duration;
+    }
+
+    public int getOctave() {
+        return octave;
+    }
+
+    public void setOctave(int octave) {
+        this.octave = octave;
     }
 }

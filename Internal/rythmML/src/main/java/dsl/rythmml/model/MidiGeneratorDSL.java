@@ -27,16 +27,18 @@ public class MidiGeneratorDSL {
                 CHANNEL = 1;
             }
 
+            int generalPos = 0;
             for(SequenceDSL sequenceDSL : trackDSL.getSequenceDSLList()){
+                int nbBeatPerBar = sequenceDSL.getNbBeatPerBar();
                 for(Note note : sequenceDSL.getNotes()){
                     int bar = note.getBar();
                     int beat = note.getBeat();
-                    int nbBeatPerBar = sequenceDSL.getNbBeatPerBar();
 
-                    int pos = toTick(bar,beat,0,nbBeatPerBar,resolution);
+                    int pos = toTick(generalPos+bar,beat,0,nbBeatPerBar,resolution);
                     setInstrumentToTick(track,instrumentDSL.value, pos);
-                    addNote(track,note.getNoteValue(),pos,note.getVelocity());
+                    addNote(track,note,pos,note.getVelocity());
                 }
+                generalPos += sequenceDSL.getNbBar();
             }
         }
     }
@@ -72,19 +74,23 @@ public class MidiGeneratorDSL {
         }
     }
 
-    private void addNote(Track track, NoteValue noteValue, long tick, int velocity) {
+    private void addNote(Track track, Note note, long tick, int velocity) {
         final int NOTEON = 144;
         final int NOTEOFF = 128;
 
-        createEvent(track, NOTEON, CHANNEL, noteValue, tick, velocity);
-        createEvent(track, NOTEOFF, CHANNEL, noteValue, tick + 1, velocity);
+        for(int i=0;i<note.getDuration();i++){
+            createEvent(track, NOTEON, CHANNEL, note, tick, velocity);
+        }
+        createEvent(track, NOTEOFF, CHANNEL, note, tick + note.getDuration(), velocity);
     }
 
-    private void createEvent(Track track, int type, int chan, NoteValue noteValue, long tick, int velocity) {
+    private void createEvent(Track track, int type, int chan, Note note, long tick, int velocity) {
         ShortMessage message = new ShortMessage();
 
+        int noteNumber = note.getNoteValue().noteNumber + (12*note.getOctave());
+
         try {
-            message.setMessage(type, chan, noteValue.noteNumber, velocity);
+            message.setMessage(type, chan, noteNumber, velocity);
             MidiEvent event = new MidiEvent(message, tick);
             track.add(event);
         } catch (Exception ex) {
