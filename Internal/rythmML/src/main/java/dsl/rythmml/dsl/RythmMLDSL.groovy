@@ -1,5 +1,7 @@
 package main.java.dsl.rythmml.dsl
 
+import main.java.dsl.rythmml.model.InstrumentDSL
+import main.java.dsl.rythmml.model.NoteValue
 import org.codehaus.groovy.control.CompilerConfiguration
 import org.codehaus.groovy.control.customizers.SecureASTCustomizer
 
@@ -11,13 +13,28 @@ class RythmMLDSL {
 
 	RythmMLDSL() {
 		binding = new RythmMLBinding()
-		binding.setGroovuinoMLModel(new RythmMLModel(binding));
+		binding.setRythmMLModel(new RythmMLModel(binding));
 		configuration = getDSLConfiguration()
-		configuration.setScriptBaseClass("main.groovy.groovuinoml.dsl.GroovuinoMLBasescript")
+		configuration.setScriptBaseClass("main.java.dsl.rythmml.dsl.RythmMLBasescript")
 		shell = new GroovyShell(configuration)
 		
-		binding.setVariable("high", SIGNAL.HIGH)
-		binding.setVariable("low", SIGNAL.LOW)
+		binding.setVariable("piano", InstrumentDSL.Piano)
+		binding.setVariable("electric guitar", InstrumentDSL.ElectricGuitar)
+		binding.setVariable("drum", InstrumentDSL.Drum)
+
+		binding.setVariable("do", NoteValue.Do)
+		binding.setVariable("do#", NoteValue.DoX)
+		binding.setVariable("re", NoteValue.Re)
+		binding.setVariable("re#", NoteValue.ReX)
+		binding.setVariable("mi", NoteValue.Mi)
+		binding.setVariable("fa", NoteValue.Fa)
+		binding.setVariable("fa#", NoteValue.FaX)
+		binding.setVariable("sol", NoteValue.Sol)
+		binding.setVariable("sol#", NoteValue.SolX)
+		binding.setVariable("la", NoteValue.La)
+		binding.setVariable("la#", NoteValue.LaX)
+		binding.setVariable("si", NoteValue.Si)
+		binding.setVariable("acoustic bass drum", NoteValue.AcousticBassDrum)
 	}
 	
 	private static CompilerConfiguration getDSLConfiguration() {

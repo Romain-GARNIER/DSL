@@ -21,24 +21,48 @@ public class RythmMLModel {
 
 	public void createSequence(String name, int nbBar, int nbBeatPerBar){
 		SequenceDSL newSequence = new SequenceDSL(name,nbBar, nbBeatPerBar);
-		song.getSequenceDSLList().put(name,newSequence);
+		song.addSequenceDSL(newSequence);
+		this.binding.setVariable(name, newSequence);
 	}
 
-	public void createNote(String sequenceName, int bar, int beat, int tick, NoteValue noteValue, int velocity){
+	public void createNote(String sequenceName, int bar, int beat, NoteValue noteValue, int velocity, int duration){
 		SequenceDSL sequenceDSL = song.getSequenceDSLList().get(sequenceName);
-		Note note = new Note(NoteValue.Do,bar,beat,tick,velocity,1000);
+		Note note = new Note(noteValue,bar,beat,velocity,duration);
+		sequenceDSL.addNote(note);
+	}
+
+	public void createNote(String sequenceName, int bar, int beat, NoteValue noteValue, int velocity, int duration, int octave){
+		SequenceDSL sequenceDSL = song.getSequenceDSLList().get(sequenceName);
+		Note note = new Note(noteValue,bar,beat,velocity,duration,octave);
 		sequenceDSL.addNote(note);
 	}
 
 	public void createTrack(String name, InstrumentDSL instrumentDSL){
 		TrackDSL trackDSL = new TrackDSL(name, instrumentDSL);
-		song.getTrackDSLList().put(name,trackDSL);
+		song.addTrackDSL(trackDSL);
+		this.binding.setVariable(name, trackDSL);
 	}
 
 	public void addSequenceDSLtoTrack(String strackName, String sequenceName){
 		TrackDSL trackDSL = song.getTrackDSLList().get(strackName);
 		SequenceDSL sequenceDSL = song.getSequenceDSLList().get(sequenceName);
 		trackDSL.addSequenceDSL(sequenceDSL);
+	}
+
+	public void playSong(){
+		MidiGeneratorDSL generatorDSL = new MidiGeneratorDSL(song);
+		try {
+			generatorDSL.generateMidiSound();
+			generatorDSL.play();
+		} catch (InvalidMidiDataException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void generateMidiFile(){
+
 	}
 
 	private Binding binding;

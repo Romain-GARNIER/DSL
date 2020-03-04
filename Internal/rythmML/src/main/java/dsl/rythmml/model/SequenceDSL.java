@@ -16,7 +16,7 @@ public class SequenceDSL {
         this.name = name;
         this.nbBar = nbBar;
         this.nbBeatPerBar = nbBeatPerBar;
-        notes = new ArrayList<>();
+        notes = new ArrayList<Note>();
     }
     //endregion
 

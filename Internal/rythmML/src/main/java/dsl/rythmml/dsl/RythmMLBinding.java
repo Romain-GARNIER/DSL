@@ -29,7 +29,7 @@ public class RythmMLBinding extends Binding {
 		this.script = script;
 	}
 	
-	public void setGroovuinoMLModel(RythmMLModel model) {
+	public void setRythmMLModel(RythmMLModel model) {
 		this.model = model;
 	}
 	
@@ -47,7 +47,7 @@ public class RythmMLBinding extends Binding {
 		super.setVariable(name, value);
 	}
 	
-	public RythmMLModel getGroovuinoMLModel() {
+	public RythmMLModel getRythmMLModel() {
 		return this.model;
 	}
 }
