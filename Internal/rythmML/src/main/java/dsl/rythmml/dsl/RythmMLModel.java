@@ -13,7 +13,7 @@ import static main.java.dsl.rythmml.model.DrumerUtils.toTick;
 
 public class RythmMLModel {
 	SongDSL song;
-	int resolution = 200;
+	int resolution = 118;
 
 	public void createSong(String name) throws InvalidMidiDataException {
 		song = new SongDSL(name, resolution);
@@ -22,6 +22,7 @@ public class RythmMLModel {
 	public void createSong(String name, int bpm) throws InvalidMidiDataException {
 		song = new SongDSL(name, resolution, bpm);
 	}
+
 	public void createSequence(String name, int nbBar, int nbBeatPerBar){
 		SequenceDSL newSequence = new SequenceDSL(name,nbBar, nbBeatPerBar);
 		song.addSequenceDSL(newSequence);
