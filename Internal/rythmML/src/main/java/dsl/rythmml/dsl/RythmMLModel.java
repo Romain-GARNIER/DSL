@@ -4,8 +4,10 @@ import groovy.lang.Binding;
 import main.java.dsl.rythmml.model.*;
 
 import javax.sound.midi.InvalidMidiDataException;
+import javax.sound.midi.MidiSystem;
 import javax.sound.midi.Sequence;
 import javax.sound.midi.Track;
+import java.io.File;
 import java.util.HashMap;
 
 import static main.java.dsl.rythmml.model.DrumerUtils.addDrumHit;
@@ -74,7 +76,17 @@ public class RythmMLModel {
 	}
 
 	public void generateMidiFile(){
+		MidiGeneratorDSL generatorDSL = new MidiGeneratorDSL(song);
+		try {
+			generatorDSL.generateMidiSound();
 
+			File f = new File(generatorDSL.getSongDSL().getName()+".mid");
+			MidiSystem.write(generatorDSL.getSequence(),1,f);
+		} catch (InvalidMidiDataException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	private Binding binding;
