@@ -8,6 +8,22 @@ public class MidiGeneratorDSL {
     private Sequence sequence;
     private int CHANNEL = 1;
 
+    public SongDSL getSongDSL() {
+        return songDSL;
+    }
+
+    public void setSongDSL(SongDSL songDSL) {
+        this.songDSL = songDSL;
+    }
+
+    public Sequence getSequence() {
+        return sequence;
+    }
+
+    public void setSequence(Sequence sequence) {
+        this.sequence = sequence;
+    }
+
     public MidiGeneratorDSL(SongDSL songDSL) {
         this.songDSL = songDSL;
     }
