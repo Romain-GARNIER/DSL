@@ -47,6 +47,9 @@ abstract class RythmMLBasescript extends Script {
 							[ of : { int n ->
 								NoteValue note = noteValue instanceof String ? (NoteValue)((RythmMLBinding)this.getBinding()).getVariable(noteValue) : (NoteValue) noteValue
 								((RythmMLBinding) this.getBinding()).getRythmMLModel().createNote(sequenceName,a,b,note,100,n);
+								[octave: { int octave ->
+									 ((RythmMLBinding) this.getBinding()).getRythmMLModel().createNote(sequenceName,a,b,note,100,n,octave);
+								}]
 							}]
 						}]
 					}]
