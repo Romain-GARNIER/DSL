@@ -35,7 +35,8 @@ public class MidiGeneratorDSL {
                     int beat = note.getBeat();
 
                     int pos = toTick(generalPos+bar,beat,0,nbBeatPerBar,resolution);
-                    setInstrumentToTick(track,instrumentDSL.value, pos);
+                    if(!instrumentDSL.equals(InstrumentDSL.Drum))
+                        setInstrumentToTick(track,instrumentDSL.value, pos);
                     addNote(track,note,pos,note.getVelocity());
                 }
                 generalPos += sequenceDSL.getNbBar();
