@@ -20,13 +20,15 @@ public enum NoteValue {
     BassDrum1(36),
     SideStick(37),
     AcousticSnare(38),
-    HandClap(39),
     ElectricSnare(40),
+    HandClap(39),
     LowFloorTom(41),
     ClosedHiHat(42),
     HighFloorTom(43),
     OpenHiHat(46),
-    CrashCymbal1(49);
+    CrashCymbal1(49),
+    RideCymbal1(51),
+    RideCymbal2(59);
 
     public int noteNumber;
 

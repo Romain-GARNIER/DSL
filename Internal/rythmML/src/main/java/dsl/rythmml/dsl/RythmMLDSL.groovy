@@ -35,6 +35,10 @@ class RythmMLDSL {
 		binding.setVariable("la#", NoteValue.LaX)
 		binding.setVariable("si", NoteValue.Si)
 		binding.setVariable("acoustic bass drum", NoteValue.AcousticBassDrum)
+		binding.setVariable("bd", NoteValue.BassDrum1)
+		binding.setVariable("ch", NoteValue.ClosedHiHat)
+		binding.setVariable("sd", NoteValue.AcousticSnare)
+		binding.setVariable("rc", NoteValue.RideCymbal1)
 	}
 	
 	private static CompilerConfiguration getDSLConfiguration() {

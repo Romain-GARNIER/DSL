@@ -2,59 +2,53 @@ package main.java.dsl.rythmml.dsl
 
 import main.java.dsl.rythmml.model.InstrumentDSL
 import main.java.dsl.rythmml.model.Note
+import main.java.dsl.rythmml.model.NoteValue
 
 abstract class RythmMLBasescript extends Script {
 	//song "name"
 	def song(String name){
-		((RythmMLBinding) this.getBinding()).getRythmMLModel().createSong(name)
+		[bpm : { int tempo ->
+			 ((RythmMLBinding) this.getBinding()).getRythmMLModel().createSong(name,tempo)
+		 }]
 	}
 
-	//sequence "name" has nbBar bars of nbBeat beats
+	//sequence "name" bars nbBar beats nbBeat
 	def sequence(String name){
-		[has: { int nbBar ->
-			[ bars : { int nbBeat ->
-				[ beats : { ((RythmMLBinding) this.getBinding()).getRythmMLModel().createSequence(name,nbBar,nbBeat)}]
+		[bars: { int nbBar ->
+			[ beats : { int nbBeat ->
+				((RythmMLBinding) this.getBinding()).getRythmMLModel().createSequence(name,nbBar,nbBeat)
 			}]
 		}]
 	}
 
 	//track "name" of instrument "instrumentName"
 	def track(String name){
-		[of: {
 			[ instrument : { String instrumentName ->
 				InstrumentDSL instrumentDSL = instrumentName instanceof String ? (InstrumentDSL)((RythmMLBinding)this.getBinding()).getVariable(instrumentName) : (InstrumentDSL)instrumentName
 				((RythmMLBinding) this.getBinding()).getRythmMLModel().createTrack(name,instrumentDSL)
 			}]
-		}]
 	}
 
 	//assign sequence "sequenceName" to track "trackName"
-	def assign(String name){
-		[sequence: { String sequenceName ->
+	def assign(String sequenceName){
 			[ to : {
-				[ track : { String trackName ->
+				 String trackName ->
 					((RythmMLBinding) this.getBinding()).getRythmMLModel().addSequenceDSLtoTrack(trackName, sequenceName)
 				}]
-			}]
-		}]
 	}
 
 	//play "noteValue" on sequence "sequenceName" at bar a beats b of n times
 	def play(String noteValue){
-		[ on : {
-			[sequence: { String sequenceName ->
-				[ at : {
+			[sequence : { String sequenceName ->
 					[ bar : { int a ->
 						[ beats : { int b ->
 							[ of : { int n ->
-								Note note = noteValue instanceof String ? (Note)((RythmMLBinding)this.getBinding()).getVariable(noteValue) : (Note) noteValue
+								NoteValue note = noteValue instanceof String ? (NoteValue)((RythmMLBinding)this.getBinding()).getVariable(noteValue) : (NoteValue) noteValue
 								((RythmMLBinding) this.getBinding()).getRythmMLModel().createNote(sequenceName,a,b,note,100,n);
 							}]
 						}]
 					}]
 				}]
-			}]
-		}]
 	}
 	
 	// export name
