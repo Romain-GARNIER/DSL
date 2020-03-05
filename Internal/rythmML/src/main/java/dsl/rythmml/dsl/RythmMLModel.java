@@ -52,6 +52,14 @@ public class RythmMLModel {
 		trackDSL.addSequenceDSL(sequenceDSL);
 	}
 
+	public void addSequenceDSLtoTrack(String strackName, String sequenceName, int nbTime){
+		TrackDSL trackDSL = song.getTrackDSLList().get(strackName);
+		SequenceDSL sequenceDSL = song.getSequenceDSLList().get(sequenceName);
+		for(int i = 0; i < nbTime; i++){
+			trackDSL.addSequenceDSL(sequenceDSL);
+		}
+	}
+
 	public void playSong(){
 		MidiGeneratorDSL generatorDSL = new MidiGeneratorDSL(song);
 		try {

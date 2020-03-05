@@ -19,13 +19,7 @@ play "sd" sequence "part1" bar 1 beats 4 of 5
 
 track "Drums"  instrument "drum"
 
-assign "part1" to  "Drums"
-assign "part1" to  "Drums"
-assign "part1" to  "Drums"
-assign "part1" to  "Drums"
-assign "part1" to  "Drums"
-assign "part1" to  "Drums"
-assign "part1" to  "Drums"
-assign "part1" to  "Drums"
+assign 1  times "part1"   to  "Drums"
+
 
 export "Switch!"

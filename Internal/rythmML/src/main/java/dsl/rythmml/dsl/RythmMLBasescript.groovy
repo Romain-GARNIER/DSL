@@ -30,11 +30,13 @@ abstract class RythmMLBasescript extends Script {
 	}
 
 	//assign sequence "sequenceName" to track "trackName"
-	def assign(String sequenceName){
-			[ to : {
-				 String trackName ->
-					((RythmMLBinding) this.getBinding()).getRythmMLModel().addSequenceDSLtoTrack(trackName, sequenceName)
-				}]
+	def assign(int nbTimes){
+			[times : { String sequenceName ->
+				[ to : {
+					 String trackName ->
+							((RythmMLBinding) this.getBinding()).getRythmMLModel().addSequenceDSLtoTrack(trackName, sequenceName, nbTimes)
+					}]
+			}]
 	}
 
 	//play "noteValue" on sequence "sequenceName" at bar a beats b of n times
