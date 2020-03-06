@@ -1,4 +1,4 @@
-song "Billie Jean" tempo 220
+song "Billie Jean Feature" tempo 220
 
 sequence "partNull" bars 1 beats 4
 sequence "part1" bars 1 beats 4
@@ -30,12 +30,17 @@ play "sol#" sequence "part3" bar 1 beats 4 of 3 velocity 100 octave 5
 track "Drums"  instrument "drum"
 track "Piano"  instrument "piano"
 
-assign 12 times "part1" to  "Drums"
+assign 16 times "part1" to  "Drums"
 assign 4 times "partNull" to  "Piano"
 assign 1 times "part2" to  "Piano"
 assign 1 times "part3" to  "Piano"
 assign 1 times "part2" to  "Piano"
 assign 1 times "part3" to  "Piano"
+assign 1 times "part2" to  "Piano"
+assign 1 times "part3" to  "Piano"
+assign 1 times "part2" to  "Piano"
+assign 1 times "part3" to  "Piano"
+
 
 
 export "Switch!"
