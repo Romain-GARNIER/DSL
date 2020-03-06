@@ -47,4 +47,4 @@ export "Switch!"
 
 ### Commands
 * compile : `mvn clean compile assembly:single`
-* run example : `java -jar target\dsl-groovy-1.0-jar-with-dependencies.jar scripts\example.groovy`
+* run example : `java -jar target\rythmML-1.0-SNAPSHOT-jar-with-dependencies.jar scripts\example.groovy`
