@@ -61,15 +61,21 @@ abstract class RythmMLBasescript extends Script {
 							[ of : { int n ->
 								NoteValue note = noteValue instanceof String ? (NoteValue)((RythmMLBinding)this.getBinding()).getVariable(noteValue) : (NoteValue) noteValue
 								((RythmMLBinding) this.getBinding()).getRythmMLModel().createNote(sequenceName,a,b,note,100,n);
+							},
+							of : { int n->
 								[octave: { int octave ->
-									 ((RythmMLBinding) this.getBinding()).getRythmMLModel().createNote(sequenceName,a,b,note,100,n,octave);
 									[velocity : {int velocity ->
+										NoteValue note = noteValue instanceof String ? (NoteValue)((RythmMLBinding)this.getBinding()).getVariable(noteValue) : (NoteValue) noteValue
 										((RythmMLBinding) this.getBinding()).getRythmMLModel().createNote(sequenceName,a,b,note,velocity,n,octave);
 									}]
+								},octave : {int octave ->
+									NoteValue note = noteValue instanceof String ? (NoteValue)((RythmMLBinding)this.getBinding()).getVariable(noteValue) : (NoteValue) noteValue
+									((RythmMLBinding) this.getBinding()).getRythmMLModel().createNote(sequenceName,a,b,note,100,n,octave);
 								},
-								velocity : {int velocity ->
-									((RythmMLBinding) this.getBinding()).getRythmMLModel().createNote(sequenceName,a,b,note,velocity,n);
-								}]
+								 velocity : {int velocity ->
+									 NoteValue note = noteValue instanceof String ? (NoteValue)((RythmMLBinding)this.getBinding()).getVariable(noteValue) : (NoteValue) noteValue
+									 ((RythmMLBinding) this.getBinding()).getRythmMLModel().createNote(sequenceName,a,b,note,velocity,n);
+								 }]
 							}]
 						}]
 					}]

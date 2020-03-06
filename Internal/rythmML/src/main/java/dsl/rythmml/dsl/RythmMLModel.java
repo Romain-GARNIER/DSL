@@ -24,6 +24,7 @@ public class RythmMLModel {
 	public void createSong(String name, int bpm, int resolution) throws InvalidMidiDataException {
 		song = new SongDSL(name, resolution, bpm);
 	}
+
 	public void createSequence(String name, int nbBar, int nbBeatPerBar){
 		SequenceDSL newSequence = new SequenceDSL(name,nbBar, nbBeatPerBar);
 		song.addSequenceDSL(newSequence);
