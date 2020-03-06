@@ -3,6 +3,7 @@ package main.java.dsl.rythmml.model;
 public enum InstrumentDSL {
     Drum(0),
     Piano(1),
+    AcousticGrandPiano(1),
     BrightPiano(2),
     ElectricPiano(3),
     ElectricGuitar(28);

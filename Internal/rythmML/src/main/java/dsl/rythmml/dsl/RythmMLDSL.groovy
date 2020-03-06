@@ -19,6 +19,7 @@ class RythmMLDSL {
 		shell = new GroovyShell(configuration)
 		
 		binding.setVariable("piano", InstrumentDSL.Piano)
+		binding.setVariable("acoustic grand piano", InstrumentDSL.AcousticGrandPiano)
 		binding.setVariable("bright piano", InstrumentDSL.BrightPiano)
 		binding.setVariable("electric piano", InstrumentDSL.ElectricPiano)
 		binding.setVariable("electric guitar", InstrumentDSL.ElectricGuitar)
