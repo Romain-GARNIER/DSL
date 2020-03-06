@@ -12,7 +12,7 @@ play "sd" sequence "part1" bar 1 beats 3 of 5 velocity 100 octave 0
 
 track "Drums"  instrument "drum"
 
-assign 4 times "part1" to  "Drums"
+assign 55 times "part1" to  "Drums"
 
 
 export "Switch!"

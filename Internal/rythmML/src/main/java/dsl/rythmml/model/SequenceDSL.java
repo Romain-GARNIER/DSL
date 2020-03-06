@@ -8,7 +8,6 @@ public class SequenceDSL {
     private int nbBar;
     private int nbBeatPerBar;
     private int nbTicks;
-    private List<BarDSL> bars;
     private List<Note> notes;
 
     //region Constructors
@@ -51,14 +50,6 @@ public class SequenceDSL {
 
     public void setNbTicks(int nbTicks) {
         this.nbTicks = nbTicks;
-    }
-
-    public List<BarDSL> getBars() {
-        return bars;
-    }
-
-    public void setBars(List<BarDSL> bars) {
-        this.bars = bars;
     }
 
     public List<Note> getNotes() {
