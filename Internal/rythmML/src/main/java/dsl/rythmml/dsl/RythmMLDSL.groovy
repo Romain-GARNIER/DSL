@@ -41,7 +41,7 @@ class RythmMLDSL {
 		binding.setVariable("ch", NoteValue.ClosedHiHat)
 		binding.setVariable("sd", NoteValue.AcousticSnare)
 		binding.setVariable("es", NoteValue.AcousticSnare)
-		binding.setVariable("rc", NoteValue.RideCymbal1)
+		binding.setVariable("rc1", NoteValue.RideCymbal1)
 		binding.setVariable("rc2", NoteValue.RideCymbal2)
 	}
 	

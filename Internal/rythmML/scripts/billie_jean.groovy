@@ -1,4 +1,4 @@
-song "Billie Jean"  bpm 200
+song "Billie Jean" tempo 200
 
 sequence "part1" bars 1 beats 4
 
