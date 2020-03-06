@@ -10,9 +10,6 @@ import javax.sound.midi.Track;
 import java.io.File;
 import java.util.HashMap;
 
-import static main.java.dsl.rythmml.model.DrumerUtils.addDrumHit;
-import static main.java.dsl.rythmml.model.DrumerUtils.toTick;
-
 public class RythmMLModel {
 	SongDSL song;
 	int resolution = 118;
@@ -80,7 +77,7 @@ public class RythmMLModel {
 		try {
 			generatorDSL.generateMidiSound();
 
-			File f = new File(generatorDSL.getSongDSL().getName()+".mid");
+			File f = new File("midi/"+ generatorDSL.getSongDSL().getName().replaceAll("\\s+","_")+".mid");
 			MidiSystem.write(generatorDSL.getSequence(),1,f);
 		} catch (InvalidMidiDataException e) {
 			e.printStackTrace();

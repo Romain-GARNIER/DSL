@@ -6,17 +6,13 @@ import java.util.List;
 public class BarDSL {
     int nbBeat;
     int nbTicksPerBeat;
-    List<BeatDSL> beats;
+
 
     //region Constructors
     public BarDSL(int nbBeat, int nbTicksPerBeat){
         this.nbTicksPerBeat = nbTicksPerBeat;
         this.nbBeat = nbBeat;
-        beats = new ArrayList<BeatDSL>();
 
-        for(int i=0;i<nbBeat;i++){
-            beats.add(new BeatDSL(nbTicksPerBeat));
-        }
     }
     //endregion
 
@@ -37,12 +33,5 @@ public class BarDSL {
         this.nbTicksPerBeat = nbTicksPerBeat;
     }
 
-    public List<BeatDSL> getBeats() {
-        return beats;
-    }
-
-    public void setBeats(List<BeatDSL> beats) {
-        this.beats = beats;
-    }
     //endregion
 }
