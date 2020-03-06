@@ -59,23 +59,31 @@ abstract class RythmMLBasescript extends Script {
 					[ bar : { int a ->
 						[ beats : { int b ->
 							[ of : { int n ->
-								NoteValue note = noteValue instanceof String ? (NoteValue)((RythmMLBinding)this.getBinding()).getVariable(noteValue) : (NoteValue) noteValue
-								((RythmMLBinding) this.getBinding()).getRythmMLModel().createNote(sequenceName,a,b,note,100,n);
-							},
-							of : { int n->
-								[octave: { int octave ->
-									[velocity : {int velocity ->
-										NoteValue note = noteValue instanceof String ? (NoteValue)((RythmMLBinding)this.getBinding()).getVariable(noteValue) : (NoteValue) noteValue
-										((RythmMLBinding) this.getBinding()).getRythmMLModel().createNote(sequenceName,a,b,note,velocity,n,octave);
-									}]
-								},octave : {int octave ->
-									NoteValue note = noteValue instanceof String ? (NoteValue)((RythmMLBinding)this.getBinding()).getVariable(noteValue) : (NoteValue) noteValue
-									((RythmMLBinding) this.getBinding()).getRythmMLModel().createNote(sequenceName,a,b,note,100,n,octave);
-								},
-								 velocity : {int velocity ->
-									 NoteValue note = noteValue instanceof String ? (NoteValue)((RythmMLBinding)this.getBinding()).getVariable(noteValue) : (NoteValue) noteValue
-									 ((RythmMLBinding) this.getBinding()).getRythmMLModel().createNote(sequenceName,a,b,note,velocity,n);
+								[velocity : {int velocity ->
+//									NoteValue note = noteValue instanceof String ? (NoteValue)((RythmMLBinding)this.getBinding()).getVariable(noteValue) : (NoteValue) noteValue
+//									((RythmMLBinding) this.getBinding()).getRythmMLModel().createNote(sequenceName,a,b,note,velocity,n);
+//								},
+//								 velocity : {int velocity ->
+									 [octave: { int octave ->
+										 NoteValue note = noteValue instanceof String ? (NoteValue)((RythmMLBinding)this.getBinding()).getVariable(noteValue) : (NoteValue) noteValue
+										 ((RythmMLBinding) this.getBinding()).getRythmMLModel().createNote(sequenceName,a,b,note,velocity,n,octave);
+									 }]
 								 }]
+//								},octave : {int octave ->
+//									NoteValue note = noteValue instanceof String ? (NoteValue)((RythmMLBinding)this.getBinding()).getVariable(noteValue) : (NoteValue) noteValue
+//									((RythmMLBinding) this.getBinding()).getRythmMLModel().createNote(sequenceName,a,b,note,100,n,octave);
+//								}]
+//							},
+//							of : { int n->
+//								[velocity : {int velocity ->
+//									NoteValue note = noteValue instanceof String ? (NoteValue)((RythmMLBinding)this.getBinding()).getVariable(noteValue) : (NoteValue) noteValue
+//									((RythmMLBinding) this.getBinding()).getRythmMLModel().createNote(sequenceName,a,b,note,velocity,n);
+//								}]
+//							},
+//							of : { int n->
+//								NoteValue note = noteValue instanceof String ? (NoteValue)((RythmMLBinding)this.getBinding()).getVariable(noteValue) : (NoteValue) noteValue
+//								((RythmMLBinding) this.getBinding()).getRythmMLModel().createNote(sequenceName,a,b,note,100,n);
+
 							}]
 						}]
 					}]
