@@ -3,13 +3,24 @@ package main.java.dsl.rythmml.dsl
 import main.java.dsl.rythmml.model.InstrumentDSL
 import main.java.dsl.rythmml.model.Note
 import main.java.dsl.rythmml.model.NoteValue
+import main.java.dsl.rythmml.model.SequenceDSL
+import main.java.dsl.rythmml.model.TrackDSL
+
+import javax.sound.midi.Track
 
 abstract class RythmMLBasescript extends Script {
 	//song "name"
 	def song(String name){
-		[bpm : { int tempo ->
+		((RythmMLBinding) this.getBinding()).getRythmMLModel().createSong(name)
+		[tempo : { int tempo ->
 			 ((RythmMLBinding) this.getBinding()).getRythmMLModel().createSong(name,tempo)
-		 }]
+			[resolution : { int resolution ->
+				((RythmMLBinding) this.getBinding()).getRythmMLModel().createSong(name,tempo, resolution)
+			}]
+		 },
+		resolution : { int resolution ->
+			((RythmMLBinding) this.getBinding()).getRythmMLModel().createSong(name, resolution)
+		}]
 	}
 
 	//sequence "name" bars nbBar beats nbBeat
@@ -33,8 +44,11 @@ abstract class RythmMLBasescript extends Script {
 	def assign(int nbTimes){
 			[times : { String sequenceName ->
 				[ to : {
-					 String trackName ->
-							((RythmMLBinding) this.getBinding()).getRythmMLModel().addSequenceDSLtoTrack(trackName, sequenceName, nbTimes)
+				 	String trackName ->
+						//SequenceDSL sequenceDSL = sequenceName instanceof String ? (SequenceDSL)((RythmMLBinding)this.getBinding()).getVariable(sequenceName) : (SequenceDSL) sequenceName
+						//TrackDSL trackDSL = trackName instanceof String ? (TrackDSL)((RythmMLBinding)this.getBinding()).getVariable(trackName) : (TrackDSL) trackName
+						//trackDSL.addSequenceDSL(sequenceDSL)
+						((RythmMLBinding) this.getBinding()).getRythmMLModel().addSequenceDSLtoTrack(trackName, sequenceName, nbTimes)
 					}]
 			}]
 	}
@@ -49,6 +63,12 @@ abstract class RythmMLBasescript extends Script {
 								((RythmMLBinding) this.getBinding()).getRythmMLModel().createNote(sequenceName,a,b,note,100,n);
 								[octave: { int octave ->
 									 ((RythmMLBinding) this.getBinding()).getRythmMLModel().createNote(sequenceName,a,b,note,100,n,octave);
+									[velocity : {int velocity ->
+										((RythmMLBinding) this.getBinding()).getRythmMLModel().createNote(sequenceName,a,b,note,velocity,n,octave);
+									}]
+								},
+								velocity : {int velocity ->
+									((RythmMLBinding) this.getBinding()).getRythmMLModel().createNote(sequenceName,a,b,note,velocity,n);
 								}]
 							}]
 						}]

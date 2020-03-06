@@ -15,7 +15,7 @@ public class Note {
         this.beat = beat;
         this.velocity = velocity;
         this.duration = duration;
-        this.octave = 1;
+        this.octave = 0;
     }
 
     public Note(NoteValue noteValue, int bar, int beat, int velocity, int duration, int octave) {
