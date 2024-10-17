@@ -11,7 +11,7 @@
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <groovy.version>2.3.10</groovy.version>
+        <groovy.version>2.4.21</groovy.version>
         <groovy.version.short>2.3</groovy.version.short>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
